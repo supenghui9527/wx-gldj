@@ -1,0 +1,23 @@
+<!--pages/index/search/search.wxml-->
+<view class='search'>
+  <view class='go-search'>
+    <image src='/images/search2.png'></image>
+    <input placeholder='请输入要搜索内容'></input>
+    <text catchtap='backIndex'>取消</text>
+  </view>
+  <view class='hot'>
+    <view class="hot-title">
+      <text style="white-space:pre;"></text>
+      <text class="line"></text>
+      <text style="white-space:pre;"></text>
+      <text class="txt">热门搜索</text>
+      <text style="white-space:pre;"></text>
+      <text class="line"></text>
+    </view>
+    <view class='hot-search'>
+      <view wx:for="{{7}}">
+        <view>活动</view>
+      </view>
+    </view>
+  </view>
+</view>

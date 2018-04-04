@@ -1,0 +1,2 @@
+/* pages/mine/mySign/mySign.wxss */
+@import '../../common/signList/signList.wxss';

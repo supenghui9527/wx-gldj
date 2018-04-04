@@ -1,0 +1,4 @@
+<!--pages/mine/myDeliver/myDeliver.wxml-->
+<view class='my-deliver'>
+  <image src='/images/none.png'></image>
+</view>

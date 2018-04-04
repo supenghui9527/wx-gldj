@@ -1,0 +1,40 @@
+.focusing {
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.focusing-item{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-bottom:1px solid #f0f0f0;
+}
+.focusing-item image{
+  width:90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.focusing-item .name{
+  font-size:32rpx;
+  font-weight: bold;
+}
+.focusing-item .org-name{
+  font-size:30rpx;
+  color:#6c6c6c;
+}
+.focusing-item .cancel{
+  padding: 0 20rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -30rpx;
+  right: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  color:#ffb849;
+  font-size: 30rpx;
+  border:1px solid #ffb849;
+  border-radius: 16px;
+}

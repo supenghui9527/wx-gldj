@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<import src="../common/footer/footer.wxml"/>
+<view class="index {{overFlow?'':'index-overflow'}}">
+  <view wx:if="{{addGroupShow}}" bind:touchstart='hideAddGroup' class='add-fixed'></view>
+  <view wx:if="{{addGroupShow}}" class='add-group'>
+    <view class='add-group-title'>新建分组</view>
+    <input placeholder='1-16个字符'></input>
+    <view class='add-group-btn'>
+      <view catchtap='hideAddGroup' class='btn-cancel'>暂不分组</view>
+      <view catchtap='sureAddGroup' class='btn-sure'>确定</view>
+    </view>
+  </view>
+  <view class='tab'>
+    <view class='nav'>
+      <view wx:for="{{nav}}" wx:key="index">
+        <text data-index="{{index}}" catchtap='changeTab' style="margin-left:30rpx" class="item {{active==index?'active':''}}">{{item}}</text>
+        <text animation="{{animationData}}" hidden='{{active!=index}}' catchtap='showFocus' class='triangle-down'></text>
+      </view>
+    </view>
+    <view hidden='{{!focusShow}}' class='show-fixed'>
+      <view class="onfocus">
+        <view class='focus-do'>
+          <text>我的分组</text>
+          <text catchtap="editGroup" style='color:#ffa703'>{{editText}}</text>
+        </view>
+        <view class='group'>
+          <view wx:for="{{6}}" wx:key="index">
+            <view>
+              <text>分组一</text>
+              <icon hidden="{{showEdit}}" class='cancel' type="clear" size="16" color="#868686" />
+            </view>
+          </view>
+          <view>
+            <view catchtap='showAddGroup'>+新建分组</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden='{{!hotShow}}' class='show-fixed'>
+      <view class='onfocus'>
+        <view class='hot-type'>
+          <view wx:for="{{5}}" wx:key="index">
+            <view>党员大会</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <image class='search' catchtap='goSearch' src="/images/search.png"></image>
+    <image class='news' catchtap='goMessage' src="/images/activity2.png"></image>
+  </view>
+  <view class='message'>
+    <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
+    <image class='close' src='/images/close.png'></image>
+  </view>
+  <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowScroll" active='{{active}}' />
+  <view class='line'></view>
+  <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus'/>
+  <template is="footer" data="{{...footer}}"/>
+</view>

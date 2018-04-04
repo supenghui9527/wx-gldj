@@ -1,0 +1,75 @@
+<!--pages/mine/mine.wxml-->
+<import src="../common/footer/footer.wxml" />
+<view class='mine'>
+  <view style='background: #c6f5fd;'>
+    <view class='user'>
+      <image catchtap="gomessage" class="email" src="/images/news.png"></image>
+      <view >
+        <image catchtap="changeAvatar" class="avatar" src="/images/avatar.jpg"></image>
+        <view class='name'>黄海强</view>
+        <view class='stars'>****</view>
+        <view class='post'>党工委书记</view>
+      </view>
+      <view class='informate'>
+        <navigator url='/pages/mine/myFocusing/myFocusing' open-type='navigate' hover-class="none">
+          <view>12</view>
+          <view>我的关注</view>
+          <view class='line'></view>
+        </navigator>
+        <navigator url='/pages/mine/myFans/myFans' open-type='navigate' hover-class="none">
+          <view>256</view>
+          <view>我的粉丝</view>
+          <view class='line'></view>
+        </navigator>
+        <navigator url='/pages/mine/myPosts/myPosts' open-type='navigate' hover-class="none">
+          <view>32</view>
+          <view>我的发布</view>
+          <view class='line'></view>
+        </navigator>
+        <navigator url='/pages/mine/myIntegral/myIntegral' open-type='navigate' hover-class="none">
+          <view>30</view>
+          <view>我的积分</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class='mytodo'>
+    <navigator url='/pages/mine/myOrdered/myOrdered' open-type='navigate' hover-class="none">
+      <image src='/images/my_reservation.png'></image>
+      <text>我的预约</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+    <navigator url='/pages/mine/myTask/myTask' open-type='navigate' hover-class="none">
+      <image src='/images/mytask.png'></image>
+      <text>我的任务</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+    <navigator url='/pages/mine/mySign/mySign' open-type='navigate' hover-class="none">
+      <image src='/images/check_in.png'></image>
+      <text>我的签到</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+    <navigator url='/pages/mine/myDeliver/myDeliver' open-type='navigate' hover-class="none">
+      <image src='/images/fee.png'></image>
+      <text>我的党费</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+    <navigator url='/pages/mine/myRewards/myRewards' open-type='navigate' hover-class="none">
+      <image src='/images/reward.png'></image>
+      <text>我的奖惩</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+    <navigator url='/pages/mine/myReview/myReview' open-type='navigate' hover-class="none">
+      <image src='/images/review.png'></image>
+      <text>我的评议</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+    <navigator url='/pages/mine/myVote/myVote' open-type='navigate' hover-class="none">
+      <image src='/images/vote.png'></image>
+      <text>我的投票</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
+  </view>
+  <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus' />
+  <template is="footer" data="{{...footer}}" />
+</view>

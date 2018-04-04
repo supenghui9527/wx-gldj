@@ -1,0 +1,43 @@
+<!--pages/common/activeModules.wxml-->
+<view hidden='{{!isHidden}}' class='show-plus'>
+  <view class='org'>
+    <view>
+      <navigator url='/pages/active/post/post' open-type='navigate' hover-class="none">
+        <image src='/images/release.png'></image>
+        <view>发布</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/active/activityPreview/activityPreview' open-type='navigate' hover-class="none">
+        <image src='/images/trailer.png'></image>
+        <view>活动预告</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/active/sign/sign' open-type='navigate' hover-class="none">
+        <image src='/images/signin.png'></image>
+        <view>签到</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/active/ordered/ordered' open-type='navigate' hover-class="none">
+        <image src='/images/news04.png'></image>
+        <view>预约</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/active/consultation/consultation' open-type='navigate' hover-class="none">
+        <image src='/images/information.png'></image>
+        <view>党建咨询</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/active/activeLine/activeLine' open-type='navigate' hover-class="none">
+        <image src='/images/activity.png'></image>
+        <view>线上活动</view>
+      </navigator>
+    </view>
+  </view>
+  <view class='member'></view>
+  <image class='close-plus' bindtap='closePlus' src='/images/closed0330.png'></image>
+</view>

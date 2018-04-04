@@ -1,0 +1,9 @@
+/* pages/mine/myReview/myReview.wxss */
+.my-review{
+  text-align: center;
+}
+.my-review image{
+  margin-top: 200rpx;
+  width:247rpx;
+  height:339rpx;
+}

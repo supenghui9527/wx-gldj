@@ -1,0 +1,45 @@
+<!--pages/active/activityPreview/activityPreview.wxml-->
+<import src="../../common/typeList/typeList.wxml" />
+<view class='activity'>
+  <template is="typeList" data="{{...obj,active}}" />
+  <form class='activity-content'>
+    <view>
+      <image src='/images/title.png'></image>
+      <input placeholder='请输入活动标题'></input>
+    </view>
+    <view>
+      <image src='/images/notice.png'></image>
+      <input placeholder='请选择需要通知的用户'></input>
+      <image class='choose-user' src='/images/@.png'></image>
+    </view>
+    <view>
+      <image src='/images/time.png'></image>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
+        <view class="picker">{{date}}</view>
+      </picker>
+    </view>
+    <view>
+      <image src='/images/date.png'></image>
+      <picker mode="time" value="{{time}}" start="02:01" end="23:59" bindchange="bindTimeChange">
+        <view class="picker">{{time}}</view>
+      </picker>
+    </view>
+    <view>
+      <image src='/images/place.png'></image>
+      <input placeholder='请输入活动地点'></input>
+    </view>
+    <view>
+      <image src='/images/person.png'></image>
+      <input placeholder='请输入活动联系人'></input>
+    </view>
+    <view>
+      <image src='/images/tel.png'></image>
+      <input placeholder='请输入活动联系电话'></input>
+    </view>
+    <view>
+      <image src='/images/remarks.png'></image>
+      <input placeholder='备注'></input>
+    </view>
+    <button class='btn'>发布</button>
+  </form>
+</view>

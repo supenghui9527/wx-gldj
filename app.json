@@ -1,0 +1,35 @@
+{
+  "pages":[
+    "pages/loading/loading",
+    "pages/index/index",
+    "pages/mine/myTask/myTask",
+    "pages/index/message/message",
+    "pages/mine/messageBox/messageBox",
+    "pages/mine/mine",
+    "pages/index/detail/detail",
+    "pages/active/ordered/ordered",
+    "pages/mine/mySign/mySign",
+    "pages/mine/myOrdered/myOrdered", 
+    "pages/mine/myFans/myFans", 
+    "pages/mine/myFocusing/myFocusing",
+    "pages/mine/myPosts/myPosts",
+    "pages/mine/myIntegral/myIntegral",
+    "pages/mine/myDeliver/myDeliver",
+    "pages/mine/myRewards/myRewards",
+    "pages/mine/myReview/myReview",
+    "pages/mine/myVote/myVote",
+    "pages/active/post/post",
+    "pages/active/activityPreview/activityPreview",
+    "pages/index/search/search",
+    "pages/login/login",
+    "pages/active/sign/sign",
+    "pages/active/consultation/consultation",
+    "pages/active/activeLine/activeLine"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#c6f5fd",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

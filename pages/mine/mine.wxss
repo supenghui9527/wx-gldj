@@ -1,0 +1,84 @@
+/* pages/mine/mine.wxss */
+@import "../common/footer/footer.wxss";
+.mine{
+  width:100%;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+.user{
+  padding-top: 25rpx;
+  text-align: center;
+  background: #fff;
+  border-radius:50% 50% 0 0;
+}
+.avatar{
+  height:121rpx;
+  width:121rpx;
+  border-radius: 50%;
+}
+.email{
+  position:absolute;
+  width:60rpx;
+  height:60rpx;
+  right:40rpx;
+  top:15rpx;
+}
+.name{
+  font-size:32rpx;
+  font-weight: bold;
+}
+.post{
+  color:#676767;
+  font-size:30rpx;
+}
+.informate{
+  display: flex;
+  padding-top: 34rpx;
+  padding-bottom: 25rpx;
+  border-bottom:10rpx solid #f0f0f0;
+}
+.informate>navigator{
+  width:25%;
+  position: relative;
+}
+.arrow{
+  position: absolute;
+  right: 0;
+}
+.informate .line{
+  width: 1px;
+  height: 80%;
+  position: absolute;
+  right: 0;
+  margin-top:-40%;
+  background-color: #f1f899;
+}
+.informate>navigator view:nth-child(1){
+  font-size:32rpx;
+  font-weight: bold;
+}
+.informate>navigator view:nth-child(2){
+  font-size:32rpx;
+  color:#323232;
+}
+.mytodo navigator{
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  color:#323232;
+  font-size:32rpx;
+  margin-bottom:2px;
+  background-color: #fff;
+}
+.mytodo navigator text{
+  height: 100%;
+  line-height: 80rpx;
+}
+.mytodo image{
+  width:50rpx;
+  height: 50rpx;
+  padding-right: 16rpx;
+}

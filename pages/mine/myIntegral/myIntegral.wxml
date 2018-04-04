@@ -1,0 +1,8 @@
+<!--pages/mine/myIntegral/myIntegral.wxml-->
+<view class='integral'>
+  <view class='title'>
+    <text>30分</text>
+  </view>
+  <view>
+  </view>
+</view>

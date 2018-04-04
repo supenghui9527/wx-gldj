@@ -1,0 +1,9 @@
+/* pages/mine/myDeliver/myDeliver.wxss */
+.my-deliver{
+  text-align: center;
+}
+.my-deliver image{
+  margin-top: 200rpx;
+  width:247rpx;
+  height:339rpx;
+}

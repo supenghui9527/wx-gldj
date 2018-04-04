@@ -1,0 +1,106 @@
+<!--pages/index/detail/detail.wxml-->
+<view class='detail'>
+  <view class='content'>
+    <view hidden='{{true}}' bind:touchstart="hideGroup" class='focus-group'>
+    </view>
+    <view hidden='{{true}}' class='list-content'>
+      <view class='title'>请选择分组</view>
+      <view class='list-item'>
+        <checkbox-group wx:for="{{8}}">
+          <label class="checkbox">
+            <checkbox value="分组一" checked="{{index}}" />分组一
+          </label>
+        </checkbox-group>
+        <view class='plus-group'>+新建分组</view>
+      </view>
+      <view class='sure'>
+        <text>暂不分组</text>
+        <text>确定</text>
+      </view>
+    </view>
+    <view class='item-content'>
+      <view class='avatar warrap'>
+        <image src='/images/activity.png'></image>
+        <view>
+          <view class='orgname'>党支部一</view>
+          <view class='type'>
+            <text>公开党课</text>
+            <text>33分钟前</text>
+          </view>
+        </view>
+        <view bindtap='showGroup' class='focus'>+关注</view>
+      </view>
+      <view class='text warrap'>是时时刻刻防空旅费发放开发了开放开发克劳福德房贷发放的反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复</view>
+      <view class='pictures warrap'>
+        <view wx:for="{{5}}" wx:key="index">
+          <image src='/images/avatar.jpg' wx:key="index"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='user-content'>
+    <view class='sign'>
+      <view>10人签到</view>
+      <scroll-view scroll-x="true">
+        <view class='scroll-item' wx:for="{{9}}">
+          <image src='/images/avatar.jpg'></image>
+          <view>苏朋辉</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='share-comment'>
+      <view class='share-comment-title'>
+        <view catchtap='changeTab' data-index="0">
+          <text class="{{active==0?'active':''}}">分享6</text>
+        </view>
+        <view catchtap='changeTab' data-index="1">
+          <text class="{{active==1?'active':''}}">评论2</text>
+        </view>
+        <view catchtap='changeTab' data-index="2">
+          <text class="{{active==2?'active':''}}">赞10</text>
+        </view>
+      </view>
+      <view hidden='{{active!=0}}'>
+        <view wx:for="{{6}}" class='share-content'>
+          <image class='avatar-img' src='/images/avatar.jpg'></image>
+          <view>
+            <view class='share-name'>苏朋辉</view>
+            <view class='share-name'>分享帖子</view>
+            <view class='share-time'><text>11-25 11:23</text></view>
+          </view>
+        </view>
+      </view>
+      <view hidden='{{active!=1}}'>
+        <view wx:for="{{6}}" class='comment-content'>
+          <image class='avatar-img' src='/images/avatar.jpg'></image>
+          <view>
+            <view class='user-name'>苏朋辉</view>
+            <view class='user-comment'>犯贱犯贱犯贱经济纠纷艰苦奋斗防范地方的地方豆腐干好好好搞好规划和改革和韩国国会</view>
+            <view class='comment-time'><text>11-25 11:23</text></view>
+          </view>
+        </view>
+      </view>
+      <view hidden='{{active!=2}}'>
+        <view wx:for="{{6}}" class='like-content'>
+          <image class='avatar-img' src='/images/avatar.jpg'></image>
+          <view class='like-name'>苏朋辉</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='width:100%;height:100rpx'></view>
+  <view class='user-do'>
+    <view>
+      <image src='/images/share.png'></image>
+      <text>分享</text>
+    </view>
+    <view>
+      <image src='/images/comment.png'></image>
+      <text>评论</text>
+    </view>
+    <view>
+      <image src="/images/fabulous.png"></image>
+      <text>赞</text>
+    </view>
+  </view>
+</view>

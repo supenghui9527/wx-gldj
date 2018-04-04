@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "鼓楼党建e生活",
+  "navigationBarBackgroundColor": "#c6f5fd",
+  "usingComponents": {
+    "activeModules": "/pages/common/activeModules/activeModules",
+    "postingsList": "/pages/common/postingsList/postingsList"
+  }
+}

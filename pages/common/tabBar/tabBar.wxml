@@ -1,0 +1,6 @@
+<template name="tabBar">
+  <view class='nav'>
+    <view catchtap='changeNav' data-index="0" class="{{active==0?'active':''}}">{{text}}</view>
+    <view catchtap='changeNav' data-index="1" class="{{active==1?'active':''}}">{{text1}}</view>
+  </view>
+</template>

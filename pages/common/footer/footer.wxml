@@ -1,0 +1,17 @@
+<template name="footer">
+  <view class='footer'>
+    <navigator url="{{idx?'':'/pages/index/index'}}" open-type='redirect' hover-class='none'>
+      <image wx:if="{{idx}}" src='/images/everybody02.png'></image>
+      <image wx:else src='/images/everybody.png'></image>
+      <view>大家</view>
+    </navigator>
+    <view class='plus'>
+      <image catchtap='clickShowPlus' src='/images/plus.png'></image>
+    </view>
+    <navigator url="{{mine?'':'/pages/mine/mine'}}" open-type='redirect' hover-class='none'>
+      <image wx:if="{{mine}}" src='/images/mine02.png'></image>
+      <image wx:else src='/images/mine.png'></image>
+      <view>我的</view>
+    </navigator>
+  </view>
+</template>

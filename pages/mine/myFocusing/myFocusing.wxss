@@ -1,0 +1,3 @@
+/* pages/mine/myFocusing/myFocusing.wxss */
+@import '../../common/myFocusing/myFocusing.wxss';
+

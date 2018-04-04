@@ -1,0 +1,4 @@
+<!--pages/active/activeLine/activeLine.wxml-->
+<view class='line'>
+  <image src='/images/ing.jpg'></image>
+</view>

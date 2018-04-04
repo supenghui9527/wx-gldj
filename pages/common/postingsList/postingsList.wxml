@@ -1,0 +1,54 @@
+<!--pages/common/postingsList/postingsList.wxml-->
+<view class='content'>
+  <view hidden='{{isFocusGroup}}' bind:touchstart="hideGroup" class="focus-group"></view>
+  <view hidden='{{isFocusGroup}}' class='list-content'>
+    <view class='title'>请选择分组</view>
+    <view class='list-item'>
+      <checkbox-group wx:for="{{8}}" wx:key="index">
+        <label class="checkbox">
+          <checkbox value="分组一" checked="{{index}}" />分组一
+        </label>
+      </checkbox-group>
+      <view catchtap='showAddGroup' class='plus-group'>+新建分组</view>
+    </view>
+    <view class='sure'>
+      <text>暂不分组</text>
+      <text>确定</text>
+    </view>
+  </view>
+  <view wx:for="{{9}}" wx:key="index" class='item-content'>
+    <view class='avatar warrap'>
+      <image src='/images/activity.png'></image>
+      <view>
+        <view class='orgname'>党支部一</view>
+        <view class='type'>
+          <text>公开党课</text>
+          <text>33分钟前</text>
+        </view>
+      </view>
+      <view hidden='{{active==0}}' bindtap='showGroup' class='focus'>+关注</view>
+    </view>
+    <view  catchtap='goDetail' class='text warrap'>是时时刻刻防空旅费发放开发了开放开发克劳福德房贷发放的反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复</view>
+    <view class='pictures warrap'>
+      <view wx:for="{{5}}" wx:key="index">
+        <image src='/images/avatar.jpg' wx:key="index"></image>
+      </view>
+    </view>
+    <view class='user-do'>
+      <view>
+        <image src='/images/share.png'></image>
+        <button class='postings-share' open-type='share'>分享</button>
+      </view>
+      <view>
+        <image src='/images/comment.png'></image>
+        <text>评论</text>
+        <text>250</text>
+      </view>
+      <view>
+        <image src="/images/fabulous.png"></image>
+        <text>赞</text>
+        <text>250</text>
+      </view>
+    </view>
+  </view>
+</view>

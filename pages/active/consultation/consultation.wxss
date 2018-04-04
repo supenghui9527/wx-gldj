@@ -1,0 +1,2 @@
+/* pages/active/consultation/consultation.wxss */
+@import '../../common/tabBar/tabBar.wxss';

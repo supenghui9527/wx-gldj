@@ -1,0 +1,3 @@
+/* pages/index/message/message.wxss */
+@import '../../common/signList/signList.wxss';
+@import '../../common/tabBar/tabBar.wxss';

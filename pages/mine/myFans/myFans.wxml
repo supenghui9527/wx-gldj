@@ -1,0 +1,5 @@
+<!--pages/mine/myFans/myFans.wxml-->
+<import src="../../common/myFocusing/myFocusing.wxml" />
+<view class='focusing'>
+  <template is="myFocusing" data="{{...myFocusing}}" />
+</view>

@@ -1,0 +1,15 @@
+/* pages/mine/myTask/myTask.wxss */
+@import '../../common/tabBar/tabBar.wxss';
+.my-task{
+  width: 100%;
+  padding: 0 20rpx 0 20rpx;
+  box-sizing: border-box;
+  background-color:#fff;
+}
+.task-item{
+  background-color: #f8f8f8;
+  padding: 20rpx 0 20rpx 25rpx;
+  margin-bottom:10rpx;
+  font-size:32rpx;
+  color:#646464;
+}

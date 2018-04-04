@@ -1,0 +1,118 @@
+/* pages/active/post/post.wxss */
+@import '../../common/typeList/typeList.wxss';
+.post{
+  width:100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+ form .title{
+  width:100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  text-align: right;
+  border-bottom: 1px solid #f0f0f0;
+} 
+.place{
+  width:100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  font-size:30rpx;
+  border-bottom:1px solid #f0f0f0;
+}
+.place image{
+  width:35rpx;
+  height: 35rpx;
+  padding-right: 16rpx;
+}
+.time{
+  width:100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  justify-content:space-between;
+  border-bottom:1px solid #f0f0f0;
+  color:#3c3c3c;
+  font-size:32rpx;
+}
+.time text:nth-child(2){
+  color:#a0a0a0;
+  font-size:30rpx;
+}
+.content textarea{
+  font-size:28rpx;
+  padding-top:30rpx;
+  width:100%;
+  box-sizing: border-box;
+  min-height: 240rpx;
+}
+.content{
+  position:relative;
+  min-height:310rpx;
+  padding-bottom: 70rpx;
+  border-bottom:1px solid #f0f0f0;
+}
+.content .picture{
+  position:absolute;
+  bottom:30rpx;
+  width:50rpx;
+  height:50rpx;
+  z-index: 999;
+  right: 10rpx;
+}
+.content view .microphone{
+  right:112rpx;
+}
+.content view .picture{
+  right:40rpx;
+}
+.imgcontainer{
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  /*justify-content:space-between;*/
+}
+.plus{
+  width:220rpx;
+  height:220rpx;
+  box-sizing: border-box;
+  border:1rpx solid #bfd4d1;
+  margin-left: 10rpx;
+}
+.up{
+  width: 220rpx;
+  height:220rpx;
+  margin-bottom:10rpx;
+  margin-left: 10rpx;
+  position: relative;
+}
+.up image:nth-child(2){
+  width:100%;
+  height:100%;
+}
+.del{
+  position:absolute;
+  right:10rpx;
+  top:10rpx;
+  width:30rpx;
+  height:30rpx;
+  padding:2rpx;
+  border:1rpx solid #d81e06;
+}
+.btn{
+  width: 600rpx;
+  height: 90rpx;
+  margin: 0 auto;
+  line-height: 90rpx;
+  text-align: center;
+  background-color:#c6f5fd;
+  border-radius: 40rpx;
+  font-weight: bold;
+  margin-top:70rpx;
+  color:#323232;
+}

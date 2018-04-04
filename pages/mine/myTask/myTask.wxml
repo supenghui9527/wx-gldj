@@ -1,0 +1,10 @@
+<!--pages/mine/myTask/myTask.wxml-->
+<import src="../../common/tabBar/tabBar.wxml" />
+<view class='my-task'>
+  <template is="tabBar" data="{{active,...nav}}"></template>
+  <view wx:for="{{6}}" class='task-item' wx:key="index">
+    <view class='title'>参加全国人民代表大会专题学习</view>
+    <view class='title'>时间：2018-03-14</view>
+    <view class='title'>地址：鼓楼区金碧路张王庙22号</view>
+  </view>
+</view>

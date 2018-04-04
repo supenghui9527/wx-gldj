@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "navigationBarBackgroundColor": "#c6f5fd",
+  "usingComponents": {
+    "activeModules": "/pages/common/activeModules/activeModules"
+  }
+}

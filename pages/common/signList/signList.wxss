@@ -1,0 +1,60 @@
+.my-sign{
+  background-color: #f0f0f0;
+}
+.sign-item{
+  width:100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 20rpx 20rpx 20rpx;
+  background-color:#fff;
+  margin-bottom: 10rpx;
+}
+.sign-item .title{
+  width:70%;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.sign-item .time{
+  font-size:28rpx;
+  color:#8e8e8e;
+}
+.sign-item>view:nth-child(1){
+  display: flex;
+  justify-content: space-between;
+  padding:20rpx 0 10rpx 0;
+}
+.sign-content .org-name{
+  font-size:30rpx;
+  padding-bottom: 20rpx;
+}
+.activity-time,.activity-place,.activity-company,.activity-tel,.activity-remark{
+  font-size:30rpx;
+  color:#757575;
+  margin-bottom: 10rpx;
+}
+.sign-content .org-name{
+  font-size:30rpx;
+}
+.sign-content .org-name{
+  font-size:30rpx;
+}
+.signed{
+  position: absolute;
+  bottom: 60rpx;
+  right: 130rpx;
+  width:133rpx;
+  height: 109rpx;
+}
+.ordered{
+  padding: 0 20rpx; 
+  height: 50rpx;
+  position: absolute;
+  right: 25rpx;
+  bottom: 25rpx;
+  line-height: 50rpx;
+  font-size:32rpx;
+  text-align: center;
+  color:#fee8c3;
+  border:1px solid #fee8c3;
+  border-radius: 16px;
+}

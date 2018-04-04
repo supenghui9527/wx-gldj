@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的发布",
+  "navigationBarBackgroundColor": "#c6f5fd",
+  "usingComponents": {
+    "postingsList": "/pages/common/postingsList/postingsList"
+  }
+}

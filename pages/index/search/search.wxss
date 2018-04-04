@@ -1,0 +1,83 @@
+/* pages/index/search/search.wxss */
+
+.search {
+  padding: 0 20rpx;
+}
+
+.go-search {
+  display: flex;
+  height: 70rpx;
+  line-height: 70rpx;
+  position: relative;
+  padding: 50rpx 0;
+}
+
+.go-search image {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -25rpx;
+  left: 45rpx;
+}
+
+.go-search text {
+  font-size: 32rpx;
+  padding-left: 30rpx;
+  color: #343434;
+}
+
+.go-search input {
+  width: 600rpx;
+  height: 70rpx;
+  font-size: 32rpx;
+  border-radius: 15px;
+  padding-left: 90rpx;
+  box-sizing: border-box;
+  background-color: #f3fdff;
+}
+
+.hot-title {
+  height: 60rpx;
+  line-height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.hot-title .line {
+  width: 280rpx;
+  border-top: 1px solid #ccc;
+}
+
+.hot-title .txt {
+  color: #686868;
+}
+.hot-search{
+  width:105%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30rpx;
+  margin-left:-2.5%;
+}
+.hot-search>view{
+  width: 25%;
+  margin-bottom:30rpx;
+} 
+.hot-search>view view{
+  width:150rpx;
+  height: 50rpx;
+  font-size:30rpx;
+  line-height: 50rpx;
+  border:1px solid #c7c7c7;
+  border-radius: 16px;
+  text-align: center;
+  color:#303030;
+  margin:0 auto;
+}
+.hot-search:after{
+  width: 150rpx; 
+  content: ""; 
+} 

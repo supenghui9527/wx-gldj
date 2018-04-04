@@ -1,0 +1,12 @@
+<template name="myFocusing">
+  <block wx:for="{{lists}}">
+    <view class='focusing-item'>
+      <image src='/images/avatar.jpg'></image>
+      <view>
+        <view class='name'>苏朋辉</view>
+        <view class='org-name'>苏城苑社区党委</view>
+      </view>
+      <view class='cancel'>{{cancel}}</view>
+    </view>
+  </block>
+</template>

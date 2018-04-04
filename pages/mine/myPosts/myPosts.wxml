@@ -1,0 +1,4 @@
+<!--pages/mine/myPosts/myPosts.wxml-->
+<view>
+  <postingsList isFocusGroup='{{focusGroup}}' bind:hideGroup='hideGroup' bind:showGroup='showGroup'/>
+</view>

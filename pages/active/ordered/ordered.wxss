@@ -1,0 +1,2 @@
+/* pages/active/ordered/ordered.wxss */
+@import '../../common/signList/signList.wxss';

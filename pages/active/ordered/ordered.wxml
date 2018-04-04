@@ -1,0 +1,6 @@
+<!--pages/active/ordered/ordered.wxml-->
+<import src="../../common/signList/signList.wxml" />
+<view class='my-sign'>
+  <template is="signList" data="{{...lists}}"></template>
+</view>
+

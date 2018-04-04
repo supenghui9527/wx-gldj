@@ -1,0 +1,24 @@
+<template name="signList">
+  <block wx:for="{{item}}">
+    <view class='sign-item'>
+      <view>
+        <view class='title'>参观开放式党组织纷纷慷慨赴咖啡咖啡苦咖啡</view>
+        <view class='time'>11-25 12:00</view>
+      </view>
+      <view class='sign-content'>
+        <view>
+          <view class='org-name'>党支部</view>
+          <view class='activity-time'>时间：11月29日（星期三）下午</view>
+          <view class='activity-place'>地点：鼓楼区军休服务中心</view>
+          <view class='activity-company'>主办单位：区民政局</view>
+          <view class='activity-tel'>联系人：苏朋辉6666666</view>
+          <view class='activity-remark'>备注：限20人</view>
+        </view>
+        <view>
+          <image hidden='{{isSign}}' class='signed' src="/images/signed.png"></image>
+          <view class='ordered'>{{text}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>

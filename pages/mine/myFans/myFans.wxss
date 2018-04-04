@@ -1,0 +1,5 @@
+/* pages/mine/myFans/myFans.wxss */
+@import '../../common/myFocusing/myFocusing.wxss';
+.fans{
+  
+}
