@@ -13,6 +13,7 @@
   line-height: 90rpx;
   background-color: #fff;
   position: relative;
+  border-bottom:2px solid #ebebeb;
 }
 .nav{
   width: 340rpx;
@@ -130,7 +131,6 @@
   background-color: #f2f2f2;
   font-size:30rpx;
   position: relative;
-  border-top:2px solid #ebebeb;
 }
 .message view{
   overflow: hidden;

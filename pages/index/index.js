@@ -10,6 +10,7 @@ Page({
     active: 0,
     addGroupShow: false,
     nav: ['关注','热门'],
+    showMsg: false,
     footer:{
       idx: true,
       mine: false
@@ -97,6 +98,12 @@ Page({
         animationData: animation.export()
       })
     }
+  },
+  // 隐藏通知公告
+  hideMsg() {
+    this.setData({
+      showMsg: true
+    })
   },
   // 点击帖子关注显示分组
   showGroup () {

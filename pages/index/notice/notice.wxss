@@ -1,0 +1,12 @@
+/* pages/index/notice/notice.wxss */
+.title{
+  width: 600rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 34rpx;
+}
+.time{
+  text-align: center;
+  font-size:30rpx;
+  color:#868686;
+}

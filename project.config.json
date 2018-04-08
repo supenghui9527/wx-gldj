@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx8d6954c41f7f5df5",
-	"projectname": "app-gl",
+	"projectname": "%E9%BC%93%E6%A5%BC%E5%85%9A%E5%BB%BAe%E7%94%9F%E6%B4%BB",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

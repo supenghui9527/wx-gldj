@@ -1,2 +1,17 @@
 <!--pages/mine/myRewards/myRewards.wxml-->
-<text>pages/mine/myRewards/myRewards.wxml</text>
+<import src="../../common/tabBar/tabBar.wxml" />
+<view class='reward-lists'>
+  <template is="tabBar" data="{{active,...nav}}"></template>
+  <view wx:for="{{lists}}" wx:key="index" class='lists-item'>
+    <view wx:if="{{index+1==lists.length}}" class='line'></view>
+    <view class='year'>{{item.year}}</view>
+    <view wx:for="{{item.month}}" wx:for-item="month" wx:key="idx" wx:for-index="idx" class='month'>
+      <view class='line'></view>
+      <view class='days'>
+        <image src='/images/offer.png'></image>
+        <text class='content'>{{month.content}}</text>
+        <text class='time'>04-08</text>
+      </view>
+    </view>
+  </view>
+</view>

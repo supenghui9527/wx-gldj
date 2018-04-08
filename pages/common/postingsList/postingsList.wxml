@@ -39,7 +39,7 @@
         <image src='/images/share.png'></image>
         <button class='postings-share' open-type='share'>分享</button>
       </view>
-      <view>
+      <view catchtap='goDetail'>
         <image src='/images/comment.png'></image>
         <text>评论</text>
         <text>250</text>

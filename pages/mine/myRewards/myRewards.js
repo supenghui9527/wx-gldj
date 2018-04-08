@@ -1,66 +1,42 @@
 // pages/mine/myRewards/myRewards.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    active: 0,
+    nav: {
+      text: '奖励',
+      text1: '惩罚'
+    },
+    lists: [{
+      year: 2018,
+      month: [{
+        content: '苏朋辉6666666啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊'
+      },
+      {
+        content: '撒撒撒啊啊啊啊啊啊22222'
+      }]
+    },
+    {
+      year: 2017,
+      month: [{
+        content: '撒撒撒啊啊啊啊啊啊555555'
+      },
+      {
+        content: '撒撒撒啊啊啊啊啊啊66666'
+      }]
+    }]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  },
   onReady: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  },
   onShow: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  changeNav(e) {
+    this.setData({
+      active: e.currentTarget.dataset.index
+    })
   }
 })

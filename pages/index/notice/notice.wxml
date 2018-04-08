@@ -1,0 +1,6 @@
+<!--pages/index/notice/notice.wxml-->
+<view class='notice'>
+  <view class='title'>“不忘初心跟党走，幸福鼓楼做先锋”</view>
+  <view class='title'>我身边的先进典型公示</view>
+  <view class='time'>2018-4-8</view>
+</view>

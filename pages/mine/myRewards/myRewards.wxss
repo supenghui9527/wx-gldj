@@ -1,1 +1,35 @@
 /* pages/mine/myRewards/myRewards.wxss */
+@import '../../common/tabBar/tabBar.wxss';
+.reward-lists{
+  width: 100%;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.line{
+  margin-left:24rpx;
+  width:2px;
+  min-height:54rpx;
+  background-color:#f0f0f0;
+}
+.days{
+  display: flex;
+  font-size:32rpx;
+}
+.days .content{
+  width:500rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding:6rpx 0 0 40rpx;
+  color:#646464;
+}
+.time{
+  font-size: 28rpx;
+  padding:6rpx 0 0 40rpx;
+  color:#646464;
+}

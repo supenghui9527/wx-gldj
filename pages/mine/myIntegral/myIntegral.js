@@ -1,65 +1,74 @@
 // pages/mine/myIntegral/myIntegral.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    lists:[
+      {
+        time:'2018-4-8',
+        list:[{
+          content:'参加活动签到成功2分',
+          time: '15:30'
+        },
+        {
+          content: '植树活动2分',
+          time: '15:30'
+        }]
+      },
+      {
+        time: '2018-4-7',
+        list: [{
+          content: '参加活动签到成功2分大多数的速度打的',
+          time: '15:30'
+        },
+        {
+          content: '植树活动2分',
+          time: '15:30'
+        }]
+      },
+      {
+        time: '2018-4-6',
+        list: [{
+          content: '参加活动签到成功2分大多数的速度打的',
+          time: '15:30'
+        },
+        {
+          content: '植树活动2分',
+          time: '15:30'
+        }]
+      },
+      {
+        time: '2018-4-5',
+        list: [{
+          content: '参加活动签到成功2分大多数的速度打的',
+          time: '15:30'
+        },
+        {
+          content: '植树活动2分',
+          time: '15:30'
+        }]
+      }
+    ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
   
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
   
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
   
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
   
   }

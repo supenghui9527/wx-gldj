@@ -1,7 +1,11 @@
 {
-  "pages":[
-    "pages/loading/loading",
+  "pages": [
     "pages/index/index",
+    "pages/index/notice/notice",
+    "pages/active/consultation/consultation",
+    "pages/mine/myIntegral/myIntegral",
+    "pages/mine/myRewards/myRewards",
+    "pages/loading/loading",
     "pages/mine/myTask/myTask",
     "pages/index/message/message",
     "pages/mine/messageBox/messageBox",
@@ -9,13 +13,11 @@
     "pages/index/detail/detail",
     "pages/active/ordered/ordered",
     "pages/mine/mySign/mySign",
-    "pages/mine/myOrdered/myOrdered", 
-    "pages/mine/myFans/myFans", 
+    "pages/mine/myOrdered/myOrdered",
+    "pages/mine/myFans/myFans",
     "pages/mine/myFocusing/myFocusing",
     "pages/mine/myPosts/myPosts",
-    "pages/mine/myIntegral/myIntegral",
     "pages/mine/myDeliver/myDeliver",
-    "pages/mine/myRewards/myRewards",
     "pages/mine/myReview/myReview",
     "pages/mine/myVote/myVote",
     "pages/active/post/post",
@@ -23,13 +25,12 @@
     "pages/index/search/search",
     "pages/login/login",
     "pages/active/sign/sign",
-    "pages/active/consultation/consultation",
     "pages/active/activeLine/activeLine"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#c6f5fd",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
