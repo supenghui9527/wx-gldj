@@ -24,9 +24,9 @@
           <text catchtap="editGroup" style='color:#ffa703'>{{editText}}</text>
         </view>
         <view class='group'>
-          <view wx:for="{{6}}" wx:key="index">
+          <view wx:for="{{groupLists}}" wx:key="index">
             <view>
-              <text>分组一</text>
+              <text>{{item.name}}</text>
               <icon hidden="{{showEdit}}" class='cancel' type="clear" size="16" color="#868686" />
             </view>
           </view>
@@ -53,7 +53,7 @@
     <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
     <image catchtap='hideMsg' class='close' src='/images/close.png'></image>
   </view>
-  <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' />
+  <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
   <view class='line'></view>
   <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus'/>
   <template is="footer" data="{{...footer}}"/>

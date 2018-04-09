@@ -9,7 +9,8 @@
   padding-top: 25rpx;
   text-align: center;
   background: #fff;
-  border-radius:50% 50% 0 0;
+  background: url('http://www.wsspha.cn/images/div_bg.jpg') no-repeat top center;
+  background-size: 100% 120rpx;
 }
 .avatar{
   height:121rpx;

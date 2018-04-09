@@ -2,7 +2,7 @@ const HOST = 'https://www.jshhfl.com/xwdj/api/';
 module.exports = {
   loginUrl: `${HOST}user/login`,  // 登录接口
   getPostingsUrl: `${HOST}act/list`,  // 获取帖子列表
-  getMorePostingUrl: `${HOST}findCommunityMore.do`,  // 下拉加载更多
+  getMorePostingUrl: `${HOST}acttype/list`,  // 活动类型列表
   likesUrl: `${HOST}likeCommunity.do`,  // 帖子点赞
   searchUrl: `${HOST}vagueSearch.do`,  // 帖子搜索
   postingsDetailUrl: `${HOST}findCommunityByCID.do`,  // 帖子详情

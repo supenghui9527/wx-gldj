@@ -1,15 +1,14 @@
 /* pages/index/search/search.wxss */
-
 .search {
-  padding: 0 20rpx;
+  width: 100%;
 }
-
 .go-search {
   display: flex;
   height: 70rpx;
   line-height: 70rpx;
   position: relative;
-  padding: 50rpx 0;
+  padding: 50rpx 20rpx;
+  border-bottom:1px solid #f0f0f0;
 }
 
 .go-search image {
@@ -18,7 +17,7 @@
   position: absolute;
   top: 50%;
   margin-top: -25rpx;
-  left: 45rpx;
+  left: 30rpx;
 }
 
 .go-search text {

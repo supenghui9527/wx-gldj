@@ -5,7 +5,7 @@
     <input placeholder='请输入要搜索内容'></input>
     <text catchtap='backIndex'>取消</text>
   </view>
-  <view class='hot'>
+  <!-- <view class='hot'>
     <view class="hot-title">
       <text style="white-space:pre;"></text>
       <text class="line"></text>
@@ -19,5 +19,8 @@
         <view>活动</view>
       </view>
     </view>
+  </view> -->
+  <view class="search-container">
+    <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
   </view>
 </view>

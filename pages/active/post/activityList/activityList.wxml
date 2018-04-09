@@ -1,0 +1,11 @@
+<!--pages/active/post/activityList/activityList.wxml-->
+<view class='activityList'>
+  <view class='search'>
+    <input bindinput="search" confirm-type='search' value='{{inputValue}}' placeholder='请输入活动标题搜索'></input>
+  </view>
+  <view class='lists'>
+    <block wx:for="{{lists}}" wx:key="index">
+      <view data-item='{{item}}' catchtap='chooseItem'><text>{{item.text}}</text></view>
+    </block>
+  </view>
+</view>

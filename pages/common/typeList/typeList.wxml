@@ -1,8 +1,8 @@
 <template name="typeList">
   <view class='type'>
     <block>
-      <view wx:for="{{number}}" wx:key="index">
-        <text data-index="{{index}}" catchtap='chooseType' class="{{active==index?'active':''}}">支部大会</text>
+      <view wx:for="{{typeLists}}" wx:key="index">
+        <text data-index="{{index}}" catchtap='chooseType' class="{{active==index?'active':''}}">{{item.name}}</text>
       </view>
     </block>
   </view>

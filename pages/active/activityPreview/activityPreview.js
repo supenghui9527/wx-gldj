@@ -6,9 +6,32 @@ Page({
     active: 0,
     date: util.formatTime(date).substring(0,10),
     time: util.formatTime(date).substring(10),
-    obj:{
-      number: 6
-    }
+    typeLists:[
+      {
+        name:'党工委',
+        id: 2
+      },
+      {
+        name: '党小组会',
+        id: 2
+      },
+      {
+        name: '党员大会',
+        id: 2
+      },
+      {
+        name: '党支部',
+        id: 2
+      },
+      {
+        name: '党日活动',
+        id: 2
+      },
+      {
+        name: '党员活动',
+        id: 2
+      }
+    ]
   },
   chooseType (e) {
     console.log(e)
@@ -25,6 +48,24 @@ Page({
   goUserList() {
     wx.navigateTo({
       url: "/pages/active/activityPreview/userLists/userLists",
+    })
+  },
+  submitActivity(e) {
+    let formData = e.detail.value;
+    for (let item in formData){
+      if (formData[item]==''){
+        wx.showToast({
+          title: '请确认信息是否填写完整',
+          icon: 'none'
+        })
+        return
+      }
+    }
+    getApp().$ajax({
+      httpUrl: 'http://www.wsspha.cn/images/bg.png',
+      data: e.detail.value
+    }).then(({ data }) => {
+
     })
   }
 })

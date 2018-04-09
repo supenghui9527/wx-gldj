@@ -1,10 +1,12 @@
 /* pages/active/post/post.wxss */
-@import '../../common/typeList/typeList.wxss';
 .post{
   width:100%;
   height: 100%;
   box-sizing: border-box;
   padding: 0 30rpx;
+}
+.font-color{
+  color:#646464;
 }
  form .title{
   width:100%;
@@ -25,6 +27,11 @@
   font-size:30rpx;
   border-bottom:1px solid #f0f0f0;
 }
+.place input{
+  width:80%;
+  height: 100%;
+  color:#646464;
+}
 .place image{
   width:35rpx;
   height: 35rpx;
@@ -41,7 +48,7 @@
   font-size:32rpx;
 }
 .time text:nth-child(2){
-  color:#a0a0a0;
+  color:#646464;
   font-size:30rpx;
 }
 .content textarea{

@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "搜索",
-  "navigationBarBackgroundColor": "#c6f5fd"
+  "navigationBarBackgroundColor": "#c6f5fd",
+  "usingComponents": {
+    "postingsList": "/pages/common/postingsList/postingsList"
+  }
 }

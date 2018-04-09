@@ -6,11 +6,48 @@ Page({
     active: 0,
     date: util.formatTime(date),
     tempFilePaths: [],
-    obj: {
-      number: 6
-    }
+    typeLists: [
+      {
+        name: '党工委',
+        id: 2
+      },
+      {
+        name: '党小组会',
+        id: 2
+      },
+      {
+        name: '党员大会',
+        id: 2
+      },
+      {
+        name: '党支部',
+        id: 2
+      },
+      {
+        name: '党日活动',
+        id: 2
+      },
+      {
+        name: '党员活动',
+        id: 2
+      }
+    ]
   },
-  onLoad(){
+  onLoad(options) {
+    console.log(options)
+    this.setData({
+      title: options.text,
+      id: options.id
+    })
+  },
+  getPlace() {
+    wx.chooseLocation({
+      success: (res) => {
+        this.setData({
+          address: res.address
+        })
+      }
+    })
   },
   //选择本地相册中的图片
   upLoad() {

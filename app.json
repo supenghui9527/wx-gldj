@@ -1,7 +1,11 @@
 {
   "pages": [
-    "pages/active/activityPreview/userLists/userLists",
     "pages/index/index",
+    "pages/index/search/search",
+    "pages/active/post/activityList/activityList",
+    "pages/active/activityPreview/activityPreview",
+    "pages/active/post/post",
+    "pages/active/activityPreview/userLists/userLists",
     "pages/login/login",
     "pages/index/detail/detail",
     "pages/index/notice/notice",
@@ -22,9 +26,6 @@
     "pages/mine/myDeliver/myDeliver",
     "pages/mine/myReview/myReview",
     "pages/mine/myVote/myVote",
-    "pages/active/post/post",
-    "pages/active/activityPreview/activityPreview",
-    "pages/index/search/search",
     "pages/active/sign/sign",
     "pages/active/activeLine/activeLine"
   ],

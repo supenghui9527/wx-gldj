@@ -27,7 +27,7 @@ function $ajax({ wxApp = false, httpUrl, data = {}, method = 'post', title = 'åŠ
           resolve({ data: data, message });
         } else {
           wx.hideLoading();
-          // wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: message })
+          wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: '22' })
         }
       },
       fail: (err) => {

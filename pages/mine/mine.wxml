@@ -1,7 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <import src="../common/footer/footer.wxml" />
 <view class='mine'>
-  <view style='background: #c6f5fd;'>
+  <view style='background: #fff;'>
     <view class='user'>
       <image catchtap="gomessage" class="email" src="/images/news.png"></image>
       <view >

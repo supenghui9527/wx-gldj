@@ -4,9 +4,9 @@
   <view hidden='{{isFocusGroup}}' class='list-content'>
     <view class='title'>请选择分组</view>
     <view class='list-item'>
-      <checkbox-group wx:for="{{8}}" wx:key="index">
+      <checkbox-group bindchange="cho" wx:for="{{groupLists}}" wx:key="index">
         <label class="checkbox">
-          <checkbox value="分组一" checked="{{index}}" />分组一
+          <checkbox value="{{item.id}}" checked="{{item.id}}" />{{item.name}}
         </label>
       </checkbox-group>
       <view catchtap='showAddGroup' class='plus-group'>+新建分组</view>
@@ -26,7 +26,7 @@
           <text>{{item.timeTip}}</text>
         </view>
       </view>
-      <view wx:if="{{item.isView==1}}"  class='focus'>已关注</view>
+      <view wx:if="{{item.isView==1}}" class='focus'>取消关注</view>
       <view wx:else bindtap='showGroup' class='focus'>+关注</view>
     </view>
     <view  catchtap='goDetail' class='text warrap'>{{item.pubContent}}</view>

@@ -1,0 +1,27 @@
+/* pages/active/post/activityList/activityList.wxss */
+.activityList{
+  width: 100%;
+  padding: 25rpx 20rpx 0 20rpx;
+  box-sizing: border-box;
+}
+.search{
+  padding-bottom:30rpx;
+  border-bottom:1px solid #f0f0f0;
+}
+.activityList input{
+  width: 100%;
+  height: 75rpx;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  padding-left: 40rpx;
+  border-radius: 16px;
+  font-size:32rpx;
+}
+.lists view{
+  width:100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size:32rpx;
+  color:#323232;
+  border-bottom:1px solid #f0f0f0;
+}

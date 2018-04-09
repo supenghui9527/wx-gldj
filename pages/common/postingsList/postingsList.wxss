@@ -97,9 +97,9 @@ checkbox-group,.plus-group{
   padding-left: 20rpx;
 }
 .focus{
-  width:125rpx;
-  height: 45rpx;
-  line-height: 45rpx;
+  width:140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   position: absolute;
   right:22rpx;
   top:50%;

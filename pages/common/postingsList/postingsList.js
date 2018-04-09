@@ -3,6 +3,9 @@ Component({
   properties: {
     lists:{
       type: 'array'
+    },
+    groupLists:{
+      type: 'array'
     }
   },
   data: {

@@ -1,18 +1,21 @@
 <!--pages/active/post/post.wxml-->
-<import src="../../common/typeList/typeList.wxml" />
 <view class='post'>
   <form>
+    <input hidden='{{true}}' value='{{id}}' name="ID"></input>
     <view class='title'>
       <label>活动</label>
-      <input placeholder='点击输入活动标题'></input>
+      <input class='font-color' disabled="true" value='{{title}}' placeholder='点击输入活动标题'></input>
     </view>
-    <template is="typeList" data="{{...obj,active}}" />
+    <view class='title'>
+      <label>类型</label>
+      <text class='font-color'>党小组会</text>
+    </view>
     <view class='time'>
       <text>时间</text>
       <text>{{date}}</text>
     </view>
     <view class="content">
-      <textarea name="content" placeholder="精彩内容..." />
+      <textarea class='font-color' name="pubContent" placeholder="精彩内容..." />
       <view class="imgcontainer">
         <block wx:for="{{tempFilePaths}}" wx:key="*this">
           <view class="up">
@@ -25,8 +28,8 @@
       <image catchtap="upLoad" class="picture" src="/images/pic.png"></image>
     </view>
     <view class='place'>
-      <image src='/images/place.png'></image>
-      <input placeholder='我的位置'></input>
+      <image catchtap='getPlace' src='/images/place.png'></image>
+      <input class='font-color' value='{{address}}' name="location" placeholder='我的位置'></input>
     </view>
     <button class='btn'>发布</button>
   </form>
