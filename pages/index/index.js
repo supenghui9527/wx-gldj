@@ -9,13 +9,63 @@ Page({
   data: {
     active: 0,
     addGroupShow: false,
-    nav: ['关注','热门'],
+    nav: ['关注', '热门'],
     showMsg: false,
-    footer:{
+    lists: [
+      {
+        orgName: '机关工委',
+        orgPic: '/images/avatar.jpg',
+        actName: '清晨跑步',
+        timeTip: '2018-4-9',
+        pubContent: '纷纷大幅度的方法的方法的短发短发短发反反复复反反复复反反复复的地方',
+        pic: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
+        isView: 1,
+        shares: 2,
+        comments: 3,
+        likes: 4
+      },
+      {
+        orgName: '机关工委',
+        orgPic: '/images/avatar.jpg',
+        actName: '清晨跑步',
+        timeTip: '2018-4-9',
+        pubContent: '纷纷大幅度的方法的方法的短发短发短发反反复复反反复复反反复复的地方',
+        pic: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
+        isView: 1,
+        shares: 2,
+        comments: 3,
+        likes: 4
+      },
+      {
+        orgName: '机关工委',
+        orgPic: '/images/avatar.jpg',
+        actName: '清晨跑步',
+        timeTip: '2018-4-9',
+        pubContent: '纷纷大幅度的方法的方法的短发短发短发反反复复反反复复反反复复的地方',
+        pic: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
+        isView: 1,
+        shares: 2,
+        comments: 3,
+        likes: 4
+      },
+      {
+        orgName: '机关工委',
+        orgPic: '/images/avatar.jpg',
+        actName: '清晨跑步',
+        timeTip: '2018-4-9',
+        pubContent: '纷纷大幅度的方法的方法的短发短发短发反反复复反反复复反反复复的地方',
+        pic: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
+        isView: 1,
+        shares: 2,
+        comments: 3,
+        likes: 4
+      }
+    ],
+    footer: {
       idx: true,
       mine: false
     },
-    animationData:{},
+    animationData: {},
     focusShow: false,//是否显示关注
     hotShow: false,//是否显示热门
     showPlus: false,//点击加是否显示活动
@@ -24,29 +74,23 @@ Page({
     editText: '编辑',
     focusGroup: true // 点击关注分组
   },
-  onLoad(){
-    // getApp().$ajax({
-    //   httpUrl: 'http://www.wsspha.cn/images/bg.png',
-    //   data: {
-    //     orgID: this.data.userID
-    //   }
-    // }).then(({ data }) => {
-    //   let newList = [];
-    //   if (data.state == 0) {
-    //     if (data.orgList && data.orgList.length >= 10) newList = data.orgList.slice(0, 10);
-    //     this.setData({
-    //       Unfinished: data.content,
-    //       UnfinishedLists: newList,
-    //       showUnfinished: true
-    //     })
-    //   }
-    //   wx.hideLoading();
-    // })
+  onLoad() {
+    // this.getPostingsList(1);
+  },
+  getPostingsList(type) {
+    getApp().$ajax({
+      httpUrl: 'http://www.wsspha.cn/images/bg.png',
+      data: {
+        orgID: type
+      }
+    }).then(({ data }) => {
+
+    })
   },
   // 点击切换关注和热门
-  changeTab (e) {
+  changeTab(e) {
     // 判断第一次是否为选中状态
-    if (this.data.active == e.target.dataset.index){
+    if (this.data.active == e.target.dataset.index) {
       // 判断点击是否为关注
       if (this.data.active == 0) {
         this.animation = animation;
@@ -88,7 +132,7 @@ Page({
           })
         }
       }
-    }else{
+    } else {
       animation.rotateZ(360).step();
       this.setData({
         active: e.target.dataset.index,
@@ -105,26 +149,32 @@ Page({
       showMsg: true
     })
   },
+  // 下拉刷新
+  onPullDownRefresh() {
+    setTimeout(() => {
+      wx.stopPullDownRefresh();
+    }, 1000)
+  },
   // 点击帖子关注显示分组
-  showGroup () {
+  showGroup() {
     this.setData({
-      focusGroup: false      
+      focusGroup: false
     })
   },
   // 点击浮层隐藏分组
-  hideGroup () {
+  hideGroup() {
     this.setData({
-      focusGroup: true  
+      focusGroup: true
     })
   },
   // 编辑分组
-  editGroup () {
-    if(this.data.editText=='编辑'){
+  editGroup() {
+    if (this.data.editText == '编辑') {
       this.setData({
         showEdit: false,
         editText: '完成'
       })
-    }else{
+    } else {
       this.setData({
         showEdit: true,
         editText: '编辑'
@@ -151,7 +201,7 @@ Page({
   //阻止页面滚动穿透
   overflowHidden() {
     this.setData({
-      overFlow: false
+      overFlow: !this.data.overFlow
     })
   },
   overflowScroll() {
@@ -160,7 +210,7 @@ Page({
     })
   },
   // 点击消息进入消息页面
-  goMessage () {
+  goMessage() {
     wx.navigateTo({
       url: '/pages/index/message/message',
     })
@@ -172,14 +222,14 @@ Page({
     })
   },
   // 点击加图标显示弹出
-  clickShowPlus () {
+  clickShowPlus() {
     this.setData({
-      showPlus:true,
+      showPlus: true,
       overFlow: false
     })
   },
   // 关闭弹出活动
-  closePlus () {
+  closePlus() {
     this.setData({
       showPlus: false,
       overFlow: true

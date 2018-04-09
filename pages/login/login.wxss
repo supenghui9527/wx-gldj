@@ -5,7 +5,8 @@
   background: url('http://www.wsspha.cn/images/sign_bg.jpg') no-repeat center center;
   background-size:100%;
 }
-.login>view{
+.login form{
+  display: block;
   padding-top:500rpx;
 }
 .idcard{
@@ -31,4 +32,5 @@ input{
   font-weight: bold;
   text-align: center;
   margin-top:75rpx;
+  border: none;
 }

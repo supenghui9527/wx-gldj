@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  border-bottom:1px solid #f0f0f0;
 }
 .nav view{
   width:150rpx;

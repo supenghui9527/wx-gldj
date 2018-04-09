@@ -1,8 +1,8 @@
 <!--pages/login/login.wxml-->
 <view class="login">
-  <view>
-    <input class='idcard' type='text' placeholder='请输入身份证号码后六位'></input>
-    <input type='text' placeholder='请输入姓名'></input>
-    <view class='btn' catchtap='login'>登录</view>
-  </view>
+  <form bindsubmit='login'>
+    <input class='idcard' type='text' name='user' placeholder='请输入身份证号码后六位'></input>
+    <input type='text' name='password' placeholder='请输入姓名'></input>
+    <button class='btn' form-type='submit'>登录</button>
+  </form>
 </view>

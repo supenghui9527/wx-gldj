@@ -54,7 +54,7 @@
   line-height: 50rpx;
   font-size:32rpx;
   text-align: center;
-  color:#fee8c3;
-  border:1px solid #fee8c3;
+  color:#ffb849;
+  border:1px solid #ffb849;
   border-radius: 16px;
 }

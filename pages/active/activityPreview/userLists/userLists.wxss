@@ -1,0 +1,26 @@
+/* pages/active/activityPreview/userLists/userLists.wxss */
+.group-lists{
+  width: 100%;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+.group-lists image{
+  width:68rpx;
+  height: 68rpx;
+  margin-right:25rpx;
+  
+}
+.select{
+  position: absolute;
+  right: 0;
+  margin: 0 !important;
+}
+.group-item{
+  height: 120rpx;
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  color:#646464;
+  font-size: 34rpx;
+}

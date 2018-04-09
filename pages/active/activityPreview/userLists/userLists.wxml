@@ -1,0 +1,12 @@
+<!--pages/active/activityPreview/userLists/userLists.wxml-->
+<view class='group-lists'>
+  <view catchtap='chooseAll' class='group-item'>所有人</view>
+  <view catchtap='chooseGroup' data-item="{{item}}"  class='group-item' wx:for="{{lists}}" wx:key="index">
+    <image wx:if="{{index==0}}" src='/images/group01.png'></image>
+    <image wx:elif="{{index==1}}" src='/images/group02.png'></image>
+    <image wx:elif="{{index%2==0}}" src='/images/group03.png'></image>
+    <image wx:elif="{{index%3==0}}" src='/images/group04.png'></image>
+    <text>{{item.text}}</text>
+    <image class='select' hidden='{{item.isSelect}}' src='/images/mark.png'></image>
+  </view>
+</view>

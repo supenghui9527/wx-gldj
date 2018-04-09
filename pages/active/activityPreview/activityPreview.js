@@ -22,4 +22,9 @@ Page({
       date: e.detail.value
     })
   },
+  goUserList() {
+    wx.navigateTo({
+      url: "/pages/active/activityPreview/userLists/userLists",
+    })
+  }
 })

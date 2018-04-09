@@ -7,7 +7,9 @@
       <view >
         <image catchtap="changeAvatar" class="avatar" src="/images/avatar.jpg"></image>
         <view class='name'>黄海强</view>
-        <view class='stars'>****</view>
+        <view class='stars'>
+          <image wx:for="{{3}}" src='/images/star.png'></image>
+        </view>
         <view class='post'>党工委书记</view>
       </view>
       <view class='informate'>

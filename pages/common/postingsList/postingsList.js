@@ -1,8 +1,8 @@
 // pages/common/postingsList/postingsList.js
 Component({
   properties: {
-    active:{
-      type: 'number'
+    lists:{
+      type: 'array'
     }
   },
   data: {

@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 // 请求方法
-function $ajax({ wxApp = false, httpUrl, data = {}, method = 'post', title = "加载中..." }) {
+function $ajax({ wxApp = false, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
   return new Promise((resolve, reject) => {
     wx.showLoading({ mask: true, title: title });
     wx.request({
@@ -27,7 +27,7 @@ function $ajax({ wxApp = false, httpUrl, data = {}, method = 'post', title = "�
           resolve({ data: data, message });
         } else {
           wx.hideLoading();
-          wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: message })
+          // wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: message })
         }
       },
       fail: (err) => {

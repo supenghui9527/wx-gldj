@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   padding:35rpx 0;
+  color:#323232;
   border-bottom:1px solid #f0f0f0;
 }
 .type view{
@@ -22,5 +23,6 @@
 }
 .active{
   background-color:#c6f5fd;
+  font-weight: bold;
   border-radius: 10rpx;
 }

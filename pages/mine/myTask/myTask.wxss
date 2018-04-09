@@ -13,3 +13,9 @@
   font-size:32rpx;
   color:#646464;
 }
+.task-item view{
+  line-height: 50rpx;
+}
+.title{
+  color:#323232;
+}

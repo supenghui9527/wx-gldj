@@ -16,21 +16,22 @@
       <text>确定</text>
     </view>
   </view>
-  <view wx:for="{{9}}" wx:key="index" class='item-content'>
+  <view wx:for="{{lists}}" wx:key="index" class='item-content'>
     <view class='avatar warrap'>
-      <image src='/images/activity.png'></image>
+      <image src="{{item.orgPic}}"></image>
       <view>
-        <view class='orgname'>党支部一</view>
+        <view class='orgname'>{{item.orgName}}</view>
         <view class='type'>
-          <text>公开党课</text>
-          <text>33分钟前</text>
+          <text>{{item.actName}}</text>
+          <text>{{item.timeTip}}</text>
         </view>
       </view>
-      <view hidden='{{active==0}}' bindtap='showGroup' class='focus'>+关注</view>
+      <view wx:if="{{item.isView==1}}"  class='focus'>已关注</view>
+      <view wx:else bindtap='showGroup' class='focus'>+关注</view>
     </view>
-    <view  catchtap='goDetail' class='text warrap'>是时时刻刻防空旅费发放开发了开放开发克劳福德房贷发放的反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复</view>
+    <view  catchtap='goDetail' class='text warrap'>{{item.pubContent}}</view>
     <view class='pictures warrap'>
-      <view wx:for="{{5}}" wx:key="index">
+      <view wx:for="{{item.pic}}" wx:key="index">
         <image src='/images/avatar.jpg' wx:key="index"></image>
       </view>
     </view>
@@ -38,16 +39,17 @@
       <view>
         <image src='/images/share.png'></image>
         <button class='postings-share' open-type='share'>分享</button>
+        <text>{{item.shares}}</text>
       </view>
       <view catchtap='goDetail'>
         <image src='/images/comment.png'></image>
         <text>评论</text>
-        <text>250</text>
+        <text>{{item.comments}}</text>
       </view>
       <view>
         <image src="/images/fabulous.png"></image>
         <text>赞</text>
-        <text>250</text>
+        <text>{{item.likes}}</text>
       </view>
     </view>
   </view>

@@ -89,6 +89,10 @@
     </view>
   </view>
   <view style='width:100%;height:100rpx'></view>
+  <view class='comment'>
+    <textarea auto-focus="true" fixed="true" placeholder='请输入评论内容'></textarea>
+    <view>发送</view>
+  </view>
   <view class='user-do'>
     <view>
       <image src='/images/share.png'></image>

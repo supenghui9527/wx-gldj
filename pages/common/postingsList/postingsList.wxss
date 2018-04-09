@@ -83,6 +83,7 @@ checkbox-group,.plus-group{
   width:86rpx;
   height: 86rpx;
   margin-right:30rpx;
+  border-radius: 50%;
 }
 .orgname{
   font-size:34rpx;
@@ -113,7 +114,10 @@ checkbox-group,.plus-group{
   font-size:30rpx;
   line-height: 44rpx;
   color:#323232;
-  text-align:justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 .pictures{
   margin:30rpx 0 20rpx 0;

@@ -27,6 +27,10 @@
   font-size:32rpx;
   font-weight: bold;
 }
+.stars image{
+  width:36rpx;
+  height: 36rpx;
+}
 .post{
   color:#676767;
   font-size:30rpx;

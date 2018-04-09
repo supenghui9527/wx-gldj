@@ -48,11 +48,12 @@
     <image class='search' catchtap='goSearch' src="/images/search.png"></image>
     <image class='news' catchtap='goMessage' src="/images/activity2.png"></image>
   </view>
+  <view style='width:100%;height:90rpx'></view>
   <view hidden='{{showMsg}}' class='message'>
     <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
     <image catchtap='hideMsg' class='close' src='/images/close.png'></image>
   </view>
-  <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowScroll" active='{{active}}' />
+  <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' />
   <view class='line'></view>
   <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus'/>
   <template is="footer" data="{{...footer}}"/>
