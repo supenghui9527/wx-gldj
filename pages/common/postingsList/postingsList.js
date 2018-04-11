@@ -31,21 +31,38 @@ Component({
       this.triggerEvent('overflowScroll');
     },
     // 点赞分享评论
-    userDo(actID, userID, type, comment) {
+    userDo(actID, type, comment) {
       getApp().$ajax({
         httpUrl: getApp().api.postingsLikesUrl,
         data: {
           actID: actID,
-          userID: userID,
+          userID: wx.getStorageSync('userinfo').id,
           type: type,
-          comment: comment ? comment:''
+          comment: comment||''
         }
       }).then(({ data }) => {
 
       })
     },
+    // 点击浏览大图
     showBigPictrues() {
 
+    },
+    // 选择关注分组
+    chooseGroup(e) {
+      console.log(e)
+    },
+    sureFouse() {
+      getApp().$ajax({
+        httpUrl: getApp().api.userFouseUrl,
+        data: {
+          userID: wx.getStorageSync('userinfo').id,
+          orgID: '',
+          groupID: ''
+        }
+      }).then(({ data }) => {
+
+      })
     },
     // 显示添加分组
     showAddGroup() {
@@ -57,7 +74,7 @@ Component({
         title: '自定义转发标题',
         path: `/pages/home/detail/detail?cID=${this.data.cID}`,
         success: function (res) {
-          this.userDo('402880d162a8dd960162a8dded9c0000', '223', '0')
+          this.userDo('223', '0')
         },
         fail: function (res) {
         }
@@ -71,7 +88,7 @@ Component({
     },
     // 点赞
     clickLikes() {
-      this.userDo('402880d162a8dd960162a8dded9c0000','223','2')
+      this.userDo('223','2')
     }
   }
 })

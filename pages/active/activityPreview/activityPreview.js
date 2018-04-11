@@ -4,49 +4,45 @@ var date = new Date();
 Page({
   data: {
     active: 0,
+    typeName: '支部大会',
     userLists: '',
-    userID: '',
+    groupId: '',
     date: util.formatTime(date).substring(0, 10),
     time: util.formatTime(date).substring(10),
-    typeLists: [
-      {
-        name: '党工委',
-        id: 2
-      },
-      {
-        name: '党小组会',
-        id: 2
-      },
-      {
-        name: '党员大会',
-        id: 2
-      },
-      {
-        name: '党支部',
-        id: 2
-      },
-      {
-        name: '党日活动',
-        id: 2
-      },
-      {
-        name: '党员活动',
-        id: 2
-      }
-    ]
+    typeLists: []
   },
   onLoad(options) {
-    if(options.ids){
+
+  },
+  onShow(){
+    getApp().$ajax({
+      httpUrl: getApp().api.getActTypeUrl,
+      data: {}
+    }).then(({ data }) => {
       this.setData({
-        userLists: options.lists,
-        userID: options.ids
+        typeLists: data,
+        active: data[0].id
       })
+    })
+    let userinfo = wx.getStorageSync('userinfo');
+    console.log(wx.getStorageSync('userGroup'));
+    if (wx.getStorageSync('userGroup')) {
+      this.setData({
+        userLists: wx.getStorageSync('userGroup').texts,
+        groupId: wx.getStorageSync('userGroup').ids,
+        orgName: userinfo.orgName,
+        orgID: userinfo.dept_id,
+        userID: userinfo.id,
+        userName:userinfo.name
+      })
+      wx.removeStorageSync('userGroup')
     }
   },
+  // 活动类型
   chooseType(e) {
-    console.log(e)
     this.setData({
-      active: e.target.dataset.index
+      active: e.target.dataset.index,
+      typeName: e.target.dataset.name
     })
   },
   bindDateChange: function (e) {
@@ -55,6 +51,12 @@ Page({
       date: e.detail.value
     })
   },
+  bindTimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  // 选择需要通知用户
   goUserList() {
     wx.navigateTo({
       url: "/pages/active/activityPreview/userLists/userLists",
@@ -77,8 +79,15 @@ Page({
     getApp().$ajax({
       httpUrl: getApp().api.actReserveUrl,
       data: e.detail.value
-    }).then(({ data }) => {
-
+    }).then((data) => {
+      wx.showToast({
+        title: '预告发布成功',
+        success:()=>{
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        }
+      })
     })
   }
 })

@@ -4,16 +4,16 @@
   <view hidden='{{isFocusGroup}}' class='list-content'>
     <view class='title'>请选择分组</view>
     <view class='list-item'>
-      <checkbox-group bindchange="cho" wx:for="{{groupLists}}" wx:key="index">
+      <checkbox-group bindchange="chooseGroup" wx:for="{{groupLists}}" wx:key="index">
         <label class="checkbox">
-          <checkbox value="{{item.id}}" checked="{{item.id}}" />{{item.name}}
+          <checkbox value="{{item.id}}"/>{{item.name}}
         </label>
       </checkbox-group>
       <view catchtap='showAddGroup' class='plus-group'>+新建分组</view>
     </view>
     <view class='sure'>
       <text>暂不分组</text>
-      <text>确定</text>
+      <text catchtap='sureFouse'>确定</text>
     </view>
   </view>
   <view wx:for="{{lists}}" wx:key="index" class='item-content'>

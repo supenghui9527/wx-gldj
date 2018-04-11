@@ -3,5 +3,5 @@
 <import src="../../common/tabBar/tabBar.wxml" />
 <view class='my-sign'>
   <template is="tabBar" data="{{active,...nav}}"></template>
-  <template is="signList" data="{{...lists}}"></template>
+  <template is="signList" data="{{lists}}"></template>
 </view>

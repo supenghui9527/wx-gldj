@@ -11,28 +11,7 @@ Page({
     addGroupShow: false,
     nav: ['关注', '热门'],
     showMsg: false,
-    hotGroup: [
-      {
-        name: '分组一',
-        id: 2
-      },
-      {
-        name: '分组二',
-        id: 2
-      },
-      {
-        name: '分组三',
-        id: 2
-      },
-      {
-        name: '分组四',
-        id: 2
-      },
-      {
-        name: '分组五',
-        id: 2
-      },
-    ],
+    hotGroup: [],
     groupLists:[
       {
         name: '分组一',
@@ -119,27 +98,17 @@ Page({
     focusGroup: true // 点击关注分组
   },
   onLoad() {
-    // this.getPostingsList(1);
-    // wx.getLocation({
-    //   type: 'wgs84',
-    //   success: function (res) {
-    //     var latitude = res.latitude
-    //     var longitude = res.longitude
-    //     var speed = res.speed
-    //     var accuracy = res.accuracy
-    //     wx.openLocation({
-    //       latitude: latitude,
-    //       longitude: longitude,
-    //       scale: 28
-    //     })
-    //   }
-    // })
-    // wx.chooseLocation({
-    //   success(res){
-    //     console.log(res)
-    //   }
-    // })
+    this.getGroupLists();
+    getApp().$ajax({
+      httpUrl: getApp().api.getActTypeUrl,
+      data: {}
+    }).then(({ data }) => {
+      this.setData({
+        hotGroup: data
+      })
+    })
   },
+  // 获取帖子列表
   getPostingsList(type) {
     getApp().$ajax({
       httpUrl: 'http://www.wsspha.cn/images/bg.png',
@@ -148,6 +117,19 @@ Page({
       }
     }).then(({ data }) => {
 
+    })
+  },
+  // 获取用户分组
+  getGroupLists() {
+    getApp().$ajax({
+      httpUrl: getApp().api.getFouseGroupUrl,
+      data: {
+        userId: wx.getStorageSync('userinfo').id
+      }
+    }).then(({ data }) => {
+      this.setData({
+        groupLists: data
+      })
     })
   },
   // 点击切换关注和热门
@@ -256,7 +238,22 @@ Page({
       addGroupShow: false
     })
   },
+  getGroupName(e) {
+    this.setData({
+      groupName: e.detail.value
+    })
+  },
+  // 添加用户分组
   sureAddGroup() {
+    getApp().$ajax({
+      httpUrl: getApp().api.addFouseGroupUrl,
+      data: {
+        userId: wx.getStorageSync('userinfo').id,
+        name: this.data.groupName
+      }
+    }).then(({ data }) => {
+      this.getGroupLists();
+    })
     this.setData({
       addGroupShow: false
     })

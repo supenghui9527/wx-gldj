@@ -3,13 +3,14 @@
 <view class='activity'>
   <template is="typeList" data="{{typeLists,active}}" />
   <form bindsubmit="submitActivity" class='activity-content'>
-    <input hidden="{{true}}" value='232' name="orgID"></input>
-    <input hidden="{{true}}" value='机关工委' name="orgName"></input>
-    <input hidden="{{true}}" value='232' name="userID"></input>
-    <input hidden="{{true}}" value='速度' name="userName"></input>
-    <input hidden="{{true}}" value='2' name="actType"></input>
-    <input hidden="{{true}}" value='党工委' name="actName"></input>
-    <input hidden="{{true}}" value='{{userID}}' name="actUser"></input>
+    <input hidden="{{true}}" value='{{orgID}}' name="orgID"></input>
+    <input hidden="{{true}}" value='{{orgName}}' name="orgName"></input>
+    <input hidden="{{true}}" value='{{userID}}' name="userID"></input>
+    <input hidden="{{true}}" value='{{userName}}' name="userName"></input>
+    <input hidden="{{true}}" value='{{active}}' name="actType"></input>
+    <input hidden="{{true}}" value='{{typeName}}' name="actName"></input>
+    <input hidden="{{true}}" value='{{groupId}}' name="actUser"></input>
+    <input hidden="{{true}}" value="{{date+' '+time}}" name="actDate"></input>
     <view>
       <image src='/images/title.png'></image>
       <input name="title" placeholder-style='color:#cdcdcd' placeholder='请输入活动标题'></input>

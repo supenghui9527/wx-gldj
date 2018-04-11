@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
-    "pages/active/sign/sign",
+    "pages/index/message/message",
     
-    "pages/active/post/post",
     "pages/active/activityPreview/activityPreview",
+    "pages/login/login",
+    "pages/active/sign/sign",
+    "pages/active/post/post",
     "pages/mine/messageBox/messageBox",
     "pages/index/search/search",
     "pages/active/post/activityList/activityList",
     "pages/active/activityPreview/userLists/userLists",
-   
     "pages/index/detail/detail",
     "pages/index/notice/notice",
     "pages/active/consultation/consultation",
@@ -18,7 +18,6 @@
     "pages/mine/myRewards/myRewards",
     "pages/loading/loading",
     "pages/mine/myTask/myTask",
-    "pages/index/message/message",
     "pages/mine/mine",
     "pages/active/ordered/ordered",
     "pages/mine/mySign/mySign",
@@ -29,7 +28,6 @@
     "pages/mine/myDeliver/myDeliver",
     "pages/mine/myReview/myReview",
     "pages/mine/myVote/myVote",
-    
     "pages/active/activeLine/activeLine"
   ],
   "window": {

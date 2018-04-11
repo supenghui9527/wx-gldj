@@ -11,7 +11,11 @@ Page({
         password: e.detail.value.password
       }
     }).then(({ data }) => {
-      console.log(data);
+      // console.log(data);
+      wx.setStorageSync('userinfo', data[0])
+      wx.navigateTo({
+        url: '/pages/index/index',
+      })
       wx.hideLoading();
     })
   }

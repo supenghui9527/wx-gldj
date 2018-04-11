@@ -2,7 +2,7 @@
   <view class='type'>
     <block>
       <view wx:for="{{typeLists}}" wx:key="index">
-        <text data-index="{{index}}" catchtap='chooseType' class="{{active==index?'active':''}}">{{item.name}}</text>
+        <text data-index="{{item.id}}" data-name="{{item.name}}" catchtap='chooseType' class="{{active==item.id?'active':''}}">{{item.name}}</text>
       </view>
     </block>
   </view>

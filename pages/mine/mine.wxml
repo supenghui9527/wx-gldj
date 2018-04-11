@@ -4,7 +4,7 @@
   <view style='background: #fff;'>
     <view class='user'>
       <image catchtap="gomessage" class="email" src="/images/news.png"></image>
-      <view >
+      <view>
         <image catchtap="changeAvatar" class="avatar" src="/images/avatar.jpg"></image>
         <view class='name'>黄海强</view>
         <view class='stars'>
@@ -18,7 +18,7 @@
           <view>我的关注</view>
           <view class='line'></view>
         </navigator>
-        <!-- <navigator url='/pages/mine/myFans/myFans' open-type='navigate' hover-class="none">
+        <navigator url='/pages/mine/myFans/myFans' open-type='navigate' hover-class="none">
           <view>256</view>
           <view>我的粉丝</view>
           <view class='line'></view>
@@ -27,7 +27,7 @@
           <view>32</view>
           <view>我的发布</view>
           <view class='line'></view>
-        </navigator> -->
+        </navigator>
         <navigator url='/pages/mine/myIntegral/myIntegral' open-type='navigate' hover-class="none">
           <view>30</view>
           <view>我的积分</view>

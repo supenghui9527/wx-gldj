@@ -1,12 +1,12 @@
 .type{
   display: flex;
   flex-wrap: wrap;
-  padding:35rpx 0;
+  padding:35rpx 0; 
   color:#323232;
   border-bottom:1px solid #f0f0f0;
 }
 .type view{
-  width:25%;
+  width:25%; 
   height: 60rpx;
   line-height: 60rpx;
   display: flex;

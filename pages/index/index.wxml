@@ -4,7 +4,7 @@
   <view wx:if="{{addGroupShow}}" bind:touchstart='hideAddGroup' class='add-fixed'></view>
   <view wx:if="{{addGroupShow}}" class='add-group'>
     <view class='add-group-title'>新建分组</view>
-    <input placeholder='1-16个字符'></input>
+    <input bindinput='getGroupName' placeholder='1-16个字符'></input>
     <view class='add-group-btn'>
       <view catchtap='hideAddGroup' class='btn-cancel'>暂不分组</view>
       <view catchtap='sureAddGroup' class='btn-sure'>确定</view>
@@ -39,8 +39,8 @@
     <view hidden='{{!hotShow}}' class='show-fixed'>
       <view class='onfocus'>
         <view class='hot-type'>
-          <view wx:for="{{5}}" wx:key="index">
-            <view>党员大会</view>
+          <view wx:for="{{hotGroup}}" wx:key="index">
+            <view>{{item.name}}</view>
           </view>
         </view>
       </view>

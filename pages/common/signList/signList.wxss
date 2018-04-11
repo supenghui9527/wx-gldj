@@ -7,7 +7,7 @@
   box-sizing: border-box;
   padding: 0 20rpx 20rpx 20rpx;
   background-color:#fff;
-  margin-bottom: 10rpx;
+  border-bottom: 2px solid #f0f0f0;
 }
 .sign-item .title{
   width:70%;

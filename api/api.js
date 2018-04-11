@@ -1,12 +1,17 @@
-const HOST = 'http://192.168.0.236:8080/api/';
+const HOST = 'http://192.168.8.24:8080/';
 module.exports = {
-  loginUrl: `${HOST}user/login`,  // 登录接口
-  getPostingsUrl: `${HOST}act/list`,  // 获取帖子列表
-  getMorePostingUrl: `${HOST}acttype/list`,  // 活动类型列表
-  actReserveUrl: `${HOST}act/reserve`,  // 活动预约发布
-  actPostUrl: `${HOST}act/pub`,  // 活动发布
-  actSignUrl: `${HOST}act/sign`, // 活动签到
-  upLoadPicUrl: `${HOST}act/uploadMultipleFile`,  // 活动发布上传图片
+  loginUrl: `${HOST}api/user/login`,  // 登录接口
+  getPostingsUrl: `${HOST}api/act/list`,  // 获取帖子列表
+  getActTypeUrl: `${HOST}api/acttype/list`,  // 活动类型列表
+  getFouseGroupUrl: `${HOST}api/usergroup/list`,// 关注分组列表
+  addFouseGroupUrl: `${HOST}api/usergroup/add`, // 添加关注分组
+  getUserGroupUrl: `${HOST}api/partygroup/list`,// 用户分组列表
+  actReserveUrl: `${HOST}wqqapi/act/reserve`,  // 活动预约发布
+  getReserveListsUrl: `${HOST}api/act/relist`, // 活动预约发布列表
+  userFouseUrl: `${HOST}api/usergroup/interest`, // 用户关注
+  actPostUrl: `${HOST}wqqapi/act/pub`,  // 活动发布
+  actSignUrl: `${HOST}wqqapi/act/sign`, // 活动签到
+  upLoadPicUrl: `${HOST}wqqapi/act/uploadMultipleFile`,  // 活动发布上传图片
   searchUrl: `${HOST}vagueSearch.do`,  // 帖子搜索
   postingsDetailUrl: `${HOST}findCommunityByCID.do`,  // 帖子详情
   postingsCommentUrl: `${HOST}findComment.do`,  // 查询帖子评论

@@ -24,10 +24,12 @@ function $ajax({ wxApp = false, httpUrl, data = {}, method = 'post', title = 'åŠ
       header: method === 'post' ? { "Content-Type": "application/x-www-form-urlencoded" } : { 'content-type': 'application/json' },
       success: ({ data: { data, message, state } }) => {
         if (state == 1) {
+          // wx.showToast({ title: message, icon: 'none'})
           resolve({ data: data, message });
+          wx.hideLoading();
         } else {
           wx.hideLoading();
-          wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: '22' })
+          wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: message,icon:'none'})
         }
       },
       fail: (err) => {
