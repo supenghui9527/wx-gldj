@@ -46,7 +46,7 @@
         <text>评论</text>
         <text>{{item.comments}}</text>
       </view>
-      <view>
+      <view catchtap='clickLikes'>
         <image src="/images/fabulous.png"></image>
         <text>赞</text>
         <text>{{item.likes}}</text>

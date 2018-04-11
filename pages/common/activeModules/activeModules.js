@@ -23,6 +23,23 @@ Component({
     // 关闭弹出活动
     closePlus() {
       this.triggerEvent("closePlus");
+    },
+    sign() {
+      wx.scanCode({
+        onlyFromCamera: true,
+        success: (res) => {
+          getApp().$ajax({
+            httpUrl: getApp().api.actSignUrl,
+            data: {
+              actID: res.result.author,
+              userID: '233',
+              type: '2'
+            }
+          }).then(({ data }) => {
+
+          })
+        }
+      })
     }
   }
 })

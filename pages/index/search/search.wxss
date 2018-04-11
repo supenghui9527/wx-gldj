@@ -17,7 +17,7 @@
   position: absolute;
   top: 50%;
   margin-top: -25rpx;
-  left: 30rpx;
+  left: 40rpx;
 }
 
 .go-search text {

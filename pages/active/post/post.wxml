@@ -1,8 +1,9 @@
 <!--pages/active/post/post.wxml-->
 <view class='post'>
-  <form>
-    <input hidden='{{true}}' value='{{id}}' name="ID"></input>
-    <view class='title'>
+  <form bindsubmit="submitPostings">
+    <input hidden='{{true}}' value='402880d162a8dd960162a8dded9c0000' name="ID"></input>
+    <!-- <input hidden='{{true}}' value='{{tempFilePaths}}' name="pic"></input> -->
+    <view class='title' catchtap='goActivity'>
       <label>活动</label>
       <input class='font-color' disabled="true" value='{{title}}' placeholder='点击输入活动标题'></input>
     </view>
@@ -31,6 +32,6 @@
       <image catchtap='getPlace' src='/images/place.png'></image>
       <input class='font-color' value='{{address}}' name="location" placeholder='我的位置'></input>
     </view>
-    <button class='btn'>发布</button>
+    <button class='btn' form-type='submit'>发布</button>
   </form>
 </view>

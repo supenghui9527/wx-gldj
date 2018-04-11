@@ -1,2 +1,16 @@
 <!--pages/mine/messageBox/messageBox.wxml-->
-<text>pages/mine/messageBox/messageBox.wxml</text>
+<view class='message'>
+  <block wx:for="{{2}}">
+    <view class='message-item'>
+      <view>
+        <image src='/images/news01.png'></image>
+        <text>党费缴纳提醒</text>
+        <text class='time'>2017-12-07</text>
+      </view>
+      <view class="message-content">
+          <text class="bot"></text>
+          <text class="top"></text>
+      </view>
+    </view>
+  </block>
+</view>

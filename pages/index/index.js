@@ -267,11 +267,6 @@ Page({
       overFlow: !this.data.overFlow
     })
   },
-  overflowScroll() {
-    this.setData({
-      overFlow: true
-    })
-  },
   // 点击消息进入消息页面
   goMessage() {
     wx.navigateTo({

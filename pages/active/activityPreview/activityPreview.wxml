@@ -3,20 +3,21 @@
 <view class='activity'>
   <template is="typeList" data="{{typeLists,active}}" />
   <form bindsubmit="submitActivity" class='activity-content'>
-    <input hidden="{{true}}" name="orgID"></input>
-    <input hidden="{{true}}" name="orgName"></input>
-    <input hidden="{{true}}" name="userID"></input>
-    <input hidden="{{true}}" name="userName"></input>
-    <input hidden="{{true}}" name="actType"></input>
-    <input hidden="{{true}}" name="actName"></input>
-    <input hidden="{{true}}" name="actUser"></input>
+    <input hidden="{{true}}" value='232' name="orgID"></input>
+    <input hidden="{{true}}" value='机关工委' name="orgName"></input>
+    <input hidden="{{true}}" value='232' name="userID"></input>
+    <input hidden="{{true}}" value='速度' name="userName"></input>
+    <input hidden="{{true}}" value='2' name="actType"></input>
+    <input hidden="{{true}}" value='党工委' name="actName"></input>
+    <input hidden="{{true}}" value='{{userID}}' name="actUser"></input>
     <view>
       <image src='/images/title.png'></image>
       <input name="title" placeholder-style='color:#cdcdcd' placeholder='请输入活动标题'></input>
     </view>
     <view style='position:relative'>
       <image src='/images/notice.png'></image>
-      <view style='color:#cdcdcd'>请选择需要通知的用户</view> 
+      <!-- <view style='color:#cdcdcd'>{{userLists}}</view> -->
+      <input style='width:80%' placeholder-style='color:#cdcdcd' disabled='{{true}}' value='{{userLists}}' placeholder='请选择需要通知的用户'></input>
       <image catchtap='goUserList' class='choose-user' src='/images/@.png'></image>
     </view>
     <view>

@@ -4,11 +4,13 @@ var date = new Date();
 Page({
   data: {
     active: 0,
-    date: util.formatTime(date).substring(0,10),
+    userLists: '',
+    userID: '',
+    date: util.formatTime(date).substring(0, 10),
     time: util.formatTime(date).substring(10),
-    typeLists:[
+    typeLists: [
       {
-        name:'党工委',
+        name: '党工委',
         id: 2
       },
       {
@@ -33,7 +35,15 @@ Page({
       }
     ]
   },
-  chooseType (e) {
+  onLoad(options) {
+    if(options.ids){
+      this.setData({
+        userLists: options.lists,
+        userID: options.ids
+      })
+    }
+  },
+  chooseType(e) {
     console.log(e)
     this.setData({
       active: e.target.dataset.index
@@ -52,17 +62,20 @@ Page({
   },
   submitActivity(e) {
     let formData = e.detail.value;
-    for (let item in formData){
-      if (formData[item]==''){
+    console.log(formData)
+    for (let item in formData) {
+      if (formData[item] == '') {
         wx.showToast({
           title: '请确认信息是否填写完整',
           icon: 'none'
         })
-        return
+
+        return false;
       }
+
     }
     getApp().$ajax({
-      httpUrl: 'http://www.wsspha.cn/images/bg.png',
+      httpUrl: getApp().api.actReserveUrl,
       data: e.detail.value
     }).then(({ data }) => {
 

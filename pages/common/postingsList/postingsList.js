@@ -30,6 +30,20 @@ Component({
       })
       this.triggerEvent('overflowScroll');
     },
+    // 点赞分享评论
+    userDo(actID, userID, type, comment) {
+      getApp().$ajax({
+        httpUrl: getApp().api.postingsLikesUrl,
+        data: {
+          actID: actID,
+          userID: userID,
+          type: type,
+          comment: comment ? comment:''
+        }
+      }).then(({ data }) => {
+
+      })
+    },
     showBigPictrues() {
 
     },
@@ -37,21 +51,27 @@ Component({
     showAddGroup() {
       this.triggerEvent('showAddGroup');
     },
+    // 分享
     onShareAppMessage: function (res) {
       return {
         title: '自定义转发标题',
         path: `/pages/home/detail/detail?cID=${this.data.cID}`,
         success: function (res) {
-          console.log(res)
+          this.userDo('402880d162a8dd960162a8dded9c0000', '223', '0')
         },
         fail: function (res) {
         }
       }
     },
+    // 进入详情
     goDetail(){
       wx.navigateTo({
         url: '/pages/index/detail/detail',
       })
+    },
+    // 点赞
+    clickLikes() {
+      this.userDo('402880d162a8dd960162a8dded9c0000','223','2')
     }
   }
 })

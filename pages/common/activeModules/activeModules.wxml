@@ -14,10 +14,10 @@
       </navigator>
     </view>
     <view>
-      <navigator url='/pages/active/sign/sign' open-type='navigate' hover-class="none">
+      <view catchtap='sign'>
         <image src='/images/signin.png'></image>
         <view>签到</view>
-      </navigator>
+      </view>
     </view>
     <view>
       <navigator url='/pages/active/ordered/ordered' open-type='navigate' hover-class="none">

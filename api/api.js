@@ -1,16 +1,19 @@
-const HOST = 'https://www.jshhfl.com/xwdj/api/';
+const HOST = 'http://192.168.0.236:8080/api/';
 module.exports = {
   loginUrl: `${HOST}user/login`,  // 登录接口
   getPostingsUrl: `${HOST}act/list`,  // 获取帖子列表
   getMorePostingUrl: `${HOST}acttype/list`,  // 活动类型列表
-  likesUrl: `${HOST}likeCommunity.do`,  // 帖子点赞
+  actReserveUrl: `${HOST}act/reserve`,  // 活动预约发布
+  actPostUrl: `${HOST}act/pub`,  // 活动发布
+  actSignUrl: `${HOST}act/sign`, // 活动签到
+  upLoadPicUrl: `${HOST}act/uploadMultipleFile`,  // 活动发布上传图片
   searchUrl: `${HOST}vagueSearch.do`,  // 帖子搜索
   postingsDetailUrl: `${HOST}findCommunityByCID.do`,  // 帖子详情
   postingsCommentUrl: `${HOST}findComment.do`,  // 查询帖子评论
-  postingsLikesUrl: `${HOST}findlikeUserByCID.do`,  // 查询帖子点赞
+  postingsLikesUrl: `${HOST}act/conduct`,  // 查询帖子点赞
   savePostingsCommentUrl: `${HOST}releaseCommentToCommunity.do`,  // 保存评论帖子内容
   deletePostingsUrl: `${HOST}deleteComunity.do`,  // 删除帖子
-  upLoadPicUrl: `${HOST}publicPic.do`,  // 上传图片
+  // upLoadPicUrl: `${HOST}publicPic.do`,  // 上传图片
   pushPostingsUrl: `${HOST}publicCommunity.do`,  // 发布帖子
   getAllOrgNameUrl: `${HOST}findAllOrgName.do`,  // 获取所有组织名称
   getMapMarkesUrl: `${HOST}findAllPosition.do`,  // 获取地图markes

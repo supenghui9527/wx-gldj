@@ -9,4 +9,5 @@
     <text>{{item.text}}</text>
     <image class='select' hidden='{{item.isSelect}}' src='/images/mark.png'></image>
   </view>
+  <button catchtap='sure' class='btn'>确定</button>
 </view>

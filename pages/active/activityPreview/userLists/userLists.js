@@ -38,23 +38,34 @@ Page({
 
   },
   chooseAll () {
-    let lists = this.data.lists, ids = [];
+    let lists = this.data.lists, ids = [],texts = [];
     lists.forEach(i => {
       i.isSelect = !i.isSelect;
       ids.push(i.id);
+      texts.push(i.text)
     })
     this.setData({
-      lists: lists
+      lists: lists,
+      ids: ids.toString(),
+      texts: texts.toString()
     });
   },
   chooseGroup(e) {
-    let item = e.target.dataset.item, lists = this.data.lists,ids =[];
+    let item = e.target.dataset.item, lists = this.data.lists,ids =[],texts=[];
     lists.forEach(i => {
       i.id == item.id ? i.isSelect = !i.isSelect : ''
       if (!i.isSelect) ids.push(i.id)
     })
     this.setData({
-      lists: lists
+      lists: lists,
+      ids: ids.toString(),
+      texts: texts.toString()
     });
+  },
+  sure() {
+    let texts = this.data.texts;
+    wx.redirectTo({
+      url: `/pages/active/activityPreview/activityPreview?ids=${this.data.ids}&lists=${texts.toString()}`
+    })
   }
 })

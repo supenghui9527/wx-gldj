@@ -5,14 +5,13 @@ Page({
   },
   login(e) {
     getApp().$ajax({
-      httpUrl: 'http://www.wsspha.cn/images/bg.png',
+      httpUrl: getApp().api.loginUrl,
       data: {
         user: e.detail.value.user,
         password: e.detail.value.password
       }
     }).then(({ data }) => {
-      if (data.state == 0) {
-      }
+      console.log(data);
       wx.hideLoading();
     })
   }

@@ -1,2 +1,2 @@
 <!--pages/active/sign/sign.wxml-->
-<text>pages/active/sign/sign.wxml</text>
+<button catchtap='sign'>签到</button>
