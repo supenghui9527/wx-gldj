@@ -10,24 +10,16 @@ module.exports = {
   getReserveListsUrl: `${HOST}api/act/relist`, // 活动预约发布列表
   userFouseUrl: `${HOST}api/usergroup/interest`, // 用户关注
   actPostUrl: `${HOST}wqqapi/act/pub`,  // 活动发布
-  actSignUrl: `${HOST}wqqapi/act/sign`, // 活动签到
+  actSignUrl: `${HOST}wqqapi/act/sign`, // 活动预约签到
   upLoadPicUrl: `${HOST}wqqapi/act/uploadMultipleFile`,  // 活动发布上传图片
-  searchUrl: `${HOST}vagueSearch.do`,  // 帖子搜索
-  postingsDetailUrl: `${HOST}findCommunityByCID.do`,  // 帖子详情
-  postingsCommentUrl: `${HOST}findComment.do`,  // 查询帖子评论
   postingsLikesUrl: `${HOST}act/conduct`,  // 查询帖子点赞
-  savePostingsCommentUrl: `${HOST}releaseCommentToCommunity.do`,  // 保存评论帖子内容
-  deletePostingsUrl: `${HOST}deleteComunity.do`,  // 删除帖子
   // upLoadPicUrl: `${HOST}publicPic.do`,  // 上传图片
-  pushPostingsUrl: `${HOST}publicCommunity.do`,  // 发布帖子
-  getAllOrgNameUrl: `${HOST}findAllOrgName.do`,  // 获取所有组织名称
-  getMapMarkesUrl: `${HOST}findAllPosition.do`,  // 获取地图markes
-  markeDetailUrl: `${HOST}findPositionDetail.do`,  // 地图marke点详情
-  addWorkUrl: `${HOST}addWork.do`,  // 添加近期工作
+  getMyRewardsUrl: `${HOST}wqqapi/act/SearchPartyInfo`,  // 我的奖惩
+  codeImageUrl: `${HOST}wqqapi/act/generateCode`,//生成二维码
   findMyPointUrl: `${HOST}findMyPoint.do`,  // 个人积分信息
   pointListUrl: `${HOST}findOrgOrder.do`,  // 积分列表
   userInfoUrl: `${HOST}fingByOrgID.do`,  // 个人中心信息
-  changeAvatarUrl: `${HOST}modifyAvatar.do`,  // 修改个人头像
+  changeAvatarUrl: `${HOST}wqqapi/act/uploadUserHeader`,  // 修改个人头像
   changePasswordUrl: `${HOST}modifyPassword.do`,  // 修改密码
   getMyWorkUrl: `${HOST}findMyWork.do`,  // 查看我的近期工作
   deleteWorkUrl: `${HOST}deleteWork.do`,  // 删除近期工作

@@ -6,37 +6,15 @@ Page({
       text: '@我的',
       text1: '所有'
     },
-    lists: [
-      {
-        actName: '方芳芳',
-        title: '发发呆',
-        createDate: '2018-4-11',
-        actDate: '2018-4-11',
-        place: '南京鼓楼',
-        contracts: '苏朋辉',
-        tel: '13853522562',
-        remark: '带的',
-        state: '1'
-      },
-      {
-        actName: '方芳芳',
-        title: '发发呆',
-        createDate: '2018-4-11',
-        actDate: '2018-4-11',
-        place: '南京鼓楼',
-        contracts: '苏朋辉',
-        tel: '13853522562',
-        remark: '带的',
-        state: '2'
-      }
-    ]
-
+    noData: false,
+    showCodeImage: true,
+    lists: []
   },
   onLoad(options) {
-    this.getReserveLists('1');
+    this.getReserveLists('1',0);
   },
   // 获取活动预约发布列表
-  getReserveLists(type){
+  getReserveLists(type,active){
     getApp().$ajax({
       httpUrl: getApp().api.getReserveListsUrl,
       data: {
@@ -44,7 +22,11 @@ Page({
         type: type
       }
     }).then(({ data }) => {
-      this.getGroupLists();
+      this.setData({
+        lists: data,
+        active: active,
+        noData: data.toString()==''?true:false
+      })
     })
   },
   onPullDownRefresh: function () {
@@ -53,10 +35,39 @@ Page({
   onReachBottom: function () {
   
   },
-  changeNav(e) {
+  // 获取二维码图片
+  getCodeImage(e){
+    getApp().$ajax({
+      httpUrl: getApp().api.codeImageUrl,
+      data: {
+        actid: e.target.dataset.actid,
+      }
+    }).then(({ data }) => {
+      this.setData({
+        codeImage: `${getApp().imgUrl}${data}`,
+        showCodeImage: false
+      })
+    }) 
+  },
+  hideCodeImage(){
     this.setData({
-      active: e.currentTarget.dataset.index
+      showCodeImage: true
     })
-    this.data.active == 0 ? this.getReserveLists('1') : this.getReserveLists('0')
+  },
+  clickOrder(e) {
+    getApp().$ajax({
+      httpUrl: getApp().api.actSignUrl,
+      data: {
+        userID: wx.getStorageSync('userinfo').id,
+        actID: e.target.dataset.actid,
+        type: '1'
+      }
+    }).then(({ data }) => {
+      this.data.active == 0 ? this.getReserveLists('1', 0) : this.getReserveLists('0', 1);
+    })  
+  },
+  changeNav(e) {
+    let active = e.currentTarget.dataset.index;
+    active == 0 ? this.getReserveLists('1',0) : this.getReserveLists('0',1)
   }
 })

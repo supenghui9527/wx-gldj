@@ -37,6 +37,7 @@ App({
   },
   api,
   $ajax: util.$ajax,
+  imgUrl: 'http://47.104.128.137:8080/gldj/Code/image/',
   globalData: {
     userInfo: null
   }

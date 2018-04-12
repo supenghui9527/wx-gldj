@@ -6,6 +6,25 @@ Page({
       idx: false,
       mine: true
     },
+    myfouse: '',
+    myfans: '',
+    mypost: '',
+    myscore: '',
+    userName: '',
+    orgName: '',
+    avatar: '',
+  },
+  onLoad() {
+    let userinfo = wx.getStorageSync('userinfo');
+    this.setData({
+      myfouse: userinfo.interests,
+      myfans: userinfo.fans,
+      mypost: userinfo.acts,
+      myscore:userinfo.score,
+      userName: userinfo.name,
+      orgName: userinfo.orgName,
+      avatar: `http://192.168.8.24:8080/${userinfo.avatar}`
+    })
   },
   //上传头像
   changeAvatar: function (e) {
@@ -15,10 +34,11 @@ Page({
         let tempFilePaths = res.tempFilePaths;
         wx.uploadFile({
           url: getApp().api.changeAvatarUrl,
+          header: { "Content-Type": "multipart/form-data" },
           filePath: tempFilePaths[0],
-          name: 'file',
+          name: 'image',
           formData: {
-            orgID: wx.getStorageSync('userInfo').orgID
+            userID: wx.getStorageSync('userinfo').id
           },
           success: function (res) {
             let data = JSON.parse(res.data);
@@ -48,6 +68,7 @@ Page({
       showPlus: false
     })
   },
+  // 
   gomessage() {
     wx.navigateTo({
       url: '/pages/mine/messageBox/messageBox',

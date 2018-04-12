@@ -99,11 +99,13 @@ checkbox-group,.plus-group{
 .focus{
   width:140rpx;
   height: 50rpx;
-  line-height: 50rpx;
   position: absolute;
   right:22rpx;
   top:50%;
   margin-top:-22.5rpx;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #ffb849;
   font-size:30rpx;
   text-align: center;

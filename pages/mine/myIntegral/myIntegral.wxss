@@ -70,5 +70,4 @@
   text-align: center;
   font-size:32rpx;
   color:#828282;
-  border-top:1px solid #f0f0f0;
 }

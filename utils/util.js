@@ -14,9 +14,9 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 // 请求方法
-function $ajax({ wxApp = false, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
+function $ajax({ isShowLoading = true, wxApp = false, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
   return new Promise((resolve, reject) => {
-    wx.showLoading({ mask: true, title: title });
+    isShowLoading && wx.showLoading({ mask: true, title: title });
     wx.request({
       url: httpUrl,
       method: method,

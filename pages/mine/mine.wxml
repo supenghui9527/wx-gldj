@@ -5,31 +5,31 @@
     <view class='user'>
       <image catchtap="gomessage" class="email" src="/images/news.png"></image>
       <view>
-        <image catchtap="changeAvatar" class="avatar" src="/images/avatar.jpg"></image>
-        <view class='name'>黄海强</view>
+        <image catchtap="changeAvatar" class="avatar" src="{{avatar}}"></image>
+        <view class='name'>{{userName}}</view>
         <view class='stars'>
           <image wx:for="{{3}}" src='/images/star.png'></image>
         </view>
-        <view class='post'>党工委书记</view>
+        <view class='post'>{{orgName}}</view>
       </view>
       <view class='informate'>
         <navigator url='/pages/mine/myFocusing/myFocusing' open-type='navigate' hover-class="none">
-          <view>12</view>
+          <view>{{myfouse||0}}</view>
           <view>我的关注</view>
           <view class='line'></view>
         </navigator>
         <navigator url='/pages/mine/myFans/myFans' open-type='navigate' hover-class="none">
-          <view>256</view>
+          <view>{{myfans||0}}</view>
           <view>我的粉丝</view>
           <view class='line'></view>
         </navigator>
         <navigator url='/pages/mine/myPosts/myPosts' open-type='navigate' hover-class="none">
-          <view>32</view>
+          <view>{{mypost||0}}</view>
           <view>我的发布</view>
           <view class='line'></view>
         </navigator>
         <navigator url='/pages/mine/myIntegral/myIntegral' open-type='navigate' hover-class="none">
-          <view>30</view>
+          <view>{{myscore||0}}</view>
           <view>我的积分</view>
         </navigator>
       </view>

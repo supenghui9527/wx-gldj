@@ -1,9 +1,9 @@
 <template name="signList">
-  <block wx:for="{{lists}}">
+  <block wx:for="{{lists}}" wx:key="index">
     <view class='sign-item'>
       <view>
         <view class='title'>{{item.title}}</view>
-        <view class='time'>{{item.createDate}}</view>
+        <view class='time'>{{item.create_date_time}}</view>
       </view>
       <view class='sign-content'>
         <view>
@@ -11,13 +11,14 @@
           <view class='activity-time'>时间：{{item.actDate}}</view>
           <view class='activity-place'>地点：{{item.place}}</view>
           <!-- <view class='activity-company'>主办单位：{{}}</view> -->
-          <view class='activity-tel'>联系人：{{item.contracts}}&nbsp{{item.tel}}</view>
+          <view class='activity-tel'>联系人：{{item.contracts}} {{item.tel}}</view>
           <view class='activity-remark'>备注：{{item.remark}}</view>
         </view>
         <view>
-          <image wx:if="{{item.state==2}}" class='signed' src="/images/signed.png"></image>
-          <view wx:elif="{{item.state==0}}" class='ordered'>待预约</view>
-          <view wx:elif="{{item.state!=0}}" class='ordered'>已预约</view>
+          <view class='code' data-actid="{{item.id}}" catchtap='getCodeImage' hidden="{{item.ismy!=1}}">签到码</view>
+          <image wx:if="{{item.status==2}}" class='signed' src="/images/signed.png"></image>
+          <view wx:if="{{item.status==0}}" data-actid="{{item.id}}" catchtap='clickOrder' class='ordered'>待预约</view>
+          <view wx:if="{{item.status!=0}}" class='ordered'>已预约</view>
         </view>
       </view>
     </view>

@@ -99,18 +99,12 @@ Page({
   },
   onLoad() {
     this.getGroupLists();
-    getApp().$ajax({
-      httpUrl: getApp().api.getActTypeUrl,
-      data: {}
-    }).then(({ data }) => {
-      this.setData({
-        hotGroup: data
-      })
-    })
+    this.getHotGroupLists();
   },
   // 获取帖子列表
   getPostingsList(type) {
     getApp().$ajax({
+      isShowLoading: false,
       httpUrl: 'http://www.wsspha.cn/images/bg.png',
       data: {
         orgID: type
@@ -119,9 +113,22 @@ Page({
 
     })
   },
+  // 获取热门分类列表
+  getHotGroupLists() {
+    getApp().$ajax({
+      isShowLoading: false,
+      httpUrl: getApp().api.getActTypeUrl,
+      data: {}
+    }).then(({ data }) => {
+      this.setData({
+        hotGroup: data
+      })
+    })
+  },
   // 获取用户分组
   getGroupLists() {
     getApp().$ajax({
+      isShowLoading: false,
       httpUrl: getApp().api.getFouseGroupUrl,
       data: {
         userId: wx.getStorageSync('userinfo').id

@@ -38,6 +38,19 @@
 .sign-content .org-name{
   font-size:30rpx;
 }
+.code{
+  padding: 0 20rpx; 
+  height: 50rpx;
+  position: absolute;
+  right: 25rpx;
+  bottom: 90rpx;
+  line-height: 50rpx;
+  font-size:32rpx;
+  text-align: center;
+  color:#23bc4e;
+  border:1px solid #23bc4e;
+  border-radius: 16px;
+}
 .signed{
   position: absolute;
   bottom: 60rpx;

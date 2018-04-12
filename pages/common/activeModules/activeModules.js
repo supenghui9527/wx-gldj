@@ -31,13 +31,19 @@ Component({
           getApp().$ajax({
             httpUrl: getApp().api.actSignUrl,
             data: {
-              actID: res.result.author,
-              userID: '233',
+              actID: JSON.parse(res.result).author,
+              userID: wx.getStorageSync('userinfo').id,
               type: '2'
             }
           }).then(({ data }) => {
-
+            wx.showToast({
+              title: '签到成功',
+              icon:'none'
+            })
           })
+        },
+        fail:()=>{
+          console.log(1)
         }
       })
     }
