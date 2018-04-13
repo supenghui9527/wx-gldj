@@ -50,7 +50,7 @@ Page({
       filePath: tempFilePaths[i],
       name: 'image',
       formData: {
-        ID: wx.getStorageSync('userinfo').id
+        ID: this.data.id
       },
       success: (resp) => {
         successUp++;
