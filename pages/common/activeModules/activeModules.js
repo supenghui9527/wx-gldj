@@ -19,6 +19,9 @@ Component({
   /**
    * 组件的方法列表
    */
+  attached(){
+    this.setData({userType:wx.getStorageSync('userinfo').isSuperAdmin})
+  },
   methods: {
     // 关闭弹出活动
     closePlus() {

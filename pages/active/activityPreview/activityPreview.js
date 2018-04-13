@@ -71,7 +71,6 @@ Page({
           title: '请确认信息是否填写完整',
           icon: 'none'
         })
-
         return false;
       }
 

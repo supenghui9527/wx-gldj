@@ -1,7 +1,7 @@
 <!--pages/active/post/post.wxml-->
 <view class='post'>
   <form bindsubmit="submitPostings">
-    <input hidden='{{true}}' value='402880d162a8dd960162a8dded9c0000' name="ID"></input>
+    <input hidden='{{true}}' value='{{id}}' name="ID"></input>
     <!-- <input hidden='{{true}}' value='{{tempFilePaths}}' name="pic"></input> -->
     <view class='title' catchtap='goActivity'>
       <label>活动</label>

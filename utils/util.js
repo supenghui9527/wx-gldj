@@ -42,16 +42,18 @@ function $ajax({ isShowLoading = true, wxApp = false, httpUrl, data = {}, method
 }
 function showBigPic(e) {
   let img = e.currentTarget.dataset.img,
-    imgUrl = e.currentTarget.dataset.imgurl,
+    imgUrl = 'http://www.wsspha.cn',
     urls = [];
   for (let i = 0; i < img.length; i++) {
     urls[i] = imgUrl + img[i];
   }
+  console.log(urls)
   wx.previewImage({
-    urls: urls
+    urls: img
   })
 }
 module.exports = {
-  formatTime: formatTime,
-  $ajax: $ajax
+  formatTime,
+  $ajax,
+  showBigPic
 }

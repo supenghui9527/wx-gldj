@@ -31,8 +31,8 @@
     </view>
     <view  catchtap='goDetail' class='text warrap'>{{item.pubContent}}</view>
     <view class='pictures warrap'>
-      <view wx:for="{{item.pic}}" wx:key="index">
-        <image src='/images/avatar.jpg' wx:key="index"></image>
+      <view wx:for="{{item.pic}}" data-img="{{item.pic}}" catchtap='showBigImage' wx:for-item="i" wx:key="index">
+        <image src='{{i}}' wx:key="index"></image>
       </view>
     </view>
     <view class='user-do'>

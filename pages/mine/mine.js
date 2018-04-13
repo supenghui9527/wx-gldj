@@ -23,14 +23,15 @@ Page({
       myscore:userinfo.score,
       userName: userinfo.name,
       orgName: userinfo.orgName,
-      avatar: `http://192.168.8.24:8080/${userinfo.avatar}`
+      userType: userinfo.isSuperAdmin,
+      avatar: `${getApp().imgUrl}${userinfo.avatar}`
     })
   },
   //上传头像
   changeAvatar: function (e) {
     let ctx = this;
     wx.chooseImage({
-      success: function (res) {
+      success: (res) =>{
         let tempFilePaths = res.tempFilePaths;
         wx.uploadFile({
           url: getApp().api.changeAvatarUrl,
@@ -40,15 +41,17 @@ Page({
           formData: {
             userID: wx.getStorageSync('userinfo').id
           },
-          success: function (res) {
-            let data = JSON.parse(res.data);
-            if (data.state == 1) {
+          success: ({data})=>{
+            let datas = JSON.parse(data);
+            if (datas.state==1){
+              let userinfo = wx.getStorageSync('userinfo');
+              userinfo.avatar = datas.data;
+              wx.setStorageSync('userinfo', userinfo);
+              ctx.onLoad();
               wx.showToast({
-                title: data.message,
-                success: (res) => {
-                  ctx.onLoad();
-                }
-              })
+                title: '头像修改成功',
+                icon:'none'
+              });
             }
           }
         })

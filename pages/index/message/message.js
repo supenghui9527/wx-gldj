@@ -44,7 +44,7 @@ Page({
       }
     }).then(({ data }) => {
       this.setData({
-        codeImage: `${getApp().imgUrl}${data}`,
+        codeImage: `${getApp().codeUrl}${data}`,
         showCodeImage: false
       })
     }) 

@@ -12,28 +12,7 @@ Page({
     nav: ['关注', '热门'],
     showMsg: false,
     hotGroup: [],
-    groupLists:[
-      {
-        name: '分组一',
-        id: 2
-      },
-      {
-        name: '分组二',
-        id: 2
-      },
-      {
-        name: '分组三',
-        id: 2
-      },
-      {
-        name: '分组四',
-        id: 2
-      },
-      {
-        name: '分组五',
-        id: 2
-      },
-    ],
+    groupLists:[],
     lists: [
       {
         orgName: '机关工委',
@@ -41,7 +20,7 @@ Page({
         actName: '清晨跑步',
         timeTip: '2018-4-9',
         pubContent: '开发小程序的第一步，你需要拥有一个小程序帐号，通过这个帐号你就可以管理你的小程序。跟随这个教程，开始你的小程序之旅吧！',
-        pic: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
+        pic: ['http://www.wsspha.cn/images/avatar.jpg', 'http://www.wsspha.cn/images/avatar.jpg', 'http://www.wsspha.cn/images/avatar.jpg'],
         isView: 1,
         shares: 2,
         comments: 3,
@@ -98,6 +77,7 @@ Page({
     focusGroup: true // 点击关注分组
   },
   onLoad() {
+    this.getPostingsList(0);
     this.getGroupLists();
     this.getHotGroupLists();
   },
@@ -105,7 +85,7 @@ Page({
   getPostingsList(type) {
     getApp().$ajax({
       isShowLoading: false,
-      httpUrl: 'http://www.wsspha.cn/images/bg.png',
+      httpUrl: getApp().api.getPostingsUrl,
       data: {
         orgID: type
       }

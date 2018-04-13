@@ -5,7 +5,7 @@
   </view>
   <view class='lists'>
     <block wx:for="{{lists}}" wx:key="index">
-      <view data-item='{{item}}' catchtap='chooseItem'><text>{{item.text}}</text></view>
+      <view data-item='{{item}}' catchtap='chooseItem'><text>{{item.title}}</text></view>
     </block>
   </view>
 </view>

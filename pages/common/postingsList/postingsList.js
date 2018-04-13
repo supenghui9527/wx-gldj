@@ -23,6 +23,10 @@ Component({
       });
       this.triggerEvent('overflowHidden');
     },
+    // 点击浏览大图
+    showBigImage(e) {
+      getApp().showBigPic(e);
+    },
     // 隐藏分组
     hideGroup() {
       this.setData({
@@ -43,10 +47,6 @@ Component({
       }).then(({ data }) => {
 
       })
-    },
-    // 点击浏览大图
-    showBigPictrues() {
-
     },
     // 选择关注分组
     chooseGroup(e) {
@@ -88,7 +88,7 @@ Component({
     },
     // 点赞
     clickLikes() {
-      this.userDo('223','2')
+      this.userDo('4028a88162be2e570162be346660000c','2')
     }
   }
 })

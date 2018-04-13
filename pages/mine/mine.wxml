@@ -8,27 +8,27 @@
         <image catchtap="changeAvatar" class="avatar" src="{{avatar}}"></image>
         <view class='name'>{{userName}}</view>
         <view class='stars'>
-          <image wx:for="{{3}}" src='/images/star.png'></image>
+          <image wx:for="{{3}}" wx:key="index" src='/images/star.png'></image>
         </view>
         <view class='post'>{{orgName}}</view>
       </view>
       <view class='informate'>
-        <navigator url='/pages/mine/myFocusing/myFocusing' open-type='navigate' hover-class="none">
+        <navigator class="{{userType==0?'active':''}}" url='/pages/mine/myFocusing/myFocusing' open-type='navigate' hover-class="none">
           <view>{{myfouse||0}}</view>
           <view>我的关注</view>
           <view class='line'></view>
         </navigator>
-        <navigator url='/pages/mine/myFans/myFans' open-type='navigate' hover-class="none">
+        <navigator wx:if="{{userType==1}}" url='/pages/mine/myFans/myFans' open-type='navigate' hover-class="none">
           <view>{{myfans||0}}</view>
           <view>我的粉丝</view>
           <view class='line'></view>
         </navigator>
-        <navigator url='/pages/mine/myPosts/myPosts' open-type='navigate' hover-class="none">
+        <navigator wx:if="{{userType==1}}" url='/pages/mine/myPosts/myPosts' open-type='navigate' hover-class="none">
           <view>{{mypost||0}}</view>
           <view>我的发布</view>
           <view class='line'></view>
         </navigator>
-        <navigator url='/pages/mine/myIntegral/myIntegral' open-type='navigate' hover-class="none">
+        <navigator class="{{userType==0?'active':''}}" url='/pages/mine/myIntegral/myIntegral' open-type='navigate' hover-class="none">
           <view>{{myscore||0}}</view>
           <view>我的积分</view>
         </navigator>

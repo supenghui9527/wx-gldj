@@ -12,11 +12,13 @@
   color:#2e2e2e;
 }
 .org{
+  width:100%;
+  box-sizing: border-box;
   position: absolute;
   bottom:120rpx;
   left: 0;
   display: flex;
-  padding: 0 30rpx;
+  /* padding: 0 30rpx; */
   flex-wrap: wrap;
 }
 .org view{

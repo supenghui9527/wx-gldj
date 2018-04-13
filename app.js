@@ -37,7 +37,9 @@ App({
   },
   api,
   $ajax: util.$ajax,
-  imgUrl: 'http://47.104.128.137:8080/gldj/Code/image/',
+  imgUrl: `${api.HOST}`,
+  showBigPic: util.showBigPic,
+  codeUrl: `${api.HOST}Code/image/`,
   globalData: {
     userInfo: null
   }

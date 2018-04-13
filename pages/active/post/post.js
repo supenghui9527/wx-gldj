@@ -6,32 +6,7 @@ Page({
     active: 0,
     date: util.formatTime(date),
     tempFilePaths: [],
-    typeLists: [
-      {
-        name: '党工委',
-        id: 2
-      },
-      {
-        name: '党小组会',
-        id: 2
-      },
-      {
-        name: '党员大会',
-        id: 2
-      },
-      {
-        name: '党支部',
-        id: 2
-      },
-      {
-        name: '党日活动',
-        id: 2
-      },
-      {
-        name: '党员活动',
-        id: 2
-      }
-    ]
+    typeLists: []
   },
   onLoad(options) {
     if (options.id) this.setData({title: options.text,id: options.id})
@@ -126,8 +101,8 @@ Page({
           if (length) {
             this.getData(this.data.tempFilePaths, successUp, failUp, i, length, res.data.data);
           } else {
-            wx.navigateTo({
-              url: '/pages/home/home'
+            wx.redirecTo({
+              url: '/pages/index/index'
             })
           }
       }

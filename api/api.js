@@ -1,5 +1,6 @@
-const HOST = 'http://192.168.8.24:8080/';
+const HOST = 'http://192.168.8.24:8080/'; //http://47.104.128.137:8080/gldj/
 module.exports = {
+  HOST,
   loginUrl: `${HOST}api/user/login`,  // 登录接口
   getPostingsUrl: `${HOST}api/act/list`,  // 获取帖子列表
   getActTypeUrl: `${HOST}api/acttype/list`,  // 活动类型列表
@@ -10,10 +11,10 @@ module.exports = {
   getReserveListsUrl: `${HOST}api/act/relist`, // 活动预约发布列表
   userFouseUrl: `${HOST}api/usergroup/interest`, // 用户关注
   actPostUrl: `${HOST}wqqapi/act/pub`,  // 活动发布
+  getActTitleUrl:`${HOST}api/act/titlelist`,// 活动标题列表
   actSignUrl: `${HOST}wqqapi/act/sign`, // 活动预约签到
   upLoadPicUrl: `${HOST}wqqapi/act/uploadMultipleFile`,  // 活动发布上传图片
-  postingsLikesUrl: `${HOST}act/conduct`,  // 查询帖子点赞
-  // upLoadPicUrl: `${HOST}publicPic.do`,  // 上传图片
+  postingsLikesUrl: `${HOST}wqqapi/act/conduct`,  // 查询帖子点赞
   getMyRewardsUrl: `${HOST}wqqapi/act/SearchPartyInfo`,  // 我的奖惩
   codeImageUrl: `${HOST}wqqapi/act/generateCode`,//生成二维码
   findMyPointUrl: `${HOST}findMyPoint.do`,  // 个人积分信息
