@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 // 请求方法
-function $ajax({ isShowLoading = true, wxApp = false, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
+function $ajax({ isShowLoading = true, wxApp = true, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
   return new Promise((resolve, reject) => {
     isShowLoading && wx.showLoading({ mask: true, title: title });
     wx.request({
@@ -24,17 +24,18 @@ function $ajax({ isShowLoading = true, wxApp = false, httpUrl, data = {}, method
       header: method === 'post' ? { "Content-Type": "application/x-www-form-urlencoded" } : { 'content-type': 'application/json' },
       success: ({ data: { data, message, state } }) => {
         if (state == 1) {
-          // wx.showToast({ title: message, icon: 'none'})
           resolve({ data: data, message });
           wx.hideLoading();
         } else {
           wx.hideLoading();
-          wxApp != false ? wxApp.setData({ err: message }) : wx.showToast({ title: message,icon:'none'})
+          wxApp ? wx.showToast({ title: message, icon: 'none' }) : wxApp.setData({ err: message });
         }
       },
       fail: (err) => {
+        wx.hideLoading();
         wx.showToast({
-          title: err
+          title: '网络请求超时，请检查您的网络',
+          icon: 'none'
         })
       }
     })

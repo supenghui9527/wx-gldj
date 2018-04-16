@@ -4,18 +4,18 @@
     <text>30分</text>
   </view>
   <view class='lists'>
-    <view wx:for="{{lists}}" class='list-item'>
-      <view>{{item.time}}</view>
+    <view wx:for="{{lists}}" wx:key="index" class='list-item'>
+      <view>{{item.date}}</view>
       <view wx:if="{{index!=0}}" class='line'></view>
       <view wx:else>
         <view class='active-circle'></view>
         <view class='active-line'></view>
       </view>
       <view>
-        <block wx:for="{{item.list}}" wx:for-index="idx" wx:for-item="dayItem">
+        <block wx:for="{{item.list}}" wx:for-index="idx" wx:key="idx" wx:for-item="dayItem">
           <view class="day-item">
             <image src='/images/offer.png'></image>
-            <view class='content'>{{dayItem.content}}</view>
+            <view class='content'>{{dayItem.actName+'活动'+dayItem.Score+'积分'}}</view>
             <view class='time'>{{dayItem.time}}</view>
           </view>
           <view wx:if="{{index+1==lists.length && idx+1==item.list.length}}"></view>

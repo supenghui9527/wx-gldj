@@ -24,3 +24,15 @@
   color:#646464;
   font-size: 34rpx;
 }
+.btn{
+  width: 600rpx;
+  height: 90rpx;
+  margin: 0 auto;
+  line-height: 90rpx;
+  text-align: center;
+  background-color:#c6f5fd;
+  border-radius: 40rpx;
+  font-weight: bold;
+  margin-top:115rpx;
+  color:#323232;
+}

@@ -6,7 +6,7 @@
     <view hidden='{{true}}' class='list-content'>
       <view class='title'>请选择分组</view>
       <view class='list-item'>
-        <checkbox-group wx:for="{{8}}">
+        <checkbox-group wx:for="{{8}}" wx:key="key">
           <label class="checkbox">
             <checkbox value="分组一" checked="{{index}}" />分组一
           </label>
@@ -20,19 +20,19 @@
     </view>
     <view class='item-content'>
       <view class='avatar warrap'>
-        <image src='/images/activity.png'></image>
+        <image src='{{detail.imgUrl+detail.avatar}}'></image>
         <view>
-          <view class='orgname'>党支部一</view>
+          <view class='orgname'>{{detail.orgName}}</view>
           <view class='type'>
-            <text>公开党课</text>
-            <text>33分钟前</text>
+            <text>{{detail.title}}</text>
+            <text>{{detail.actDate}}</text>
           </view>
         </view>
         <view bindtap='showGroup' class='focus'>+关注</view>
       </view>
-      <view class='text warrap'>是时时刻刻防空旅费发放开发了开放开发克劳福德房贷发放的反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复</view>
+      <view class='text warrap'>{{detail.pubContent}}</view>
       <view class='pictures warrap'>
-        <view wx:for="{{5}}" wx:key="index">
+        <view wx:for="{{detail.pics}}" wx:key="index">
           <image src='/images/avatar.jpg' wx:key="index"></image>
         </view>
       </view>
@@ -40,11 +40,11 @@
   </view>
   <view class='user-content'>
     <view class='sign'>
-      <view>10人签到</view>
+      <view>{{detail.checksDetail?detail.checksDetail.length:0}}人签到</view>
       <scroll-view scroll-x="true">
-        <view class='scroll-item' wx:for="{{9}}">
-          <image src='/images/avatar.jpg'></image>
-          <view>苏朋辉</view>
+        <view class='scroll-item' wx:for="{{detail.checksDetail}}" wx:for-item="i" wx:key="index">
+          <image src='{{i.avatar}}'></image>
+          <view>{{i.name}}</view>
         </view>
       </scroll-view>
     </view>
@@ -61,7 +61,7 @@
         </view>
       </view>
       <view hidden='{{active!=0}}'>
-        <view wx:for="{{6}}" class='share-content'>
+        <view wx:for="{{6}}" wx:key="index" class='share-content'>
           <image class='avatar-img' src='/images/avatar.jpg'></image>
           <view>
             <view class='share-name'>苏朋辉</view>
@@ -71,7 +71,7 @@
         </view>
       </view>
       <view hidden='{{active!=1}}'>
-        <view wx:for="{{6}}" class='comment-content'>
+        <view wx:for="{{6}}" wx:key="index" class='comment-content'>
           <image class='avatar-img' src='/images/avatar.jpg'></image>
           <view>
             <view class='user-name'>苏朋辉</view>
@@ -81,7 +81,7 @@
         </view>
       </view>
       <view hidden='{{active!=2}}'>
-        <view wx:for="{{6}}" class='like-content'>
+        <view wx:for="{{6}}" wx:key="index" class='like-content'>
           <image class='avatar-img' src='/images/avatar.jpg'></image>
           <view class='like-name'>苏朋辉</view>
         </view>
@@ -89,8 +89,9 @@
     </view>
   </view>
   <view style='width:100%;height:100rpx'></view>
+  <view hidden='{{showComment}}' bind:touchstart='goComment' class='show-fixed'></view>
   <view hidden='{{showComment}}' class='comment'>
-    <textarea auto-focus="true" fixed="true" placeholder='请输入评论内容'></textarea>
+    <textarea fixed="true" bindconfirm="sureComment" placeholder='请输入评论内容'></textarea>
   </view>
   <view class='user-do'>
     <view>

@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
-    
+    "pages/index/detail/detail",
+    "pages/loading/loading",
+    "pages/login/login",
+    "pages/mine/myIntegral/myIntegral",
     "pages/mine/mine",
     "pages/active/post/post",
     "pages/active/activityPreview/activityPreview",
@@ -13,11 +15,9 @@
     "pages/index/search/search",
     "pages/active/post/activityList/activityList",
     "pages/active/activityPreview/userLists/userLists",
-    "pages/index/detail/detail",
+    
     "pages/index/notice/notice",
     "pages/active/consultation/consultation",
-    "pages/mine/myIntegral/myIntegral",
-    "pages/loading/loading",
     "pages/mine/myTask/myTask",
     "pages/active/ordered/ordered",
     "pages/mine/mySign/mySign",
@@ -35,5 +35,9 @@
     "navigationBarBackgroundColor": "#c6f5fd",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 6000,
+    "downloadFile": 10000
   }
 }

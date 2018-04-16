@@ -3,6 +3,7 @@ module.exports = {
   HOST,
   loginUrl: `${HOST}api/user/login`,  // 登录接口
   getPostingsUrl: `${HOST}api/act/list`,  // 获取帖子列表
+  getPostingsDetailUrl: `${HOST}api/act/listdetail`,  // 获取帖子列表
   getActTypeUrl: `${HOST}api/acttype/list`,  // 活动类型列表
   getFouseGroupUrl: `${HOST}api/usergroup/list`,// 关注分组列表
   addFouseGroupUrl: `${HOST}api/usergroup/add`, // 添加关注分组
@@ -16,9 +17,8 @@ module.exports = {
   upLoadPicUrl: `${HOST}wqqapi/act/uploadMultipleFile`,  // 活动发布上传图片
   postingsLikesUrl: `${HOST}wqqapi/act/conduct`,  // 查询帖子点赞
   getMyRewardsUrl: `${HOST}wqqapi/act/SearchPartyInfo`,  // 我的奖惩
-  codeImageUrl: `${HOST}wqqapi/act/generateCode`,//生成二维码
-  findMyPointUrl: `${HOST}findMyPoint.do`,  // 个人积分信息
-  pointListUrl: `${HOST}findOrgOrder.do`,  // 积分列表
+  codeImageUrl: `${HOST}wqqapi/act/generateCode`, //生成二维码
+  findMyPointUrl: `${HOST}wqqapi/act/findMyScoreByUserID`, // 个人积分信息
   userInfoUrl: `${HOST}fingByOrgID.do`,  // 个人中心信息
   changeAvatarUrl: `${HOST}wqqapi/act/uploadUserHeader`,  // 修改个人头像
   changePasswordUrl: `${HOST}modifyPassword.do`,  // 修改密码

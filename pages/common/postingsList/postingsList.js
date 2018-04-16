@@ -10,7 +10,8 @@ Component({
   },
   data: {
     isFocusGroup: true,
-    showAddGroup: true
+    showAddGroup: true,
+    groupID:[]
   },
   /**
    * 组件的方法列表
@@ -50,15 +51,20 @@ Component({
     },
     // 选择关注分组
     chooseGroup(e) {
-      console.log(e)
+      let value = e.detail.value;
+      console.log(value)
+      this.data.groupID.push(value[0]);
     },
+    // 确认关注
     sureFouse() {
+      let groupID =  this.data.groupID;
+      console.log(typeof(groupID.toString()))
       getApp().$ajax({
         httpUrl: getApp().api.userFouseUrl,
         data: {
           userID: wx.getStorageSync('userinfo').id,
-          orgID: '',
-          groupID: ''
+          orgID: wx.getStorageSync('userinfo').dept_id,
+          groupID: groupID.toString()
         }
       }).then(({ data }) => {
 
@@ -81,14 +87,14 @@ Component({
       }
     },
     // 进入详情
-    goDetail(){
+    goDetail(e){
       wx.navigateTo({
-        url: '/pages/index/detail/detail',
+        url: `/pages/index/detail/detail?actId=${e.currentTarget.dataset.actid}`,
       })
     },
     // 点赞
-    clickLikes() {
-      this.userDo('4028a88162be2e570162be346660000c','2')
+    clickLikes(e) {
+      this.userDo(e.currentTarget.dataset.id,'2')
     }
   }
 })

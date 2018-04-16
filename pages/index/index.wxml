@@ -17,8 +17,8 @@
         <text animation="{{animationData}}" hidden='{{active!=index}}' catchtap='showFocus' class='triangle-down'></text>
       </view>
     </view>
-    <view hidden='{{!focusShow}}' class='show-fixed'>
-      <view class="onfocus">
+    <view hidden='{{!focusShow}}' catchtap='hideFixed' class='show-fixed'>
+      <view class="onfocus" catchtap='showFixed'>
         <view class='focus-do'>
           <text>我的分组</text>
           <text catchtap="editGroup" style='color:#ffa703'>{{editText}}</text>
@@ -36,8 +36,8 @@
         </view>
       </view>
     </view>
-    <view hidden='{{!hotShow}}' class='show-fixed'>
-      <view class='onfocus'>
+    <view hidden='{{!hotShow}}' catchtap='hideFixed' class='show-fixed'>
+      <view class='onfocus' catchtap='showFixed'>
         <view class='hot-type'>
           <view wx:for="{{hotGroup}}" wx:key="index">
             <view>{{item.name}}</view>

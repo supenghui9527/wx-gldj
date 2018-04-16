@@ -4,9 +4,9 @@
   <view hidden='{{isFocusGroup}}' class='list-content'>
     <view class='title'>请选择分组</view>
     <view class='list-item'>
-      <checkbox-group bindchange="chooseGroup" wx:for="{{groupLists}}" wx:key="index">
+      <checkbox-group bindchange="chooseGroup" checked="false" wx:for="{{groupLists}}" wx:key="index">
         <label class="checkbox">
-          <checkbox value="{{item.id}}"/>{{item.name}}
+          <checkbox value="{{item.id}}" />{{item.name}}
         </label>
       </checkbox-group>
       <view catchtap='showAddGroup' class='plus-group'>+新建分组</view>
@@ -18,21 +18,21 @@
   </view>
   <view wx:for="{{lists}}" wx:key="index" class='item-content'>
     <view class='avatar warrap'>
-      <image src="{{item.orgPic}}"></image>
+      <image src="{{item.imgUrl+item.avatar}}"></image>
       <view>
         <view class='orgname'>{{item.orgName}}</view>
         <view class='type'>
-          <text>{{item.actName}}</text>
-          <text>{{item.timeTip}}</text>
+          <text>{{item.title}}</text>
+          <text>{{item.actDate}}</text>
         </view>
       </view>
       <view wx:if="{{item.isView==1}}" class='focus'>取消关注</view>
       <view wx:else bindtap='showGroup' class='focus'>+关注</view>
     </view>
-    <view  catchtap='goDetail' class='text warrap'>{{item.pubContent}}</view>
-    <view class='pictures warrap'>
-      <view wx:for="{{item.pic}}" data-img="{{item.pic}}" catchtap='showBigImage' wx:for-item="i" wx:key="index">
-        <image src='{{i}}' wx:key="index"></image>
+    <view  catchtap='goDetail' data-actid="{{item.id}}" class='text warrap'>{{item.pubContent}}</view>
+    <view wx:if="{{item.pics}}" class='pictures warrap'>
+      <view wx:for="{{item.pics}}" data-img="{{item.pics}}" catchtap='showBigImage' wx:for-item="i" wx:key="index">
+          <image src="{{item.imgUrl+i}}"></image> 
       </view>
     </view>
     <view class='user-do'>
@@ -41,12 +41,12 @@
         <button class='postings-share' open-type='share'>分享</button>
         <text>{{item.shares}}</text>
       </view>
-      <view catchtap='goDetail'>
+      <view data-actid="{{item.id}}" catchtap='goDetail'>
         <image src='/images/comment.png'></image>
         <text>评论</text>
         <text>{{item.comments}}</text>
       </view>
-      <view catchtap='clickLikes'>
+      <view data-id="{{item.id}}" catchtap='clickLikes'>
         <image src="/images/fabulous.png"></image>
         <text>赞</text>
         <text>{{item.likes}}</text>
