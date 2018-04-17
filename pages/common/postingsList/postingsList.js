@@ -11,6 +11,7 @@ Component({
   data: {
     isFocusGroup: true,
     showAddGroup: true,
+    activityID: '',
     groupID:[]
   },
   /**
@@ -18,14 +19,16 @@ Component({
    */
   methods: {
     // 显示分组
-    showGroup() {
+    showGroup(e) {
       this.setData({
-        isFocusGroup: false
+        isFocusGroup: false,
+        orgID: e.currentTarget.dataset.orgid
       });
       this.triggerEvent('overflowHidden');
     },
     // 点击浏览大图
     showBigImage(e) {
+      console.log(e)
       getApp().showBigPic(e);
     },
     // 隐藏分组
@@ -46,29 +49,75 @@ Component({
           comment: comment||''
         }
       }).then(({ data }) => {
-
+        this.triggerEvent('getListData');
       })
     },
     // 选择关注分组
     chooseGroup(e) {
-      let value = e.detail.value;
-      console.log(value)
-      this.data.groupID.push(value[0]);
+      let value = e.detail.value, index = e.currentTarget.dataset.index;
+      this.data.groupLists[index].checked= true;
+      if(value[0]){
+        this.data.groupID.push(value[0]);
+      }else{
+        this.data.groupID.splice(value.length-1,1);
+      }
     },
     // 确认关注
     sureFouse() {
+      this.data.groupLists.map(item=>{
+        item.checked = false;
+      })
+      this.setData({
+        groupLists:this.data.groupLists
+      });
       let groupID =  this.data.groupID;
-      console.log(typeof(groupID.toString()))
+      this.clickFouse(groupID.toString());
+    },
+    // 关注
+    clickFouse(groupID){
       getApp().$ajax({
         httpUrl: getApp().api.userFouseUrl,
         data: {
           userID: wx.getStorageSync('userinfo').id,
-          orgID: wx.getStorageSync('userinfo').dept_id,
-          groupID: groupID.toString()
+          orgID: this.data.orgID,
+          groupID: groupID || '-1'
         }
       }).then(({ data }) => {
-
+        this.setData({
+          groupID: [],
+          groupLists: this.data.groupLists
+        })
+        wx.showToast({
+          title: '关注成功',
+          icon: 'none',
+          success:res=>{
+            this.triggerEvent('getListData');
+            this.hideGroup();
+          }
+        })
       })
+    },
+    // 取消关注
+    cancelFouse(e){
+      getApp().$ajax({
+        httpUrl: getApp().api.userCancelUrl,
+        data: {
+          userID: wx.getStorageSync('userinfo').id,
+          orgID: e.currentTarget.dataset.orgid
+        }
+      }).then(({ data }) => {
+        wx.showToast({
+          title: '取消成功',
+          icon: 'none',
+          success:res=>{
+            this.triggerEvent('getListData');
+          }
+        })
+      })
+    },
+    // 暂不分组
+    fouseNoGroup() {
+      this.clickFouse();
     },
     // 显示添加分组
     showAddGroup() {
@@ -76,9 +125,13 @@ Component({
     },
     // 分享
     onShareAppMessage: function (res) {
+      if (res.from === 'button') {
+        // 来自页面内转发按钮
+        console.log(res.target)
+      }
       return {
         title: '自定义转发标题',
-        path: `/pages/home/detail/detail?cID=${this.data.cID}`,
+        path: `/pages/home/detail/detail?actId=${this.data.cID}`,
         success: function (res) {
           this.userDo('223', '0')
         },

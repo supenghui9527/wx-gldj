@@ -1,4 +1,4 @@
-const HOST = 'http://192.168.8.24:8080/'; //http://47.104.128.137:8080/gldj/
+const HOST = 'http://192.168.8.24:8080/'; //http://192.168.8.24:8080/
 module.exports = {
   HOST,
   loginUrl: `${HOST}api/user/login`,  // 登录接口
@@ -11,6 +11,7 @@ module.exports = {
   actReserveUrl: `${HOST}wqqapi/act/reserve`,  // 活动预约发布
   getReserveListsUrl: `${HOST}api/act/relist`, // 活动预约发布列表
   userFouseUrl: `${HOST}api/usergroup/interest`, // 用户关注
+  userCancelUrl: `${HOST}api/usergroup/cancel`, // 用户取消关注
   actPostUrl: `${HOST}wqqapi/act/pub`,  // 活动发布
   getActTitleUrl:`${HOST}api/act/titlelist`,// 活动标题列表
   actSignUrl: `${HOST}wqqapi/act/sign`, // 活动预约签到

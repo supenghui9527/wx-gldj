@@ -2,30 +2,7 @@
 const util = require('../../../utils/util.js');
 Page({
   data: {
-    lists: [
-      {
-        date: '2018-4-8',
-        list: [{
-          content: '参加活动签到成功2分',
-          time: '15:30'
-        },
-        {
-          content: '植树活动2分',
-          time: '15:30'
-        }]
-      },
-      {
-        date: '2018-4-7',
-        list: [{
-          content: '参加活动签到成功2分大多数的速度打的',
-          time: '15:30'
-        },
-        {
-          content: '植树活动2分',
-          time: '15:30'
-        }]
-      }
-    ]
+    lists: []
   },
   onLoad: function (options) {
   },

@@ -43,14 +43,13 @@ function $ajax({ isShowLoading = true, wxApp = true, httpUrl, data = {}, method 
 }
 function showBigPic(e) {
   let img = e.currentTarget.dataset.img,
-    imgUrl = 'http://www.wsspha.cn',
+    imgUrl = 'https://guloupy.hopethink.com/gldj/',
     urls = [];
   for (let i = 0; i < img.length; i++) {
     urls[i] = imgUrl + img[i];
   }
-  console.log(urls)
   wx.previewImage({
-    urls: img
+    urls: urls
   })
 }
 module.exports = {

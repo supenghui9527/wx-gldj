@@ -4,41 +4,41 @@
   <view hidden='{{isFocusGroup}}' class='list-content'>
     <view class='title'>请选择分组</view>
     <view class='list-item'>
-      <checkbox-group bindchange="chooseGroup" checked="false" wx:for="{{groupLists}}" wx:key="index">
+      <checkbox-group bindchange="chooseGroup" data-index="{{index}}" wx:for="{{groupLists}}" wx:key="index">
         <label class="checkbox">
-          <checkbox value="{{item.id}}" />{{item.name}}
+          <checkbox style='zoom:70%' value="{{item.id}}"/>{{item.name}}
         </label>
       </checkbox-group>
       <view catchtap='showAddGroup' class='plus-group'>+新建分组</view>
     </view>
     <view class='sure'>
-      <text>暂不分组</text>
+      <text catchtap='fouseNoGroup'>暂不分组</text>
       <text catchtap='sureFouse'>确定</text>
     </view>
   </view>
   <view wx:for="{{lists}}" wx:key="index" class='item-content'>
     <view class='avatar warrap'>
-      <image src="{{item.imgUrl+item.avatar}}"></image>
+       <image src="{{item.imgUrl+item.avatar}}"></image> 
       <view>
         <view class='orgname'>{{item.orgName}}</view>
         <view class='type'>
-          <text>{{item.title}}</text>
+          <text>{{item.actName}}</text>
           <text>{{item.actDate}}</text>
         </view>
       </view>
-      <view wx:if="{{item.isView==1}}" class='focus'>取消关注</view>
-      <view wx:else bindtap='showGroup' class='focus'>+关注</view>
+      <view wx:if="{{item.isview==1}}" catchtap='cancelFouse' data-orgid="{{item.orgID}}" class='focus'>取消关注</view>
+      <view wx:else bindtap='showGroup' data-orgid="{{item.orgID}}" class='focus'>+关注</view>
     </view>
     <view  catchtap='goDetail' data-actid="{{item.id}}" class='text warrap'>{{item.pubContent}}</view>
     <view wx:if="{{item.pics}}" class='pictures warrap'>
       <view wx:for="{{item.pics}}" data-img="{{item.pics}}" catchtap='showBigImage' wx:for-item="i" wx:key="index">
-          <image src="{{item.imgUrl+i}}"></image> 
+           <image src="{{item.imgUrl+i}}"></image> 
       </view>
     </view>
     <view class='user-do'>
       <view>
         <image src='/images/share.png'></image>
-        <button class='postings-share' open-type='share'>分享</button>
+        <button class='postings-share' data-actid="{{item.id}}" open-type='share'>分享</button>
         <text>{{item.shares}}</text>
       </view>
       <view data-actid="{{item.id}}" catchtap='goDetail'>

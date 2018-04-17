@@ -9,9 +9,9 @@ Page({
     typeLists: []
   },
   onLoad(options) {
-    if (options.id) this.setData({title: options.text,id: options.id})
+    if (options.id) this.setData({ title: options.text, id: options.id })
   },
-  goActivity(){
+  goActivity() {
     wx.navigateTo({
       url: "/pages/active/post/activityList/activityList",
     })
@@ -62,10 +62,16 @@ Page({
         i++;
         if (i == length) {
           // console.log('总共' + successUp + '张上传成功,' + failUp + '张上传失败！');
-          wx.hideLoading();
-          // wx.redirectTo({
-          //   url: '/pages/home/home'
-          // })
+          wx.showToast({
+            title: '发布成功',
+            icon: 'none',
+            success: res => {
+              wx.redirectTo({
+                url: '/pages/index/index'
+              })
+            }
+          })
+
         }
         else {
           this.getData(tempFilePaths, successUp, failUp, i, length, cid);
@@ -88,23 +94,29 @@ Page({
       length = this.data.tempFilePaths.length, //总共个数
       i = 0, //第几个
       data = e.detail.value;
-    wx.showLoading({
-      title: '发帖中...',
-      mask: true
-    });
+    for (let i in data) {
+      if (data[i] == '') {
+        wx.showToast({
+          title: '请确认信息是否填写完整',
+          icon: 'none'
+        });
+        return;
+      }
+    }
     wx.request({
       url: getApp().api.actPostUrl,
+      title: '发帖中...',
       method: 'post',
       header: { "Content-Type": "application/x-www-form-urlencoded" },
       data: data,
       success: (res) => {
-          if (length) {
-            this.getData(this.data.tempFilePaths, successUp, failUp, i, length, res.data.data);
-          } else {
-            wx.redirecTo({
-              url: '/pages/index/index'
-            })
-          }
+        if (length) {
+          this.getData(this.data.tempFilePaths, successUp, failUp, i, length, res.data.data);
+        } else {
+          wx.redirecTo({
+            url: '/pages/index/index'
+          })
+        }
       }
     })
   }

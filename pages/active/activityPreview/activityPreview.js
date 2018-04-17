@@ -16,6 +16,7 @@ Page({
   },
   onShow(){
     getApp().$ajax({
+      isShowLoading :false,
       httpUrl: getApp().api.getActTypeUrl,
       data: {}
     }).then(({ data }) => {
@@ -25,7 +26,6 @@ Page({
       })
     })
     let userinfo = wx.getStorageSync('userinfo');
-    console.log(wx.getStorageSync('userGroup'));
     if (wx.getStorageSync('userGroup')) {
       this.setData({
         userLists: wx.getStorageSync('userGroup').texts,
@@ -63,7 +63,6 @@ Page({
   },
   submitActivity(e) {
     let formData = e.detail.value;
-    console.log(formData)
     for (let item in formData) {
       if (formData[item] == '') {
         wx.showToast({
@@ -72,7 +71,6 @@ Page({
         })
         return false;
       }
-
     }
     getApp().$ajax({
       httpUrl: getApp().api.actReserveUrl,

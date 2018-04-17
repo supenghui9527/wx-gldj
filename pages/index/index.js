@@ -14,56 +14,7 @@ Page({
     showMsg: false,
     hotGroup: [],
     groupLists:[],
-    lists: [
-      {
-        orgName: '机关工委',
-        orgPic: '/images/avatar.jpg',
-        title: '清晨跑步',
-        actDate: '2018-4-9',
-        pubContent: '开发小程序的第一步，你需要拥有一个小程序帐号，通过这个帐号你就可以管理你的小程序。跟随这个教程，开始你的小程序之旅吧！',
-        pics: ['http://www.wsspha.cn/images/avatar.jpg', 'http://www.wsspha.cn/images/avatar.jpg', 'http://www.wsspha.cn/images/avatar.jpg'],
-        isView: 1,
-        shares: 2,
-        comments: 3,
-        likes: 4
-      },
-      {
-        orgName: '南京建邺',
-        orgPic: '/images/avatar.jpg',
-        title: '晚上锻炼身体',
-        actDate: '2018-4-9',
-        pubContent: '于是微信客户端就把首页的代码装载进来，通过小程序底层的一些机制，就可以渲染出这个首页。小程序启动之后，在 app.js 定义的 App 实例的 onLaunch 回调会被执行:',
-        pics: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
-        isView: 2,
-        shares: 2,
-        comments: 3,
-        likes: 4
-      },
-      {
-        orgName: '南京鼓楼',
-        orgPic: '/images/avatar.jpg',
-        title: '清晨跑步',
-        actDate: '2018-4-9',
-        pubContent: '纷纷大幅度的方法的方法的短发短发短发反反复复反反复复反反复复的地方',
-        pics: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
-        isView: 2,
-        shares: 2,
-        comments: 3,
-        likes: 4
-      },
-      {
-        orgName: '南京栖霞',
-        orgPic: '/images/avatar.jpg',
-        title: '清晨跑步',
-        actDate: '2018-4-9',
-        pubContent: '反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复吩咐',
-        pics: ['/images/avatar.jpg', '/images/avatar.jpg', '/images/avatar.jpg'],
-        isView: 1,
-        shares: 2,
-        comments: 3,
-        likes: 4
-      }
-    ],
+    lists: [],
     footer: {
       idx: true,
       mine: false
@@ -78,9 +29,12 @@ Page({
     focusGroup: true // 点击关注分组
   },
   onLoad() {
-    this.getPostingsList(0);
+    this.getPostingsList(this.data.active);
     this.getGroupLists();
     this.getHotGroupLists();
+  },
+  getListData(){
+    this.getPostingsList(this.data.active)
   },
   // 获取帖子列表
   getPostingsList(type) {
@@ -95,7 +49,7 @@ Page({
       let lists = data;
       lists.map(item=>{
         item.imgUrl = getApp().imgUrl;
-        item.actDate = util.formatTime(new Date(item.actDate)).substring(0, 10);
+        item.actDate = util.formatTime(new Date(item.pubDate));
         item.pics ? item.pics = item.pics.split(',') : item.pics= [];
         let pics = item.pics;
         pics[1] ? item.pics = pics : item.pics = pics.slice(0, 1);
@@ -127,6 +81,9 @@ Page({
         userId: wx.getStorageSync('userinfo').id
       }
     }).then(({ data }) => {
+      data.map(item=>{
+        item.checked = false;
+      })
       this.setData({
         groupLists: data
       })
@@ -140,6 +97,7 @@ Page({
       this.hideFixed();
     } else {
       animation.rotateZ(360).step();
+      this.getPostingsList(e.target.dataset.index);
       this.setData({
         active: e.target.dataset.index,
         hotShow: false,
@@ -151,7 +109,6 @@ Page({
   },
   // 阻止事件冒泡
   showFixed(){
-
   },
   // 隐藏关注热门
   hideFixed(){

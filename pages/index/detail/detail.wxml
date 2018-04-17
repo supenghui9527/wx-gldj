@@ -24,16 +24,17 @@
         <view>
           <view class='orgname'>{{detail.orgName}}</view>
           <view class='type'>
-            <text>{{detail.title}}</text>
+            <text>{{detail.actName}}</text>
             <text>{{detail.actDate}}</text>
           </view>
         </view>
-        <view bindtap='showGroup' class='focus'>+关注</view>
+        <!-- <view wx:if="{{detail.isview==1}}" catchtap='cancelFouse' data-orgid="{{detail.orgID}}" class='focus'>取消关注</view>
+        <view wx:else bindtap='showGroup' data-orgid="{{detail.orgID}}" class='focus'>+关注</view> -->
       </view>
       <view class='text warrap'>{{detail.pubContent}}</view>
       <view class='pictures warrap'>
-        <view wx:for="{{detail.pics}}" wx:key="index">
-          <image src='/images/avatar.jpg' wx:key="index"></image>
+        <view wx:for="{{detail.pics}}" wx:key="index" data-img="{{detail.pics}}" catchtap='showBigImage'>
+          <image src='{{detail.imgUrl+item}}' wx:key="index"></image>
         </view>
       </view>
     </view>
@@ -41,7 +42,7 @@
   <view class='user-content'>
     <view class='sign'>
       <view>{{detail.checksDetail?detail.checksDetail.length:0}}人签到</view>
-      <scroll-view scroll-x="true">
+      <scroll-view wx:if="{{detail.checksDetail}}" scroll-x="true">
         <view class='scroll-item' wx:for="{{detail.checksDetail}}" wx:for-item="i" wx:key="index">
           <image src='{{i.avatar}}'></image>
           <view>{{i.name}}</view>
@@ -51,39 +52,39 @@
     <view class='share-comment'>
       <view class='share-comment-title'>
         <view catchtap='changeTab' data-index="0">
-          <text class="{{active==0?'active':''}}">分享6</text>
+          <text class="{{active==0?'active':''}}">分享{{detail.shares}}</text>
         </view>
         <view catchtap='changeTab' data-index="1">
-          <text class="{{active==1?'active':''}}">评论2</text>
+          <text class="{{active==1?'active':''}}">评论{{detail.comments}}</text>
         </view>
         <view catchtap='changeTab' data-index="2">
-          <text class="{{active==2?'active':''}}">赞10</text>
+          <text class="{{active==2?'active':''}}">赞{{detail.likes}}</text>
         </view>
       </view>
       <view hidden='{{active!=0}}'>
-        <view wx:for="{{6}}" wx:key="index" class='share-content'>
+        <view wx:for="{{detail.sharesDetail}}" wx:key="index" class='share-content'>
           <image class='avatar-img' src='/images/avatar.jpg'></image>
           <view>
-            <view class='share-name'>苏朋辉</view>
-            <view class='share-name'>分享帖子</view>
-            <view class='share-time'><text>11-25 11:23</text></view>
+            <view class='share-name'>{{item.name}}</view>
+            <!-- <view class='share-name'>分享帖子</view> -->
+            <view class='share-time'><text>{{item.date}}</text></view>
           </view>
         </view>
       </view>
       <view hidden='{{active!=1}}'>
-        <view wx:for="{{6}}" wx:key="index" class='comment-content'>
+        <view wx:for="{{detail.commentsDetail}}" wx:key="index" class='comment-content'>
           <image class='avatar-img' src='/images/avatar.jpg'></image>
           <view>
-            <view class='user-name'>苏朋辉</view>
+            <view class='user-name'>{{item.name}}</view>
             <view class='user-comment'>犯贱犯贱犯贱经济纠纷艰苦奋斗防范地方的地方豆腐干好好好搞好规划和改革和韩国国会</view>
-            <view class='comment-time'><text>11-25 11:23</text></view>
+            <view class='comment-time'><text>{{item.date}}</text></view>
           </view>
         </view>
       </view>
       <view hidden='{{active!=2}}'>
-        <view wx:for="{{6}}" wx:key="index" class='like-content'>
-          <image class='avatar-img' src='/images/avatar.jpg'></image>
-          <view class='like-name'>苏朋辉</view>
+        <view wx:for="{{detail.likesDetail}}" wx:key="index" class='like-content'>
+          <image class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+          <view class='like-name'>{{item.name}}</view>
         </view>
       </view>
     </view>
@@ -96,7 +97,7 @@
   <view class='user-do'>
     <view>
       <image src='/images/share.png'></image>
-      <text>分享</text>
+      <button class='postings-share' open-type='share'>分享</button>
     </view>
     <view catchtap='goComment'>
       <image src='/images/comment.png'></image>

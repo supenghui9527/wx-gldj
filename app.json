@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/login",
+    "pages/active/activityPreview/activityPreview",
     "pages/index/detail/detail",
     "pages/loading/loading",
-    "pages/login/login",
     "pages/mine/myIntegral/myIntegral",
     "pages/mine/mine",
     "pages/active/post/post",
-    "pages/active/activityPreview/activityPreview",
     "pages/index/message/message",
     "pages/mine/myRewards/myRewards",
     "pages/active/sign/sign",
@@ -15,7 +15,6 @@
     "pages/index/search/search",
     "pages/active/post/activityList/activityList",
     "pages/active/activityPreview/userLists/userLists",
-    
     "pages/index/notice/notice",
     "pages/active/consultation/consultation",
     "pages/mine/myTask/myTask",

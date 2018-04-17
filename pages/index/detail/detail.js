@@ -1,4 +1,5 @@
 // pages/index/detail/detail.js
+const util = require('../../../utils/util.js');
 Page({
   data: {
     active: 1,
@@ -14,6 +15,11 @@ Page({
     }).then(({ data }) => {
       let detail = data[0];
       detail.imgUrl = getApp().imgUrl;
+      detail.actDate = util.formatTime(new Date(detail.pubDate));
+      detail.pics ? detail.pics = detail.pics.split(',') : detail.pics = [];
+      let pics = detail.pics;
+      pics[1] ? detail.pics.pop() : detail.pics = pics.slice(0, 1);
+      console.log(detail.checksDetail)
       this.setData({
         detail: detail,
         actId: options.actId
@@ -33,6 +39,27 @@ Page({
   },
   sureComment(e){
     this.userDo('1',e.detail.value)
+  },
+  // 分享
+  onShareAppMessage: function (res) {
+    return {
+      title: '自定义转发标题',
+      path: `/pages/home/detail/detail?actId=${this.data.actId}`,
+      success: function (res) {
+        this.userDo('0')
+      },
+      fail: function (res) {
+      }
+    }
+  },
+  // 点击浏览大图
+  showBigImage(e) {
+    console.log(e)
+    getApp().showBigPic(e);
+  },
+  // 点赞
+  clickLikes(){
+    userDo('2');
   },
   // 点赞分享评论
   userDo(type, comment) {

@@ -15,21 +15,21 @@
       <image src='/images/title.png'></image>
       <input name="title" placeholder-style='color:#cdcdcd' placeholder='请输入活动标题'></input>
     </view>
-    <view style='position:relative'>
+    <view catchtap='goUserList' style='position:relative'>
       <image src='/images/notice.png'></image>
       <!-- <view style='color:#cdcdcd'>{{userLists}}</view> -->
       <input style='width:80%' placeholder-style='color:#cdcdcd' disabled='{{true}}' value='{{userLists}}' placeholder='请选择需要通知的用户'></input>
-      <image catchtap='goUserList' class='choose-user' src='/images/@.png'></image>
+      <image class='choose-user' src='/images/@.png'></image>
     </view>
     <view>
       <image src='/images/time.png'></image>
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
+      <picker style='width:80%' mode="date" value="{{date}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
         <view class="picker">{{date}}</view>
       </picker>
     </view>
     <view>
       <image src='/images/date.png'></image>
-      <picker mode="time" value="{{time}}" start="02:01" end="23:59" bindchange="bindTimeChange">
+      <picker style='width:80%' mode="time" value="{{time}}" start="02:01" end="23:59" bindchange="bindTimeChange">
         <view class="picker">{{time}}</view>
       </picker>
     </view>
