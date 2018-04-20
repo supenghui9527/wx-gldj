@@ -1,6 +1,7 @@
 /* pages/index/search/search.wxss */
 .search {
   width: 100%;
+  height: 100%;
 }
 .go-search {
   display: flex;
@@ -80,3 +81,52 @@
   width: 150rpx; 
   content: ""; 
 } 
+.add-fixed{
+  width:100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top:0;
+  z-index: 66666;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.add-group{
+  width: 546rpx;
+  height: 300rpx;
+  position: fixed;
+  top:120rpx;
+  left:50%;
+  margin-left: -273rpx;
+  background-color: #fff;
+  border-radius:16rpx;
+  z-index: 99999;
+}
+.add-group input{
+  width:460rpx;
+  height: 60rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid #f0f0f0;
+  font-size:32rpx;
+  border-radius: 6px;
+}
+.add-group-title{
+  padding: 35rpx 0;
+  text-align: center;
+}
+.add-group-btn{
+  display: flex;
+  margin-top:50rpx;
+  font-size: 32rpx;
+}
+.add-group-btn view{
+  width:50%;
+  text-align: center;
+}
+.add-group-btn view:nth-child(1){
+  border-right: 1px solid #f0f0f0;
+}
+.btn-sure{
+  color:#fac264;
+}

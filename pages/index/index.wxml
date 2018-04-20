@@ -1,12 +1,12 @@
 <!--index.wxml-->
 <import src="../common/footer/footer.wxml"/>
 <view class="index {{overFlow?'':'index-overflow'}}">
-  <view wx:if="{{addGroupShow}}" bind:touchstart='hideAddGroup' class='add-fixed'></view>
+  <view wx:if="{{addGroupShow}}" catchtap='hideAddGroup' class='add-fixed'></view>
   <view wx:if="{{addGroupShow}}" class='add-group'>
     <view class='add-group-title'>新建分组</view>
     <input bindinput='getGroupName' placeholder='1-16个字符'></input>
     <view class='add-group-btn'>
-      <view catchtap='hideAddGroup' class='btn-cancel'>暂不分组</view>
+      <view catchtap='hideAddGroup' class='btn-cancel'>取消</view>
       <view catchtap='sureAddGroup' class='btn-sure'>确定</view>
     </view>
   </view>
@@ -27,7 +27,7 @@
           <view wx:for="{{groupLists}}" wx:key="index">
             <view>
               <text>{{item.name}}</text>
-              <icon hidden="{{showEdit}}" class='cancel' type="clear" size="16" color="#868686" />
+              <icon hidden="{{showEdit}}" data-name="{{item.name}}" catchtap='deleteGroup' class='cancel' type="clear" size="16" color="#868686" />
             </view>
           </view>
           <view>
@@ -40,7 +40,10 @@
       <view class='onfocus' catchtap='showFixed'>
         <view class='hot-type'>
           <view wx:for="{{hotGroup}}" wx:key="index">
-            <view>{{item.name}}</view>
+            <view data-type="{{item.name}}" catchtap='selectByType'>{{item.name}}</view>
+          </view>
+          <view class='all-type' data-type="全部" catchtap='selectByType'>
+            <view>全部</view>
           </view>
         </view>
       </view>
@@ -53,7 +56,7 @@
     <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
     <image catchtap='hideMsg' class='close' src='/images/close.png'></image>
   </view>
-  <postingsList wx:if="{{lists[0]}}" bind:getListData="getListData" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
+  <postingsList wx:if="{{lists[0]}}" isShowFouse="{{true}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
   <view wx:if="{{lists[0]}}" class='line'></view>
   <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus'/>
   <template is="footer" data="{{...footer}}"/>

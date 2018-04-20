@@ -5,5 +5,10 @@
 .my-review image{
   margin-top: 200rpx;
   width:247rpx;
-  height:339rpx;
+  height:219rpx;
+}
+.my-review view{
+  padding-top: 30rpx;
+  font-size:36rpx;
+  color:#cecece;
 }

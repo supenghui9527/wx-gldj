@@ -1,4 +1,5 @@
 <!--pages/mine/myDeliver/myDeliver.wxml-->
 <view class='my-deliver'>
   <image src='/images/none.png'></image>
+  <view>暂未开放</view>
 </view>

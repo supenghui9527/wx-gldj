@@ -42,9 +42,9 @@
   <view class='user-content'>
     <view class='sign'>
       <view>{{detail.checksDetail?detail.checksDetail.length:0}}人签到</view>
-      <scroll-view wx:if="{{detail.checksDetail}}" scroll-x="true">
+      <scroll-view wx:if="{{detail.checksDetail[0]}}" scroll-x="true">
         <view class='scroll-item' wx:for="{{detail.checksDetail}}" wx:for-item="i" wx:key="index">
-          <image src='{{i.avatar}}'></image>
+          <image src='{{detail.imgUrl+i.avatar}}'></image>
           <view>{{i.name}}</view>
         </view>
       </scroll-view>
@@ -63,7 +63,7 @@
       </view>
       <view hidden='{{active!=0}}'>
         <view wx:for="{{detail.sharesDetail}}" wx:key="index" class='share-content'>
-          <image class='avatar-img' src='/images/avatar.jpg'></image>
+          <image class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
           <view>
             <view class='share-name'>{{item.name}}</view>
             <!-- <view class='share-name'>分享帖子</view> -->
@@ -73,10 +73,10 @@
       </view>
       <view hidden='{{active!=1}}'>
         <view wx:for="{{detail.commentsDetail}}" wx:key="index" class='comment-content'>
-          <image class='avatar-img' src='/images/avatar.jpg'></image>
+          <image class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
           <view>
             <view class='user-name'>{{item.name}}</view>
-            <view class='user-comment'>犯贱犯贱犯贱经济纠纷艰苦奋斗防范地方的地方豆腐干好好好搞好规划和改革和韩国国会</view>
+            <view class='user-comment'>{{item.comments}}</view>
             <view class='comment-time'><text>{{item.date}}</text></view>
           </view>
         </view>
@@ -96,14 +96,16 @@
   </view>
   <view class='user-do'>
     <view>
-      <image src='/images/share.png'></image>
-      <button class='postings-share' open-type='share'>分享</button>
+      <button class='postings-share' open-type='share'>
+        <image src='/images/share.png'></image>
+        <text>分享</text>
+      </button>
     </view>
     <view catchtap='goComment'>
       <image src='/images/comment.png'></image>
       <text>评论</text>
     </view>
-    <view>
+    <view catchtap='clickLikes'>
       <image src="/images/fabulous.png"></image>
       <text>赞</text>
     </view>

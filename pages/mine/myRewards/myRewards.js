@@ -11,31 +11,35 @@ Page({
   },
   onLoad: function (options) {
     // console.log(this.recombinedData(this.data.testLists));
+    this.getLists(1);
+  },
+  getLists(type){
     getApp().$ajax({
       httpUrl: getApp().api.getMyRewardsUrl,
       data: {
         orgId: wx.getStorageSync('userinfo').dept_id,
-        infotype: '0',
+        infotype: type,
       }
     }).then(({ data }) => {
       this.setData({
-        lists: data
+        lists: this.recombinedData(data)
       })
     })
   },
-  onReady: function () {
-
-  },
-  onShow: function () {
-
+  // 切换
+  changeNav(e) {
+    this.setData({
+      active: e.currentTarget.dataset.index
+    })
+    this.data.active == 0 ? this.getLists(1) : this.getLists(2);
   },
   // 组装数据
   recombinedData(data) {
     let yearArr = [];
-    data.map(({ content, createDateTime }) => {
-      let year = util.formatTime(new Date(createDateTime)).substring(0, 4);
+    data.map(({ content, create_date_time }) => {
+      let year = util.formatTime(new Date(create_date_time)).substring(0, 4);
       let index = -1;
-      let date = util.formatTime(new Date(createDateTime)).substring(5, 10);
+      let date = util.formatTime(new Date(create_date_time)).substring(5, 10);
       yearArr.forEach((e, i) => {
         if (e.year === year) {
           index = i;
@@ -49,10 +53,5 @@ Page({
       }
     });
     return yearArr;
-  },
-  changeNav(e) {
-    this.setData({
-      active: e.currentTarget.dataset.index
-    })
   }
 })

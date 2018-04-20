@@ -16,15 +16,25 @@ Page({
   },
   onLoad() {
     let userinfo = wx.getStorageSync('userinfo');
-    this.setData({
-      myfouse: userinfo.interests,
-      myfans: userinfo.fans,
-      mypost: userinfo.acts,
-      myscore:userinfo.score,
-      userName: userinfo.name,
-      orgName: userinfo.orgName,
-      userType: userinfo.isSuperAdmin,
-      avatar: `${getApp().imgUrl}${userinfo.avatar}`
+    getApp().$ajax({
+      httpUrl: getApp().api.loginUrl,
+      data: {
+        user: userinfo.login_name,
+        password: userinfo.personCard
+      }
+    }).then(({ data }) => {
+      wx.setStorageSync('userinfo', data[0]);
+      userinfo = wx.getStorageSync('userinfo');
+      this.setData({
+        myfouse: userinfo.interests,
+        myfans: userinfo.fans,
+        mypost: userinfo.acts,
+        myscore: userinfo.score,
+        userName: userinfo.name,
+        orgName: userinfo.orgName,
+        userType: userinfo.isSuperAdmin,
+        avatar: `${getApp().imgUrl}${userinfo.avatar}`
+      })
     })
   },
   //上传头像

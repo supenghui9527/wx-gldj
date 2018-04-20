@@ -1,7 +1,7 @@
 <!--pages/mine/myIntegral/myIntegral.wxml-->
 <view class='integral'>
   <view class='title'>
-    <text>30分</text>
+    <text>{{score}}分</text>
   </view>
   <view class='lists'>
     <view wx:for="{{lists}}" wx:key="index" class='list-item'>

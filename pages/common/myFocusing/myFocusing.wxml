@@ -1,12 +1,12 @@
 <template name="myFocusing">
-  <block wx:for="{{lists}}">
+  <block wx:for="{{lists.data}}" wx:key="index">
     <view class='focusing-item'>
-      <image src='/images/avatar.jpg'></image>
+      <image src='{{lists.imgUrl+item.avatar}}'></image>
       <view>
-        <view class='name'>苏朋辉</view>
-        <view class='org-name'>苏城苑社区党委</view>
+        <view class='name'>{{item.name}}</view>
+        <view class='org-name'>{{item.orgName}}</view>
       </view>
-      <view class='cancel'>{{cancel}}</view>
+      <view catchtap='cancelFouse' data-id="{{item.id}}" class='cancel'>{{cancel}}</view>
     </view>
   </block>
 </template>

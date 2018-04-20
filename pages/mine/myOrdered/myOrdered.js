@@ -1,9 +1,5 @@
 // pages/mine/myOrdered/myOrdered.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     lists: {
       item: 6,
@@ -11,12 +7,22 @@ Page({
       text: '我的预约'
     }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    getApp().$ajax({
+      httpUrl: getApp().api.mySignUrl,
+      data: {
+        userId: wx.getStorageSync('userinfo').id,
+        status: 0
+      }
+    }).then(({ data }) => {
+      data.map(item => {
+        item.actDate = item.actDate.substring(0, 16);
+        item.create_date_time = item.create_date_time.substring(0, 16)
+      })
+      this.setData({
+        lists: data
+      })
+    })
   },
 
   /**

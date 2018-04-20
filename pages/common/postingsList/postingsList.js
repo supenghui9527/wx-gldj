@@ -1,18 +1,21 @@
 // pages/common/postingsList/postingsList.js
 Component({
   properties: {
-    lists:{
+    lists: {
       type: 'array'
     },
-    groupLists:{
+    groupLists: {
       type: 'array'
+    },
+    isShowFouse: {
+      type: 'boolean'
     }
   },
   data: {
     isFocusGroup: true,
     showAddGroup: true,
     activityID: '',
-    groupID:[]
+    groupID: []
   },
   /**
    * 组件的方法列表
@@ -28,7 +31,6 @@ Component({
     },
     // 点击浏览大图
     showBigImage(e) {
-      console.log(e)
       getApp().showBigPic(e);
     },
     // 隐藏分组
@@ -46,7 +48,7 @@ Component({
           actID: actID,
           userID: wx.getStorageSync('userinfo').id,
           type: type,
-          comment: comment||''
+          comment: comment || ''
         }
       }).then(({ data }) => {
         this.triggerEvent('getListData');
@@ -54,27 +56,16 @@ Component({
     },
     // 选择关注分组
     chooseGroup(e) {
-      let value = e.detail.value, index = e.currentTarget.dataset.index;
-      this.data.groupLists[index].checked= true;
-      if(value[0]){
-        this.data.groupID.push(value[0]);
-      }else{
-        this.data.groupID.splice(value.length-1,1);
-      }
+      let value = e.detail.value;
+      this.data.groupID = value;
     },
     // 确认关注
     sureFouse() {
-      this.data.groupLists.map(item=>{
-        item.checked = false;
-      })
-      this.setData({
-        groupLists:this.data.groupLists
-      });
-      let groupID =  this.data.groupID;
+      let groupID = this.data.groupID;
       this.clickFouse(groupID.toString());
     },
     // 关注
-    clickFouse(groupID){
+    clickFouse(groupID) {
       getApp().$ajax({
         httpUrl: getApp().api.userFouseUrl,
         data: {
@@ -90,7 +81,7 @@ Component({
         wx.showToast({
           title: '关注成功',
           icon: 'none',
-          success:res=>{
+          success: res => {
             this.triggerEvent('getListData');
             this.hideGroup();
           }
@@ -98,7 +89,7 @@ Component({
       })
     },
     // 取消关注
-    cancelFouse(e){
+    cancelFouse(e) {
       getApp().$ajax({
         httpUrl: getApp().api.userCancelUrl,
         data: {
@@ -109,7 +100,7 @@ Component({
         wx.showToast({
           title: '取消成功',
           icon: 'none',
-          success:res=>{
+          success: res => {
             this.triggerEvent('getListData');
           }
         })
@@ -123,31 +114,23 @@ Component({
     showAddGroup() {
       this.triggerEvent('showAddGroup');
     },
-    // 分享
-    onShareAppMessage: function (res) {
-      if (res.from === 'button') {
-        // 来自页面内转发按钮
-        console.log(res.target)
-      }
-      return {
-        title: '自定义转发标题',
-        path: `/pages/home/detail/detail?actId=${this.data.cID}`,
-        success: function (res) {
-          this.userDo('223', '0')
-        },
-        fail: function (res) {
-        }
-      }
+    // 获取帖子id
+    getActid(e) {
+      this.setData({ activityID: e.currentTarget.dataset.actid });
+      this.triggerEvent('toIndexActid', e.currentTarget.dataset.actid);
     },
     // 进入详情
-    goDetail(e){
+    goDetail(e) {
       wx.navigateTo({
-        url: `/pages/index/detail/detail?actId=${e.currentTarget.dataset.actid}`,
+        url: `/pages/index/detail/detail?actId=${e.currentTarget.dataset.actid}&islike=${e.currentTarget.dataset.islike}`,
       })
     },
     // 点赞
     clickLikes(e) {
-      this.userDo(e.currentTarget.dataset.id,'2')
+      e.currentTarget.dataset.islike == 0 ? this.userDo(e.currentTarget.dataset.id, '2') : wx.showToast({
+        title: '您已点赞',
+        icon: 'none'
+      })
     }
   }
 })

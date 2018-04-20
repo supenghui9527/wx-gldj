@@ -71,7 +71,13 @@
       <text>我的投票</text>
       <image class='arrow' src='/images/arrow.png'></image>
     </navigator>
+    <navigator url='/pages/login/login' open-type='redirect' hover-class="none">
+      <image src='/images/exit.png'></image>
+      <text>退出登录</text>
+      <image class='arrow' src='/images/arrow.png'></image>
+    </navigator>
   </view>
   <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus' />
+  <view style='width:100%;height:100rpx'></view>
   <template is="footer" data="{{...footer}}" />
 </view>

@@ -10,8 +10,9 @@
   border-bottom: 2px solid #f0f0f0;
 }
 .sign-item .title{
-  width:70%;
+  width:65%;
   font-size: 30rpx;
+  color:#242424;
   font-weight: bold;
 }
 .sign-item .time{
@@ -24,7 +25,8 @@
   padding:20rpx 0 10rpx 0;
 }
 .sign-content .org-name{
-  font-size:30rpx;
+  font-size:28rpx;
+  color:#646464;
   padding-bottom: 20rpx;
 }
 .activity-time,.activity-place,.activity-company,.activity-tel,.activity-remark{
@@ -65,9 +67,9 @@
   right: 25rpx;
   bottom: 25rpx;
   line-height: 50rpx;
-  font-size:32rpx;
+  font-size:28rpx;
   text-align: center;
   color:#ffb849;
   border:1px solid #ffb849;
-  border-radius: 16px;
+  border-radius: 20px;
 }

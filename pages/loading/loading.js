@@ -3,9 +3,11 @@ Page({
   data: {
   
   },
-  goLogin () {
-    wx.redirectTo({
-      url: '/pages/login/login'
-    })
+  onLoad() {
+    setTimeout(()=>{
+      wx.redirectTo({
+        url: '/pages/login/login'
+      })
+    },1500)
   }
 })

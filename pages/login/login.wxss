@@ -19,7 +19,7 @@ input{
   padding-left:30rpx;
   box-sizing: border-box;
   border: 1rpx solid #818284;
-  border-radius:18px;
+  border-radius:26px;
 }
 .btn{
   width:440rpx;

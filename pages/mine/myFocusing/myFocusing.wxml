@@ -1,5 +1,5 @@
 <!--pages/mine/myFocusing/myFocusing.wxml-->
 <import src="../../common/myFocusing/myFocusing.wxml" />
 <view class='focusing'>
-  <template is="myFocusing" data="{{...myFocusing}}" />
+  <template is="myFocusing" data="{{lists,cancel}}" />
 </view>

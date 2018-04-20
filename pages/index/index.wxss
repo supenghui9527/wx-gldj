@@ -67,7 +67,7 @@
 .hot-type{
   padding-top: 30rpx;
 }
-.group>view,.hot-type>view{
+.group>view,.hot-type>view,.all-type{
   width:25%;
   display: flex;
   justify-content: center;
@@ -176,7 +176,7 @@
   font-weight: bold;
   border-bottom: 1px solid #efefef;
 }
-checkbox-group,.plus-group{
+.plus-group{
   height: 80rpx;
   line-height: 80rpx;
   position: relative;
@@ -306,7 +306,7 @@ checkbox-group,.plus-group{
 .line{
   width: 100%;
   height: 106rpx;
-  background-color: #efefef;
+  background-color: #fff;
 }
 .show-plus{
   width: 100%;
@@ -384,6 +384,7 @@ checkbox-group,.plus-group{
   width:71rpx;
   height: 71rpx;
 }
+/* 新建分组 */
 .add-fixed{
   width:100%;
   height: 100%;

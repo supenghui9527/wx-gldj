@@ -4,9 +4,16 @@ Page({
   data: {
     active: 1,
     showComment: true,
+    islike:'',// 判断是否点赞0没，1有
+    options:{},
     detail:{}
   },
   onLoad: function (options) {
+    this.setData({ islike: options.islike});
+    this.data.options = options;
+    this.getDetail(options);
+  },
+  getDetail(options) {
     getApp().$ajax({
       httpUrl: getApp().api.getPostingsDetailUrl,
       data: {
@@ -19,13 +26,13 @@ Page({
       detail.pics ? detail.pics = detail.pics.split(',') : detail.pics = [];
       let pics = detail.pics;
       pics[1] ? detail.pics.pop() : detail.pics = pics.slice(0, 1);
-      console.log(detail.checksDetail)
       this.setData({
         detail: detail,
         actId: options.actId
       })
     })
   },
+  // 点赞分享评论切换
   changeTab(e){
     this.setData({
       active: e.currentTarget.dataset.index
@@ -37,16 +44,20 @@ Page({
       showComment: !this.data.showComment
     })
   },
+  // 确认评论
   sureComment(e){
-    this.userDo('1',e.detail.value)
+    e.detail.value ? this.userDo({ type: 1, comment: e.detail.value }):wx.showToast({
+      title: '请输入评论内容'
+    })
   },
   // 分享
   onShareAppMessage: function (res) {
+    let ctx = this;
     return {
-      title: '自定义转发标题',
-      path: `/pages/home/detail/detail?actId=${this.data.actId}`,
+      title: '鼓楼党建e生活',
+      path: `/pages/home/detail/detail?actId=${ctx.data.actId}`,
       success: function (res) {
-        this.userDo('0')
+        ctx.userDo({type:0})
       },
       fail: function (res) {
       }
@@ -54,15 +65,14 @@ Page({
   },
   // 点击浏览大图
   showBigImage(e) {
-    console.log(e)
     getApp().showBigPic(e);
   },
   // 点赞
   clickLikes(){
-    userDo('2');
+    this.data.islike == 0 ? this.userDo({type:2,islike:true}):wx.showToast({title: '您已点赞',icon:'none'});
   },
   // 点赞分享评论
-  userDo(type, comment) {
+  userDo({ type, comment, islike=false}) {
     getApp().$ajax({
       httpUrl: getApp().api.postingsLikesUrl,
       data: {
@@ -72,7 +82,8 @@ Page({
         comment: comment || ''
       }
     }).then(({ data }) => {
-
+      islike&&this.setData({islike:1});
+      this.getDetail(this.data.options);
     })
   },
 })

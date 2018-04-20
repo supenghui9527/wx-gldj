@@ -8,11 +8,23 @@
       <view class='sign-content'>
         <view>
           <view class='org-name'>{{item.actName}}</view>
-          <view class='activity-time'>时间：{{item.actDate}}</view>
-          <view class='activity-place'>地点：{{item.place}}</view>
+          <view class='activity-time'>
+            <text style='color:#323232'>时间：</text>
+            <text>{{item.actDate}}</text>
+          </view>
+          <view class='activity-place'>
+            <text style='color:#323232'>地点：</text>
+            <text>{{item.place}}</text>
+          </view>
           <!-- <view class='activity-company'>主办单位：{{}}</view> -->
-          <view class='activity-tel'>联系人：{{item.contracts}} {{item.tel}}</view>
-          <view class='activity-remark'>备注：{{item.remark}}</view>
+          <view class='activity-tel'>
+            <text style='color:#323232'>联系人：</text>
+            <text>{{item.contracts}} {{item.tel}}</text>
+          </view>
+          <view class='activity-remark'>
+            <text style='color:#323232'>备注：</text>
+            <text>{{item.remark}}</text>
+          </view>
         </view>
         <view>
           <view class='code' data-actid="{{item.id}}" catchtap='getCodeImage' hidden="{{item.ismy!=1}}">签到码</view>

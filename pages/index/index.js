@@ -34,31 +34,29 @@ Page({
     this.getHotGroupLists();
   },
   getListData(){
-    this.getPostingsList(this.data.active)
+    this.getPostingsList(this.data.active);
   },
   // 获取帖子列表
-  getPostingsList(type) {
+  getPostingsList(type, actName) {
     getApp().$ajax({
       isShowLoading: false,
       httpUrl: getApp().api.getPostingsUrl,
       data: {
         userId: wx.getStorageSync('userinfo').id,
-        type: type
+        type: type,
+        actName: actName||''
       }
     }).then(({ data }) => {
-      let lists = data;
-      lists.map(item=>{
-        item.imgUrl = getApp().imgUrl;
-        item.actDate = util.formatTime(new Date(item.pubDate));
-        item.pics ? item.pics = item.pics.split(',') : item.pics= [];
-        let pics = item.pics;
-        pics[1] ? item.pics = pics : item.pics = pics.slice(0, 1);
-      })
-      console.log(lists)
+      wx.stopPullDownRefresh();
       this.setData({
-        lists: lists
+        lists: util.resetData(data)
       })
     })
+  },
+  // 热门根据类型筛选
+  selectByType(e){
+    e.currentTarget.dataset.type == '全部' ? this.getPostingsList(1) : this.getPostingsList(1, e.currentTarget.dataset.type);
+    this.hideFixed();
   },
   // 获取热门分类列表
   getHotGroupLists() {
@@ -81,9 +79,6 @@ Page({
         userId: wx.getStorageSync('userinfo').id
       }
     }).then(({ data }) => {
-      data.map(item=>{
-        item.checked = false;
-      })
       this.setData({
         groupLists: data
       })
@@ -112,6 +107,7 @@ Page({
   },
   // 隐藏关注热门
   hideFixed(){
+    this.setData({ showEdit: true, editText: '编辑' });
     if (this.data.active == 0) {
       this.animation = animation;
       this.setData({
@@ -161,9 +157,7 @@ Page({
   },
   // 下拉刷新
   onPullDownRefresh() {
-    setTimeout(() => {
-      wx.stopPullDownRefresh();
-    }, 1000)
+    this.getListData();
   },
   // 点击帖子关注显示分组
   showGroup() {
@@ -179,17 +173,7 @@ Page({
   },
   // 编辑分组
   editGroup() {
-    if (this.data.editText == '编辑') {
-      this.setData({
-        showEdit: false,
-        editText: '完成'
-      })
-    } else {
-      this.setData({
-        showEdit: true,
-        editText: '编辑'
-      })
-    }
+    this.data.editText == '编辑' ? this.setData({ showEdit: false, editText: '完成' }) : this.setData({ showEdit: true, editText: '编辑' })
   },
   // 显示添加分组
   showAddGroup() {
@@ -211,17 +195,36 @@ Page({
   },
   // 添加用户分组
   sureAddGroup() {
+    if(this.data.groupName){
+      getApp().$ajax({
+        httpUrl: getApp().api.addFouseGroupUrl,
+        data: {
+          userId: wx.getStorageSync('userinfo').id,
+          name: this.data.groupName
+        }
+      }).then(({ data }) => {
+        this.getGroupLists();
+      })
+      this.setData({
+        addGroupShow: false
+      })
+    }else{
+      wx.showToast({
+        title: '请填写分组名称',
+        icon:'none'
+      })
+    }
+  },
+  // 删除用户分组
+  deleteGroup(e){
     getApp().$ajax({
-      httpUrl: getApp().api.addFouseGroupUrl,
+      httpUrl: getApp().api.deleteGroupUrl,
       data: {
         userId: wx.getStorageSync('userinfo').id,
-        name: this.data.groupName
+        name: e.currentTarget.dataset.name
       }
     }).then(({ data }) => {
       this.getGroupLists();
-    })
-    this.setData({
-      addGroupShow: false
     })
   },
   //阻止页面滚动穿透
@@ -229,6 +232,39 @@ Page({
     this.setData({
       overFlow: !this.data.overFlow
     })
+  },
+  // 点赞分享评论
+  userDo(actID, type, comment) {
+    getApp().$ajax({
+      httpUrl: getApp().api.postingsLikesUrl,
+      data: {
+        actID: actID,
+        userID: wx.getStorageSync('userinfo').id,
+        type: type,
+        comment: comment || ''
+      }
+    }).then(({ data }) => {
+      this.getListData()
+    })
+  },
+  // 获取组件传递id
+  toIndexActid(e){
+    this.setData({
+      actID: e.detail
+    })
+  },
+  // 分享
+  onShareAppMessage: function (res) {
+    let ctx = this;
+    return {
+      title: '鼓楼党建e生活',
+      path: `/pages/home/detail/detail?actId=${ctx.data.actID}`,
+      success: function (res) {
+        ctx.userDo(ctx.data.actID, '0')
+      },
+      fail: function (res) {
+      }
+    }
   },
   // 点击消息进入消息页面
   goMessage() {

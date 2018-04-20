@@ -4,7 +4,10 @@
 <view class='my-sign'>
   <template is="tabBar" data="{{active,...nav}}"></template>
   <template is="signList" data="{{lists}}"></template>
-  <view class='no-data' wx:if="{{noData}}">暂无通知</view>
+  <view class='no-data' wx:if="{{noData}}">
+    <image src='/images/none.png'></image>
+    <view>暂未通知</view>
+  </view>
   <view hidden='{{showCodeImage}}' catchtap='hideCodeImage' class='fixed'></view>
   <image hidden='{{showCodeImage}}' class="code-image" src='{{codeImage}}'></image>
 </view>

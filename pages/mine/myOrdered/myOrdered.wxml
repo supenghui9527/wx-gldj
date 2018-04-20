@@ -1,6 +1,7 @@
 <!--pages/mine/myOrdered/myOrdered.wxml-->
 <import src="../../common/signList/signList.wxml" />
 <view class='my-sign'>
-  <template is="signList" data="{{...lists}}"></template>
+  <!-- <image wx:if="{{lists[0]}}" src='/images/none.png'></image> -->
+  <template is="signList" data="{{lists}}"></template>
 </view>
 

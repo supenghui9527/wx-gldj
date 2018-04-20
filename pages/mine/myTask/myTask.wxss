@@ -11,11 +11,11 @@
   padding: 20rpx 0 20rpx 25rpx;
   margin-bottom:10rpx;
   font-size:32rpx;
-  color:#646464;
+  color:#282828;
 }
 .task-item view{
   line-height: 50rpx;
 }
 .title{
-  color:#323232;
+  color:#282828;
 }

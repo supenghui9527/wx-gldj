@@ -1,61 +1,51 @@
 // pages/mine/myFocusing/myFocusing.js
 Page({
   data: {
-    myFocusing:　{
-      lists: 6,
-      cancel: '取消关注'
-    }
+    lists: [],
+    cancel: '取消关注'
   },
   onLoad: function (options) {
-  
+    this.getFouseLists();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  // 获取关注列表
+  getFouseLists() {
+    getApp().$ajax({
+      httpUrl: getApp().api.myFouseUrl,
+      data: {
+        userID: wx.getStorageSync('userinfo').id
+      }
+    }).then((data) => {
+      data.imgUrl = getApp().imgUrl;
+      this.setData({
+        lists: data
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  // 取消关注
+  cancelFouse(e) {
+    getApp().$ajax({
+      httpUrl: getApp().api.userCancelUrl,
+      data: {
+        userID: wx.getStorageSync('userinfo').id,
+        orgID: e.currentTarget.dataset.id
+      }
+    }).then(({ data }) => {
+      wx.showToast({
+        title: '取消成功',
+        icon: 'none',
+        success: res => {
+          this.getFouseLists();
+        }
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-  
-  },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  },
   onPullDownRefresh: function () {
-  
-  },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  },
   onReachBottom: function () {
-  
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
   }
 })

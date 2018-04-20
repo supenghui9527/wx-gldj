@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 // 请求方法
-function $ajax({ isShowLoading = true, wxApp = true, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
+function $ajax({ isShowLoading = true, hideLoading = true, wxApp = true, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
   return new Promise((resolve, reject) => {
     isShowLoading && wx.showLoading({ mask: true, title: title });
     wx.request({
@@ -25,7 +25,7 @@ function $ajax({ isShowLoading = true, wxApp = true, httpUrl, data = {}, method 
       success: ({ data: { data, message, state } }) => {
         if (state == 1) {
           resolve({ data: data, message });
-          wx.hideLoading();
+          hideLoading && wx.hideLoading();
         } else {
           wx.hideLoading();
           wxApp ? wx.showToast({ title: message, icon: 'none' }) : wxApp.setData({ err: message });
@@ -41,6 +41,7 @@ function $ajax({ isShowLoading = true, wxApp = true, httpUrl, data = {}, method 
     })
   })
 }
+// 点击浏览大图
 function showBigPic(e) {
   let img = e.currentTarget.dataset.img,
     imgUrl = 'https://guloupy.hopethink.com/gldj/',
@@ -52,8 +53,21 @@ function showBigPic(e) {
     urls: urls
   })
 }
+// 格式数据
+function resetData(data) {
+  let lists = data;
+  lists.map(item => {
+    item.imgUrl = getApp().imgUrl;
+    item.actDate = formatTime(new Date(item.pubDate));
+    item.pics ? item.pics = item.pics.split(',') : item.pics = [];
+    let pics = item.pics;
+    pics[1] ? item.pics = pics : item.pics = pics.slice(0, 1);
+  })
+  return lists;
+}
 module.exports = {
   formatTime,
   $ajax,
-  showBigPic
+  showBigPic,
+  resetData
 }

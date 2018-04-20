@@ -2,7 +2,7 @@
 <view class='search'>
   <view class='go-search'>
     <image src='/images/search2.png'></image>
-    <input placeholder='请输入要搜索内容'></input>
+    <input confirm-type="search" bindconfirm="search" placeholder='请输入要搜索内容'></input>
     <text catchtap='backIndex'>取消</text>
   </view>
   <!-- <view class='hot'>
@@ -20,7 +20,16 @@
       </view>
     </view>
   </view> -->
+  <view wx:if="{{addGroupShow}}" bind:touchstart='hideAddGroup' class='add-fixed'></view>
+  <view wx:if="{{addGroupShow}}" class='add-group'>
+    <view class='add-group-title'>新建分组</view>
+    <input bindinput='getGroupName' placeholder='1-16个字符'></input>
+    <view class='add-group-btn'>
+      <view catchtap='hideAddGroup' class='btn-cancel'>暂不分组</view>
+      <view catchtap='sureAddGroup' class='btn-sure'>确定</view>
+    </view>
+  </view>
   <view class="search-container">
-    <postingsList bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
+    <postingsList bind:getListData="getListData" bind:toIndexActid="toIndexActid" isShowFouse="{{true}}" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
   </view>
 </view>

@@ -4,8 +4,8 @@
   <view hidden='{{isFocusGroup}}' class='list-content'>
     <view class='title'>请选择分组</view>
     <view class='list-item'>
-      <checkbox-group bindchange="chooseGroup" data-index="{{index}}" wx:for="{{groupLists}}" wx:key="index">
-        <label class="checkbox">
+      <checkbox-group wx:if="{{groupLists[0]}}" bindchange="chooseGroup">
+        <label class="checkbox" wx:for="{{groupLists}}" wx:key="index">
           <checkbox style='zoom:70%' value="{{item.id}}"/>{{item.name}}
         </label>
       </checkbox-group>
@@ -26,10 +26,10 @@
           <text>{{item.actDate}}</text>
         </view>
       </view>
-      <view wx:if="{{item.isview==1}}" catchtap='cancelFouse' data-orgid="{{item.orgID}}" class='focus'>取消关注</view>
-      <view wx:else bindtap='showGroup' data-orgid="{{item.orgID}}" class='focus'>+关注</view>
+      <view wx:if="{{item.isview==1&&isShowFouse}}" catchtap='cancelFouse' data-orgid="{{item.orgID}}" class='focus'>取消关注</view>
+      <view wx:elif="{{item.isview==0&&isShowFouse}}" bindtap='showGroup' data-orgid="{{item.orgID}}" class='focus'>+关注</view>
     </view>
-    <view  catchtap='goDetail' data-actid="{{item.id}}" class='text warrap'>{{item.pubContent}}</view>
+    <view  catchtap='goDetail' data-islike="{{item.islike}}" data-actid="{{item.id}}" class='text warrap'>{{item.pubContent}}</view>
     <view wx:if="{{item.pics}}" class='pictures warrap'>
       <view wx:for="{{item.pics}}" data-img="{{item.pics}}" catchtap='showBigImage' wx:for-item="i" wx:key="index">
            <image src="{{item.imgUrl+i}}"></image> 
@@ -37,17 +37,19 @@
     </view>
     <view class='user-do'>
       <view>
-        <image src='/images/share.png'></image>
-        <button class='postings-share' data-actid="{{item.id}}" open-type='share'>分享</button>
-        <text>{{item.shares}}</text>
+        <button class='postings-share' catchtap='getActid' data-actid="{{item.id}}" open-type='share'>
+          <image src='/images/share.png'></image>
+          <text>分享{{item.shares}}</text>
+        </button>
       </view>
-      <view data-actid="{{item.id}}" catchtap='goDetail'>
+      <view data-actid="{{item.id}}" data-islike="{{item.islike}}" catchtap='goDetail'>
         <image src='/images/comment.png'></image>
         <text>评论</text>
         <text>{{item.comments}}</text>
       </view>
-      <view data-id="{{item.id}}" catchtap='clickLikes'>
-        <image src="/images/fabulous.png"></image>
+      <view data-id="{{item.id}}" data-islike="{{item.islike}}" catchtap='clickLikes'>
+        <image wx:if="{{item.islike==0}}" src="/images/fabulous.png"></image>
+        <image wx:if="{{item.islike==1}}" src='/images/fabulous2.png'></image>
         <text>赞</text>
         <text>{{item.likes}}</text>
       </view>

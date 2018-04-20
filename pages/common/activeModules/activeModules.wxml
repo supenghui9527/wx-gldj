@@ -28,7 +28,7 @@
     <view>
       <navigator url='/pages/active/consultation/consultation' open-type='navigate' hover-class="none">
         <image src='/images/information.png'></image>
-        <view>党建咨询</view>
+        <view>党建资讯</view>
       </navigator>
     </view>
     <view>

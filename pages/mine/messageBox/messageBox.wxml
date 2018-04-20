@@ -1,16 +1,13 @@
 <!--pages/mine/messageBox/messageBox.wxml-->
 <view class='message'>
-  <block wx:for="{{2}}">
+  <block wx:for="{{lists}}">
     <view class='message-item'>
       <view>
         <image src='/images/news01.png'></image>
-        <text>党费缴纳提醒</text>
-        <text class='time'>2017-12-07</text>
+        <text>{{item.title}}</text>
+        <text class='time'>{{item.create_date_time}}</text>
       </view>
-      <view class="message-content">
-          <text class="bot"></text>
-          <text class="top"></text>
-      </view>
+      <view class="message-content">{{item.content}}</view>
     </view>
   </block>
 </view>

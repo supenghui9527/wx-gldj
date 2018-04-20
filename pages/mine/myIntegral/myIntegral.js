@@ -5,12 +5,10 @@ Page({
     lists: []
   },
   onLoad: function (options) {
-  },
-  onReady: function () {
     this.getPointList();
-  },
-  onShow: function () {
-    
+    this.setData({
+      score: wx.getStorageSync('userinfo').score
+    })
   },
   getPointList() {
     getApp().$ajax({
