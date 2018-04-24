@@ -11,4 +11,17 @@ page{
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+.no-data{
+  text-align: center;
+}
+.no-data image{
+  margin-top: 200rpx;
+  width:247rpx;
+  height:219rpx;
+}
+.no-data view{
+  padding-top: 30rpx;
+  font-size:36rpx;
+  color:#cecece;
+}

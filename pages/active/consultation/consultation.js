@@ -7,6 +7,7 @@ Page({
    */
   data: {
     active: 0,
+    lists:[],
     nav: {
       text: '地图',
       text1: '资讯'
@@ -17,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.mapCtx = wx.createMapContext('map')
+    this.mapCtx = wx.createMapContext('map');
     myAmapFun = new amapFile.AMapWX({ key: 'cd8a5c0aca6d10ef29ecd7599e9173d5' });
     let systemInfo_ = wx.getSystemInfoSync();
 
@@ -45,58 +46,41 @@ Page({
       }
     });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
   
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
   
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  getNewsLists(){
+    getApp().$ajax({
+      httpUrl: getApp().api.getMyRewardsUrl,
+      data: {
+        orgId: wx.getStorageSync('userinfo').dept_id,
+        infotype: 0,
+      }
+    }).then(({ data }) => {
+      this.setData({
+        lists: data
+      })
+    })
   },
   changeNav(e) {
     this.setData({
       active: e.currentTarget.dataset.index
     })
+    this.data.active == 1 && this.getNewsLists();
   }
 })

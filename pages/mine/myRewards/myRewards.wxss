@@ -18,6 +18,7 @@ image{
 .days{
   display: flex;
   font-size:32rpx;
+  position: relative;
 }
 .days .content{
   width:500rpx;
@@ -30,6 +31,8 @@ image{
 }
 .time{
   font-size: 28rpx;
-  padding:6rpx 0 0 40rpx;
+  position: absolute;
+  right: 0;
+  padding-top:6rpx;
   color:#646464;
 }

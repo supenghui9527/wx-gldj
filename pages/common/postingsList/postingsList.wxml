@@ -18,7 +18,8 @@
   </view>
   <view wx:for="{{lists}}" wx:key="index" class='item-content'>
     <view class='avatar warrap'>
-       <image src="{{item.imgUrl+item.avatar}}"></image> 
+       <image wx:if="{{item.avatar}}" src="{{item.imgUrl+item.avatar}}"></image>
+       <image wx:else src="/images/img.png"></image>
       <view>
         <view class='orgname'>{{item.orgName}}</view>
         <view class='type'>
@@ -38,20 +39,26 @@
     <view class='user-do'>
       <view>
         <button class='postings-share' catchtap='getActid' data-actid="{{item.id}}" open-type='share'>
-          <image src='/images/share.png'></image>
-          <text>分享{{item.shares}}</text>
+          <view>
+            <image src='/images/share.png'></image>
+            <text>分享{{item.shares}}</text>
+          </view>
         </button>
       </view>
       <view data-actid="{{item.id}}" data-islike="{{item.islike}}" catchtap='goDetail'>
-        <image src='/images/comment.png'></image>
-        <text>评论</text>
-        <text>{{item.comments}}</text>
+        <view>
+          <image src='/images/comment.png'></image>
+          <text>评论</text>
+          <text>{{item.comments}}</text>
+        </view>
       </view>
       <view data-id="{{item.id}}" data-islike="{{item.islike}}" catchtap='clickLikes'>
-        <image wx:if="{{item.islike==0}}" src="/images/fabulous.png"></image>
-        <image wx:if="{{item.islike==1}}" src='/images/fabulous2.png'></image>
-        <text>赞</text>
-        <text>{{item.likes}}</text>
+        <view>
+          <image wx:if="{{item.islike==0}}" src="/images/fabulous.png"></image>
+          <image wx:if="{{item.islike==1}}" src='/images/fabulous2.png'></image>
+          <text>赞</text>
+          <text>{{item.likes}}</text>
+        </view>
       </view>
     </view>
   </view>

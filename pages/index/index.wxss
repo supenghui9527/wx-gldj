@@ -120,6 +120,22 @@
   top:50%;
   margin-top:-25rpx;
 }
+.spot{
+  width:15rpx;
+  height: 15rpx;
+  position: absolute;
+  top:0;
+  right: -2px;
+  background-color: #f00;
+  border-radius: 50%;
+}
+.news image{
+  width:50rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 0;
+  top:0;
+}
 .search{
   right: 86rpx;
 }
@@ -274,7 +290,7 @@
   width:230rpx;
   height: 230rpx;
 }
-.user-do{
+/* .user-do{
   display: flex;
   width:100%;
   height: 94rpx;
@@ -301,7 +317,7 @@
   width:50rpx;
   height: 50rpx;
   margin-right:10rpx;
-}
+} */
 /* 尾部 */
 .line{
   width: 100%;

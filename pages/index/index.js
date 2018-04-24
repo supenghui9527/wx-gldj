@@ -28,7 +28,7 @@ Page({
     editText: '编辑',
     focusGroup: true // 点击关注分组
   },
-  onLoad() {
+  onShow(){
     this.getPostingsList(this.data.active);
     this.getGroupLists();
     this.getHotGroupLists();
@@ -65,9 +65,8 @@ Page({
       httpUrl: getApp().api.getActTypeUrl,
       data: {}
     }).then(({ data }) => {
-      this.setData({
-        hotGroup: data
-      })
+      wx.setStorageSync('hotGroup',data);
+      this.setData({hotGroup: data});
     })
   },
   // 获取用户分组

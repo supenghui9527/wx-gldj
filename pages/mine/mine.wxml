@@ -5,7 +5,8 @@
     <view class='user'>
       <image catchtap="gomessage" class="email" src="/images/news.png"></image>
       <view>
-        <image catchtap="changeAvatar" class="avatar" src="{{avatar}}"></image>
+        <image wx:if="avatar" catchtap="changeAvatar" class="avatar" src="{{avatar}}"></image>
+        <image wx:else catchtap="changeAvatar" class="avatar" src="/images/img.png"></image>
         <view class='name'>{{userName}}</view>
         <view class='stars'>
           <image wx:for="{{3}}" wx:key="index" src='/images/star.png'></image>
@@ -74,7 +75,6 @@
     <navigator url='/pages/login/login' open-type='redirect' hover-class="none">
       <image src='/images/exit.png'></image>
       <text>退出登录</text>
-      <image class='arrow' src='/images/arrow.png'></image>
     </navigator>
   </view>
   <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus' />

@@ -1,5 +1,5 @@
 .my-sign{
-  background-color: #f0f0f0;
+  background-color: #fff;
 }
 .sign-item{
   width:100%;
@@ -67,7 +67,7 @@
   right: 25rpx;
   bottom: 25rpx;
   line-height: 50rpx;
-  font-size:28rpx;
+  font-size:32rpx;
   text-align: center;
   color:#ffb849;
   border:1px solid #ffb849;

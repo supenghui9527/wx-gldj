@@ -2,5 +2,10 @@
 <import src="../../common/tabBar/tabBar.wxml" />
 <view class='map-container'>
   <template is="tabBar" data="{{active,...nav}}"></template>
-  <map id="map" longitude="{{centerX}}" latitude="{{centerY}}" scale="15" bindregionchange="regionchange" show-location="{{true}}"></map>
+  <view hidden='{{active!=0}}' class='map'>
+    <map id="map" longitude="{{centerX}}" latitude="{{centerY}}" scale="15" bindregionchange="regionchange" show-location="{{true}}"></map>
+  </view>
+  <view hidden='{{active==0}}' class='newslist'>
+    <view wx:for="{{lists}}" wx:key="index">{{item.title}}</view>
+  </view>
 </view>

@@ -20,7 +20,8 @@
     </view>
     <view class='item-content'>
       <view class='avatar warrap'>
-        <image src='{{detail.imgUrl+detail.avatar}}'></image>
+         <image wx:if="{{detail.avatar}}" src='{{detail.imgUrl+detail.avatar}}'></image>
+         <image wx:else src="/images/img.png"></image>
         <view>
           <view class='orgname'>{{detail.orgName}}</view>
           <view class='type'>
@@ -44,7 +45,8 @@
       <view>{{detail.checksDetail?detail.checksDetail.length:0}}人签到</view>
       <scroll-view wx:if="{{detail.checksDetail[0]}}" scroll-x="true">
         <view class='scroll-item' wx:for="{{detail.checksDetail}}" wx:for-item="i" wx:key="index">
-          <image src='{{detail.imgUrl+i.avatar}}'></image>
+          <image wx:if="{{i.avatar}}" src='{{detail.imgUrl+i.avatar}}'></image>
+          <image wx:else src="/images/img.png"></image>
           <view>{{i.name}}</view>
         </view>
       </scroll-view>
@@ -63,7 +65,8 @@
       </view>
       <view hidden='{{active!=0}}'>
         <view wx:for="{{detail.sharesDetail}}" wx:key="index" class='share-content'>
-          <image class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+           <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+           <image wx:else src="/images/img.png"></image>
           <view>
             <view class='share-name'>{{item.name}}</view>
             <!-- <view class='share-name'>分享帖子</view> -->
@@ -73,7 +76,8 @@
       </view>
       <view hidden='{{active!=1}}'>
         <view wx:for="{{detail.commentsDetail}}" wx:key="index" class='comment-content'>
-          <image class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+          <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+          <image wx:else src="/images/img.png"></image>
           <view>
             <view class='user-name'>{{item.name}}</view>
             <view class='user-comment'>{{item.comments}}</view>
@@ -83,7 +87,8 @@
       </view>
       <view hidden='{{active!=2}}'>
         <view wx:for="{{detail.likesDetail}}" wx:key="index" class='like-content'>
-          <image class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+          <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
+          <image wx:else src="/images/img.png"></image>
           <view class='like-name'>{{item.name}}</view>
         </view>
       </view>

@@ -22,6 +22,10 @@ Page({
         type: type
       }
     }).then(({ data }) => {
+      data.map(item => {
+        item.actDate = item.actDate.substring(0, 16);
+        item.create_date_time = item.create_date_time.substring(0, 16)
+      })
       this.setData({
         lists: data,
         active: active,

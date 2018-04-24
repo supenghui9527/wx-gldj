@@ -48,6 +48,7 @@ Page({
       }
     })
     this.setData({
+      all: true,
       lists: lists,
       ids: ids.toString(),
       texts: texts.toString()

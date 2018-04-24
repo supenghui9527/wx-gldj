@@ -49,7 +49,10 @@
       </view>
     </view>
     <image class='search' catchtap='goSearch' src="/images/search.png"></image>
-    <image class='news' catchtap='goMessage' src="/images/activity2.png"></image>
+    <view class='news'>
+      <view class='spot'></view>
+      <image catchtap='goMessage' src="/images/activity2.png"></image>
+    </view>
   </view>
   <view style='width:100%;height:90rpx'></view>
   <view hidden='{{showMsg}}' class='message'>

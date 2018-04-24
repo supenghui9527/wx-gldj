@@ -6,19 +6,6 @@
   height: 100%;
   position: relative;
 }
-.no-data{
-  text-align: center;
-}
-.no-data image{
-  margin-top: 200rpx;
-  width:247rpx;
-  height:219rpx;
-}
-.no-data view{
-  padding-top: 30rpx;
-  font-size:36rpx;
-  color:#cecece;
-}
 .fixed{
   width:100%;
   height: 100%;

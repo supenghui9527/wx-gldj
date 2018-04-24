@@ -2,10 +2,10 @@
   "pages": [
     "pages/loading/loading",
     "pages/index/index",
-    "pages/login/login",
-    "pages/mine/mine",
     "pages/active/consultation/consultation",
     "pages/active/activityPreview/activityPreview",
+    "pages/login/login",
+    "pages/mine/mine",
     "pages/index/detail/detail",
     "pages/mine/myIntegral/myIntegral",
     "pages/active/post/post",

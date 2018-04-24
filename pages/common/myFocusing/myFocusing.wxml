@@ -1,7 +1,8 @@
 <template name="myFocusing">
   <block wx:for="{{lists.data}}" wx:key="index">
     <view class='focusing-item'>
-      <image src='{{lists.imgUrl+item.avatar}}'></image>
+      <image wx:if="{{item.avatar}}" src='{{lists.imgUrl+item.avatar}}'></image>
+      <image wx:else src="/images/img.png"></image>
       <view>
         <view class='name'>{{item.name}}</view>
         <view class='org-name'>{{item.orgName}}</view>

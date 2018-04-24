@@ -15,16 +15,7 @@ Page({
 
   },
   onShow(){
-    getApp().$ajax({
-      isShowLoading :false,
-      httpUrl: getApp().api.getActTypeUrl,
-      data: {}
-    }).then(({ data }) => {
-      this.setData({
-        typeLists: data,
-        active: data[0].id
-      })
-    })
+    this.setData({ typeLists: wx.getStorageSync('hotGroup'), active: wx.getStorageSync('hotGroup')[0].id});
     let userinfo = wx.getStorageSync('userinfo');
     if (wx.getStorageSync('userGroup')) {
       this.setData({
@@ -78,6 +69,7 @@ Page({
     }).then((data) => {
       wx.showToast({
         title: '预告发布成功',
+        icon:'none',
         success:()=>{
           wx.redirectTo({
             url: '/pages/index/index',
