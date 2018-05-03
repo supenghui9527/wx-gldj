@@ -1,6 +1,6 @@
 <template name="signList">
   <block wx:for="{{lists}}" wx:key="index">
-    <view class='sign-item'>
+    <view wx:if="{{userType==0}}" class='sign-item'>
       <view>
         <view class='title'>{{item.title}}</view>
         <view class='time'>{{item.create_date_time}}</view>
@@ -28,9 +28,55 @@
         </view>
         <view>
           <view class='code' data-actid="{{item.id}}" catchtap='getCodeImage' hidden="{{item.ismy!=1}}">签到码</view>
-          <image wx:if="{{item.status==2}}" class='signed' src="/images/signed.png"></image>
-          <view wx:if="{{item.status==0}}" data-actid="{{item.id}}" catchtap='clickOrder' class='ordered'>待预约</view>
-          <view wx:if="{{item.status!=0}}" class='ordered'>已预约</view>
+          <image wx:if="{{item.status==2&&userType==0}}" class='signed' src="/images/signed.png"></image>
+          <view wx:if="{{item.status==0&&userType==0}}" data-nums="{{item.nums}}" data-actid="{{item.id}}" catchtap='clickOrder' class='ordered'>预约</view>
+          <view wx:if="{{item.status!=0&&userType==0}}" class='ordered'>已预约</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{userType==1&&item.ismy}}" class='sign-item'>
+      <view>
+        <view class='title'>{{item.title}}</view>
+        <view class='time'>{{item.create_date_time}}</view>
+      </view>
+      <view class='sign-content'>
+        <view>
+          <view class='org-name'>{{item.actName}}</view>
+          <view class='activity-time'>
+            <text style='color:#323232'>时间：</text>
+            <text>{{item.actDate}}</text>
+          </view>
+          <view class='activity-place'>
+            <text style='color:#323232'>地点：</text>
+            <text>{{item.place}}</text>
+          </view>
+          <!-- <view class='activity-company'>主办单位：{{}}</view> -->
+          <view class='activity-tel'>
+            <text style='color:#323232'>联系人：</text>
+            <text>{{item.contracts}} {{item.tel}}</text>
+          </view>
+          <view class='activity-remark'>
+            <text style='color:#323232'>备注：</text>
+            <text>{{item.remark}}</text>
+          </view>
+          <view class='activity-remark'>
+            <text style='color:#323232'>总人数：</text>
+            <text>{{item.nums}}</text>
+          </view>
+          <view class='activity-remark'>
+            <text style='color:#323232'>已预约人数：</text>
+            <text>{{item.yy}}</text>
+          </view>
+          <view class='activity-remark'>
+            <text style='color:#323232'>已签到人数：</text>
+            <text>{{item.qd}}</text>
+          </view>
+        </view>
+        <view>
+          <view class='code' data-actid="{{item.id}}" catchtap='getCodeImage' hidden="{{item.ismy!=1}}">签到码</view>
+          <!-- <image wx:if="{{item.status==2&&userType==0}}" class='signed' src="/images/signed.png"></image>
+          <view wx:if="{{item.status==0&&userType==0}}" data-actid="{{item.id}}" catchtap='clickOrder' class='ordered'>待预约</view>
+          <view wx:if="{{item.status!=0&&userType==0}}" class='ordered'>已预约</view> -->
         </view>
       </view>
     </view>

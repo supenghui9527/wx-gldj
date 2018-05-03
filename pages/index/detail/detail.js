@@ -55,7 +55,7 @@ Page({
     let ctx = this;
     return {
       title: '鼓楼党建e生活',
-      path: `/pages/home/detail/detail?actId=${ctx.data.actId}`,
+      path: `/pages/index/detail/detail?actId=${ctx.data.actId}`,
       success: function (res) {
         ctx.userDo({type:0})
       },

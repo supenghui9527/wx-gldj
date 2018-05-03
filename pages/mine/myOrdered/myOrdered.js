@@ -1,11 +1,8 @@
 // pages/mine/myOrdered/myOrdered.js
 Page({
   data: {
-    lists: {
-      item: 6,
-      isSign: true,
-      text: '我的预约'
-    }
+    lists: [],
+    userType: 0
   },
   onLoad: function (options) {
     getApp().$ajax({

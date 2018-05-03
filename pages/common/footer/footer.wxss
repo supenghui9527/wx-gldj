@@ -17,6 +17,7 @@
 .footer view view,.footer navigator view{
   width: 100%;
   text-align: center;
+  color:#323232;
   font-size:30rpx;
 }
 .footer navigator image{
@@ -28,8 +29,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.footer view:nth-child(2) image{
-  width:71rpx;
-  height: 71rpx;
 }

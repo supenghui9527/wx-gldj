@@ -46,5 +46,6 @@
   border-radius: 40rpx;
   font-weight: bold;
   margin-top:115rpx;
+  margin-bottom:50rpx;
   color:#323232;
 }

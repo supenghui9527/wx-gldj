@@ -9,7 +9,8 @@ Page({
     typeLists: []
   },
   onLoad(options) {
-    if (options.id) this.setData({ title: options.text, id: options.id })
+    console.log(options)
+    if (options.id) this.setData({ title: options.text, id: options.id, actName: options.actName })
   },
   goActivity() {
     wx.navigateTo({
@@ -66,8 +67,9 @@ Page({
           wx.showToast({
             title: '发布成功',
             icon: 'none',
+            duration: 2500,
             success: res => {
-              wx.redirectTo({
+              wx.switchTab({
                 url: '/pages/index/index'
               })
             }
@@ -96,6 +98,7 @@ Page({
       data = e.detail.value;
     for (let i in data) {
       if (data[i] == '') {
+        if (i == 'location') continue;
         wx.showToast({
           title: '请确认信息是否填写完整',
           icon: 'none'
@@ -113,7 +116,7 @@ Page({
       if (length) {
         this.getData(this.data.tempFilePaths, successUp, failUp, i, length);
       } else {
-        wx.redirecTo({
+        wx.switchTab({
           url: '/pages/index/index'
         })
       }

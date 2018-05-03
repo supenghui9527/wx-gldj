@@ -32,7 +32,7 @@
     </view>
     <view  catchtap='goDetail' data-islike="{{item.islike}}" data-actid="{{item.id}}" class='text warrap'>{{item.pubContent}}</view>
     <view wx:if="{{item.pics}}" class='pictures warrap'>
-      <view wx:for="{{item.pics}}" data-img="{{item.pics}}" catchtap='showBigImage' wx:for-item="i" wx:key="index">
+      <view wx:for="{{item.pics}}" data-img="{{item.pics}}" data-index="{{idx}}" catchtap='showBigImage' wx:for-item="i"  wx:for-index="idx" wx:key="idx">
            <image src="{{item.imgUrl+i}}"></image> 
       </view>
     </view>

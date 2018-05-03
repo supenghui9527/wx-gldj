@@ -1,5 +1,6 @@
 /**index.wxss**/
 /* 热门关注切换 */
+ @import '../common/marquee/marquee.wxss'; 
 .index{
   height: 100%;
   position: relative;
@@ -335,35 +336,6 @@
   background: url('http://www.wsspha.cn/images/pluss_bg.png') no-repeat center center;
   background-size:100%;
   color:#2e2e2e;
-}
-.org{
-  position: absolute;
-  bottom:120rpx;
-  left: 0;
-  display: flex;
-  padding: 0 30rpx;
-  flex-wrap: wrap;
-}
-.org view{
-  width:33.33%;
-  text-align: center;
-  margin-bottom:30rpx;
-}
-.org view view{
-  width: 100%;
-  text-align: center;
-}
-.show-plus image{
-  width:120rpx;
-  height: 120rpx;
-}
-.close-plus{
-  width:60rpx !important;
-  height: 60rpx !important;
-  position: absolute;
-  bottom:30rpx;
-  left:50%;
-  margin-left:-22rpx;
 }
 .footer{
   width:100%;

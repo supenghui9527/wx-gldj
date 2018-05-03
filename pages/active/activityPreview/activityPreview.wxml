@@ -15,6 +15,10 @@
       <image src='/images/title.png'></image>
       <input name="title" placeholder-style='color:#cdcdcd' placeholder='请输入活动标题'></input>
     </view>
+    <view>
+      <image src='/images/person.png'></image>
+      <input type="number" placeholder-style='color:#cdcdcd' name="nums" placeholder='请输入参加总人数'></input>
+    </view>
     <view catchtap='goUserList' style='position:relative'>
       <image src='/images/notice.png'></image>
       <!-- <view style='color:#cdcdcd'>{{userLists}}</view> -->

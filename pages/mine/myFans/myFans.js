@@ -6,7 +6,8 @@ Page({
    */
   data: {
     lists: [],
-    cancel: '移除粉丝'
+    cancel: '',
+    fanstype:0
   },
   onLoad: function (options) {
     this.getFansLists()

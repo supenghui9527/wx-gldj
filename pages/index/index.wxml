@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<import src="../common/footer/footer.wxml"/>
+<import src="../common/footer/footer.wxml" />
+<import src="../common/marquee/marquee.wxml" />
 <view class="index {{overFlow?'':'index-overflow'}}">
   <view wx:if="{{addGroupShow}}" catchtap='hideAddGroup' class='add-fixed'></view>
   <view wx:if="{{addGroupShow}}" class='add-group'>
@@ -25,7 +26,7 @@
         </view>
         <view class='group'>
           <view wx:for="{{groupLists}}" wx:key="index">
-            <view>
+            <view data-id="{{item.id}}" catchtap='searchByGroup'>
               <text>{{item.name}}</text>
               <icon hidden="{{showEdit}}" data-name="{{item.name}}" catchtap='deleteGroup' class='cancel' type="clear" size="16" color="#868686" />
             </view>
@@ -55,12 +56,16 @@
     </view>
   </view>
   <view style='width:100%;height:90rpx'></view>
-  <view hidden='{{showMsg}}' class='message'>
-    <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
+  <view hidden='{{showMsg}}' class="marquee_container" style="--marqueeWidth--:{{-marquee.width}}em">
+    <view class="marquee_text">{{marquee.text}}</view>
     <image catchtap='hideMsg' class='close' src='/images/close.png'></image>
   </view>
-  <postingsList wx:if="{{lists[0]}}" isShowFouse="{{true}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}' />
-  <view wx:if="{{lists[0]}}" class='line'></view>
-  <activeModules isHidden='{{showPlus}}' bind:closePlus='closePlus'/>
-  <template is="footer" data="{{...footer}}"/>
+  <!-- <view hidden='{{showMsg}}' class='message'>
+    <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
+    <image catchtap='hideMsg' class='close' src='/images/close.png'></image>
+  </view> -->
+  <postingsList wx:if="{{lists[0]}}" isShowFouse="{{true}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}'
+  />
+  <!-- <view wx:if="{{lists[0]}}" class='line'></view> -->
+  <!-- <template is="marquee" data="{{marquee}}"/>  -->
 </view>

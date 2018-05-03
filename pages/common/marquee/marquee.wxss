@@ -1,0 +1,40 @@
+@keyframes around {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: var(--marqueeWidth--);
+    }
+  }
+
+.marquee_container{
+  width: 100%;
+  padding:0 60rpx 0 20rpx;
+  height: 85rpx;
+  box-sizing: border-box;
+  line-height: 85rpx;
+  background-color: #f2f2f2;
+  font-size:30rpx;
+  position: relative;
+}
+.close{
+  width:50rpx;
+  height:50rpx;
+  position:absolute;
+  top:50%;
+  margin-top:-25rpx;
+  right: 25rpx;
+}
+.marquee_container:hover{
+  animation-play-state: paused;
+}
+.marquee_text{
+  color:#646464;
+  font-size:32rpx;
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: around;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function:linear;
+}

@@ -3,11 +3,13 @@
     <navigator url="{{idx?'':'/pages/index/index'}}" open-type='redirect' hover-class='none'>
       <image wx:if="{{idx}}" src='/images/everybody02.png'></image>
       <image wx:else src='/images/everybody.png'></image>
-      <view>大家</view>
+      <view>首页</view>
     </navigator>
-    <view class='plus'>
-      <image catchtap='clickShowPlus' src='/images/plus.png'></image>
-    </view>
+    <navigator url="{{nav?'':'/pages/active/active'}}" open-type='redirect' hover-class='none'>
+      <image wx:if="{{nav}}" src='/images/dh02.png'></image>
+      <image wx:else src='/images/dh.png'></image>
+      <view>导航</view>
+    </navigator>
     <navigator url="{{mine?'':'/pages/mine/mine'}}" open-type='redirect' hover-class='none'>
       <image wx:if="{{mine}}" src='/images/mine02.png'></image>
       <image wx:else src='/images/mine.png'></image>

@@ -24,6 +24,6 @@
       </view>
     </view>
   </view>
-  <view style='width:100%;height:140rpx'></view>
-  <view class='loading-more'>点击加载更多</view>
+  <!-- <view style='width:100%;height:140rpx'></view>
+  <view class='loading-more'>点击加载更多</view> -->
 </view>

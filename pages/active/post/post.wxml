@@ -9,7 +9,7 @@
     </view>
     <view class='title'>
       <label>类型</label>
-      <text class='font-color'>党小组会</text>
+      <text class='font-color'>{{actName}}</text>
     </view>
     <view class='time'>
       <text>时间</text>

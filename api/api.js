@@ -1,7 +1,8 @@
-const HOST = 'https://guloupy.hopethink.com/gldj/'; //http://192.168.8.24:8080/
+const HOST = 'http://192.168.8.24:8080/'; //https://guloupy.hopethink.com/gldj/
 module.exports = {
   HOST,
   loginUrl: `${HOST}api/user/login`,  // 登录接口
+  resetPasswordUrl: `${HOST}api/login/update`,  // 修改密码
   getPostingsUrl: `${HOST}api/act/list`,  // 获取帖子列表
   goSearchUrl: `${HOST}api/act/findbycontent`,  // 搜索帖子
   getPostingsDetailUrl: `${HOST}api/act/listdetail`,  // 获取帖子列表
@@ -15,6 +16,7 @@ module.exports = {
   userFouseUrl: `${HOST}api/usergroup/interest`, // 用户关注
   userCancelUrl: `${HOST}api/usergroup/cancel`, // 用户取消关注
   actPostUrl: `${HOST}wqqapi/act/pub`,  // 活动发布
+  searchByGroupUrl: `${HOST}api/myListByGroup`,// 根据用户分组筛选
   getActTitleUrl:`${HOST}api/act/titlelist`,// 活动标题列表
   actSignUrl: `${HOST}wqqapi/act/sign`, // 活动预约签到
   upLoadPicUrl: `${HOST}wqqapi/act/uploadMultipleFile`,  // 活动发布上传图片

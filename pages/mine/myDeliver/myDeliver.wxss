@@ -1,14 +1,8 @@
 /* pages/mine/myDeliver/myDeliver.wxss */
-.my-deliver{
+.my-review{
   text-align: center;
 }
-.my-deliver image{
-  margin-top: 200rpx;
-  width:247rpx;
-  height:219rpx;
-}
-.my-deliver view{
-  padding-top: 30rpx;
-  font-size:36rpx;
-  color:#cecece;
+.my-review image{
+  width:750rpx;
+  height: 686rpx;
 }

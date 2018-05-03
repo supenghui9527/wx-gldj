@@ -3,12 +3,6 @@
   text-align: center;
 }
 .my-review image{
-  margin-top: 200rpx;
-  width:247rpx;
-  height:219rpx;
-}
-.my-review view{
-  padding-top: 30rpx;
-  font-size:36rpx;
-  color:#cecece;
+  width:750rpx;
+  height: 686rpx;
 }

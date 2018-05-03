@@ -1,23 +1,5 @@
-<!--pages/index/detail/detail.wxml-->
 <view class='detail'>
   <view class='content'>
-    <view hidden='{{true}}' bind:touchstart="hideGroup" class='focus-group'>
-    </view>
-    <view hidden='{{true}}' class='list-content'>
-      <view class='title'>请选择分组</view>
-      <view class='list-item'>
-        <checkbox-group wx:for="{{8}}" wx:key="key">
-          <label class="checkbox">
-            <checkbox value="分组一" checked="{{index}}" />分组一
-          </label>
-        </checkbox-group>
-        <view class='plus-group'>+新建分组</view>
-      </view>
-      <view class='sure'>
-        <text>暂不分组</text>
-        <text>确定</text>
-      </view>
-    </view>
     <view class='item-content'>
       <view class='avatar warrap'>
          <image wx:if="{{detail.avatar}}" src='{{detail.imgUrl+detail.avatar}}'></image>
@@ -29,8 +11,6 @@
             <text>{{detail.actDate}}</text>
           </view>
         </view>
-        <!-- <view wx:if="{{detail.isview==1}}" catchtap='cancelFouse' data-orgid="{{detail.orgID}}" class='focus'>取消关注</view>
-        <view wx:else bindtap='showGroup' data-orgid="{{detail.orgID}}" class='focus'>+关注</view> -->
       </view>
       <view class='text warrap'>{{detail.pubContent}}</view>
       <view class='pictures warrap'>
@@ -66,10 +46,9 @@
       <view hidden='{{active!=0}}'>
         <view wx:for="{{detail.sharesDetail}}" wx:key="index" class='share-content'>
            <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
-           <image wx:else src="/images/img.png"></image>
+           <image class='avatar-img' wx:else src="/images/img.png"></image>
           <view>
-            <view class='share-name'>{{item.name}}</view>
-            <!-- <view class='share-name'>分享帖子</view> -->
+            <view class='share-name'>{{item.name}}</view>>
             <view class='share-time'><text>{{item.date}}</text></view>
           </view>
         </view>
@@ -77,9 +56,9 @@
       <view hidden='{{active!=1}}'>
         <view wx:for="{{detail.commentsDetail}}" wx:key="index" class='comment-content'>
           <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
-          <image wx:else src="/images/img.png"></image>
+          <image class='avatar-img' wx:else src="/images/img.png"></image>
           <view>
-            <view class='user-name'>{{item.name}}</view>
+            <view class='user-name'>{{item.name.substring(0,2)}}**</view>
             <view class='user-comment'>{{item.comments}}</view>
             <view class='comment-time'><text>{{item.date}}</text></view>
           </view>
@@ -88,7 +67,7 @@
       <view hidden='{{active!=2}}'>
         <view wx:for="{{detail.likesDetail}}" wx:key="index" class='like-content'>
           <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
-          <image wx:else src="/images/img.png"></image>
+          <image class='avatar-img' wx:else src="/images/img.png"></image>
           <view class='like-name'>{{item.name}}</view>
         </view>
       </view>
@@ -97,7 +76,12 @@
   <view style='width:100%;height:100rpx'></view>
   <view hidden='{{showComment}}' bind:touchstart='goComment' class='show-fixed'></view>
   <view hidden='{{showComment}}' class='comment'>
-    <textarea fixed="true" bindconfirm="sureComment" placeholder='请输入评论内容'></textarea>
+    <textarea wx:if='{{!showComment}}' fixed="true" bindconfirm="sureComment" placeholder='请输入评论内容'></textarea>
+    <checkbox-group class="hide-name">
+      <label>
+        <checkbox value="" style='zoom:70%' checked=""/>是否匿名
+      </label>
+    </checkbox-group>
   </view>
   <view class='user-do'>
     <view>

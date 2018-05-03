@@ -1,0 +1,55 @@
+<!--pages/active/active.wxml-->
+<import src="../common/footer/footer.wxml" />
+<view class='activity'>
+  <view class='org'>
+    <view wx:if="{{userType==1}}">
+      <navigator url='/pages/active/activityPreview/activityPreview' open-type='navigate' hover-class="none">
+        <image src='/images/hdyg.png'></image>
+        <view>预告</view>
+      </navigator>
+    </view>
+    <view wx:if="{{userType==1}}">
+      <navigator url='/pages/active/post/post' open-type='navigate' hover-class="none">
+        <image src='/images/fb.png'></image>
+        <view>发布</view>
+      </navigator>
+    </view>
+    <view wx:if="{{userType==0}}">
+      <navigator url='/pages/index/message/message' open-type='navigate' hover-class="none">
+        <image src='/images/yy.png'></image>
+        <view>预约</view>
+      </navigator>
+    </view>
+    <view wx:if="{{userType==1}}">
+      <navigator url='/pages/index/message/message?enterType=1' open-type='navigate' hover-class="none">
+        <image src='/images/qd.png'></image>
+        <view>签到码</view>
+      </navigator>
+    </view>
+    <view wx:if="{{userType==0}}">
+      <view catchtap='sign'>
+        <image src='/images/qd.png'></image>
+        <view>签到</view>
+      </view>
+    </view>
+    <view wx:if="{{userType==0}}">
+      <navigator url='/pages/active/consultation/consultation' open-type='navigate' hover-class="none">
+        <image src='/images/djdt.png'></image>
+        <view>党建地图</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/mine/myTask/myTask' open-type='navigate' hover-class="none">
+        <image src='/images/rw.png'></image>
+        <view>任务</view>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='/pages/active/activeLine/activeLine' open-type='navigate' hover-class="none">
+        <image src='/images/xshd.png'></image>
+        <view>线上活动</view>
+      </navigator>
+    </view>
+  </view>
+  <!-- <template is="footer" data="{{...footer}}" /> -->
+</view>

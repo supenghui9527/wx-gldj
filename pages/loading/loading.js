@@ -4,10 +4,16 @@ Page({
   
   },
   onLoad() {
-    setTimeout(()=>{
-      wx.redirectTo({
-        url: '/pages/login/login'
+    if (wx.getStorageSync('userinfo')) {
+      wx.switchTab({
+        url: '/pages/index/index',
       })
-    },1500)
+    }else{
+      setTimeout(() => {
+        wx.redirectTo({
+          url: '/pages/login/login'
+        })
+      }, 1500)
+    }
   }
 })

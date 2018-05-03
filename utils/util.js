@@ -50,6 +50,7 @@ function showBigPic(e) {
     urls[i] = imgUrl + img[i];
   }
   wx.previewImage({
+    current: urls[e.currentTarget.dataset.index],
     urls: urls
   })
 }

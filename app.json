@@ -2,9 +2,12 @@
   "pages": [
     "pages/loading/loading",
     "pages/index/index",
-    "pages/active/consultation/consultation",
-    "pages/active/activityPreview/activityPreview",
     "pages/login/login",
+    "pages/mine/resetPassword/resetPassword",
+    "pages/active/active",
+    "pages/active/consultation/consultation",
+    "pages/active/consultation/detail/detail",
+    "pages/active/activityPreview/activityPreview",
     "pages/mine/mine",
     "pages/index/detail/detail",
     "pages/mine/myIntegral/myIntegral",
@@ -34,6 +37,30 @@
     "navigationBarBackgroundColor": "#c6f5fd",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor":"#fff",
+    "color": "#323232",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/everybody.png",
+        "selectedIconPath": "images/everybody02.png"
+      },
+      {
+        "pagePath": "pages/active/active",
+        "text": "导航",
+        "iconPath": "images/dh.png",
+        "selectedIconPath": "images/dh02.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine02.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 6000,

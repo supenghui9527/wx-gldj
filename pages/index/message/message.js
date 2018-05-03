@@ -2,7 +2,9 @@
 Page({
   data: {
     active: 0,
-    nav:{
+    enterType: false,
+    userType: 0,//判断进入的角色
+    nav: {
       text: '@我的',
       text1: '所有'
     },
@@ -11,10 +13,22 @@ Page({
     lists: []
   },
   onLoad(options) {
-    this.getReserveLists('1',0);
+    let userType = wx.getStorageSync('userinfo').isSuperAdmin;
+    if (options.enterType == 0) {
+      this.setData({ enterType: false });
+      this.getReserveLists('1', 0);
+    } else {
+      if (userType == 1) {
+        this.setData({ userType: userType, enterType:false });
+        this.getReserveLists('0', 1);
+      } else {
+        this.setData({ enterType: true });
+        this.getReserveLists('1', 0);
+      }
+    }
   },
   // 获取活动预约发布列表
-  getReserveLists(type,active){
+  getReserveLists(type, active) {
     getApp().$ajax({
       httpUrl: getApp().api.getReserveListsUrl,
       data: {
@@ -29,18 +43,18 @@ Page({
       this.setData({
         lists: data,
         active: active,
-        noData: data.toString()==''?true:false
+        noData: data.toString() == '' ? true : false
       })
     })
   },
   onPullDownRefresh: function () {
-  
+
   },
   onReachBottom: function () {
-  
+
   },
   // 获取二维码图片
-  getCodeImage(e){
+  getCodeImage(e) {
     getApp().$ajax({
       httpUrl: getApp().api.codeImageUrl,
       data: {
@@ -51,27 +65,29 @@ Page({
         codeImage: `${getApp().codeUrl}${data}`,
         showCodeImage: false
       })
-    }) 
+    })
   },
-  hideCodeImage(){
+  hideCodeImage() {
     this.setData({
       showCodeImage: true
     })
   },
+  // 签到预约
   clickOrder(e) {
     getApp().$ajax({
       httpUrl: getApp().api.actSignUrl,
       data: {
         userID: wx.getStorageSync('userinfo').id,
         actID: e.target.dataset.actid,
+        nums: e.target.dataset.nums,
         type: '1'
       }
     }).then(({ data }) => {
       this.data.active == 0 ? this.getReserveLists('1', 0) : this.getReserveLists('0', 1);
-    })  
+    })
   },
   changeNav(e) {
     let active = e.currentTarget.dataset.index;
-    active == 0 ? this.getReserveLists('1',0) : this.getReserveLists('0',1)
+    active == 0 ? this.getReserveLists('1', 0) : this.getReserveLists('0', 1)
   }
 })

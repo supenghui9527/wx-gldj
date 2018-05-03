@@ -1,7 +1,6 @@
 // pages/mine/mine.js
 Page({
   data: {
-    showPlus: false,
     footer: {
       idx: false,
       mine: true
@@ -14,8 +13,9 @@ Page({
     orgName: '',
     avatar: '',
   },
-  onLoad() {
+  onShow() {
     let userinfo = wx.getStorageSync('userinfo');
+    this.setData({ userType: userinfo.isSuperAdmin});
     getApp().$ajax({
       httpUrl: getApp().api.loginUrl,
       data: {
@@ -32,7 +32,6 @@ Page({
         myscore: userinfo.score,
         userName: userinfo.name,
         orgName: userinfo.orgName,
-        userType: userinfo.isSuperAdmin,
         avatar: `${getApp().imgUrl}${userinfo.avatar}`
       })
     })
@@ -75,13 +74,7 @@ Page({
       overFlow: false
     })
   },
-  // 关闭弹出活动
-  closePlus() {
-    this.setData({
-      showPlus: false
-    })
-  },
-  // 
+  // 消息通知
   gomessage() {
     wx.navigateTo({
       url: '/pages/mine/messageBox/messageBox',

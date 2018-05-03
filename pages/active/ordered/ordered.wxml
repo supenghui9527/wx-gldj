@@ -3,4 +3,3 @@
 <view class='my-sign'>
   <template is="signList" data="{{...lists}}"></template>
 </view>
-

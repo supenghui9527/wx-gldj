@@ -1,5 +1,4 @@
 <!--pages/mine/myVote/myVote.wxml-->
 <view class='my-review'>
-  <image src='/images/none.png'></image>
-  <view>暂未开放</view>
+  <image src='/images/ing.jpg'></image>
 </view>

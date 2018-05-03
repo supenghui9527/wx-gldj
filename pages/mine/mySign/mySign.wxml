@@ -1,8 +1,8 @@
 <!--pages/mine/mySign/mySign.wxml-->
 <import src="../../common/signList/signList.wxml" />
 <view class='my-sign'>
-  <template is="signList" data="{{lists}}"></template>
-  <view class='no-data' wx:if="{{noData}}">
+  <template is="signList" data="{{lists,userType}}"></template>
+  <view class='no-data' wx:if="{{false}}">
     <image src='/images/none.png'></image>
     <view>暂未通知</view>
   </view>

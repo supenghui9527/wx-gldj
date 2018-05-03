@@ -4,10 +4,10 @@
       <image wx:if="{{item.avatar}}" src='{{lists.imgUrl+item.avatar}}'></image>
       <image wx:else src="/images/img.png"></image>
       <view>
-        <view class='name'>{{item.name}}</view>
+         <view wx:if="{{fanstype==0}}" class='name'>{{item.name}}</view> 
         <view class='org-name'>{{item.orgName}}</view>
       </view>
-      <view catchtap='cancelFouse' data-id="{{item.id}}" class='cancel'>{{cancel}}</view>
+      <view wx:if="{{cancel}}" catchtap='cancelFouse' data-id="{{item.id}}" class='cancel'>{{cancel}}</view>
     </view>
   </block>
 </template>

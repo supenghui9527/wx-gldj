@@ -17,7 +17,7 @@ Page({
         title: '登陆成功',
         icon:'none'
       })
-      wx.redirectTo({
+      wx.switchTab({
         url: '/pages/index/index',
       })
       wx.hideLoading();

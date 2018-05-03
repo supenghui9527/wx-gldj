@@ -47,12 +47,12 @@ Page({
   },
   // 分享
   onShareAppMessage: function (res) {
-    let ctx = this;
+    let ctx = this, actId = res.target.dataset.actid;
     return {
       title: '鼓楼党建e生活',
-      path: `/pages/home/detail/detail?actId=${ctx.data.actID}`,
+      path: `/pages/index/detail/detail?actId=${actId}`,
       success: function (res) {
-        ctx.userDo({actID:ctx.data.actID, type:0})
+        ctx.userDo(actId, '0')
       },
       fail: function (res) {
       }

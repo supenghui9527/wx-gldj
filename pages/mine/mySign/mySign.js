@@ -1,7 +1,8 @@
 // pages/mine/mySign/mySign.js
 Page({
   data: {
-    lists:[]
+    lists:[],
+    userType: 0
   },
 
   /**

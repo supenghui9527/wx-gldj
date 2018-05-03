@@ -3,7 +3,7 @@ const util = require('../../../utils/util.js');
 var date = new Date();
 Page({
   data: {
-    active: 0,
+    active: 0 ,
     typeName: '支部大会',
     userLists: '',
     groupId: '',
@@ -12,10 +12,11 @@ Page({
     typeLists: []
   },
   onLoad(options) {
-
+  
   },
   onShow(){
-    this.setData({ typeLists: wx.getStorageSync('hotGroup'), active: wx.getStorageSync('hotGroup')[0].id});
+    wx.getStorageSync('actType') ? this.setData({ active: wx.getStorageSync('actType') }) : this.setData({ active: wx.getStorageSync('hotGroup')[0].id });
+    this.setData({ typeLists: wx.getStorageSync('hotGroup')});
     let userinfo = wx.getStorageSync('userinfo');
     if (wx.getStorageSync('userGroup')) {
       this.setData({
@@ -29,8 +30,12 @@ Page({
       wx.removeStorageSync('userGroup')
     }
   },
+  onHide(){
+    wx.removeStorageSync('actType');
+  },
   // 活动类型
   chooseType(e) {
+    wx.setStorageSync('actType', e.target.dataset.index);
     this.setData({
       active: e.target.dataset.index,
       typeName: e.target.dataset.name
@@ -56,6 +61,7 @@ Page({
     let formData = e.detail.value;
     for (let item in formData) {
       if (formData[item] == '') {
+        if (item=='remark') continue;
         wx.showToast({
           title: '请确认信息是否填写完整',
           icon: 'none'
@@ -70,8 +76,10 @@ Page({
       wx.showToast({
         title: '预告发布成功',
         icon:'none',
+        duration: 2500,
         success:()=>{
-          wx.redirectTo({
+          wx.removeStorageSync('actType');
+          wx.switchTab({
             url: '/pages/index/index',
           })
         }
