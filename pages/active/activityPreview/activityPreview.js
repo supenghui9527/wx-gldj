@@ -15,6 +15,7 @@ Page({
   
   },
   onShow(){
+    console.log(wx.getStorageSync('actType'));
     wx.getStorageSync('actType') ? this.setData({ active: wx.getStorageSync('actType') }) : this.setData({ active: wx.getStorageSync('hotGroup')[0].id });
     this.setData({ typeLists: wx.getStorageSync('hotGroup')});
     let userinfo = wx.getStorageSync('userinfo');
@@ -31,7 +32,7 @@ Page({
     }
   },
   onHide(){
-    wx.removeStorageSync('actType');
+    // wx.removeStorageSync('actType');
   },
   // 活动类型
   chooseType(e) {
