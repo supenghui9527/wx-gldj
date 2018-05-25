@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/active/consultation/consultation",
     "pages/loading/loading",
     "pages/index/index",
     "pages/login/login",
     "pages/mine/resetPassword/resetPassword",
     "pages/active/active",
-    "pages/active/consultation/consultation",
     "pages/active/consultation/detail/detail",
     "pages/active/activityPreview/activityPreview",
     "pages/mine/mine",
@@ -39,9 +39,9 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor":"#fff",
+    "backgroundColor": "#fff",
     "color": "#323232",
-    "selectedColor": "#c6f5fd",
+    "selectedColor": "#000000",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -64,7 +64,7 @@
     ]
   },
   "networkTimeout": {
-    "request": 6000,
+    "request": 10000,
     "downloadFile": 10000
   }
 }

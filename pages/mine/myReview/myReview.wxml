@@ -1,4 +1,4 @@
 <!--pages/mine/myReview/myReview.wxml-->
 <view class='my-review'>
-  <image src='/images/ing.jpg'></image>
+  <image src='/images/none.png'></image>
 </view>

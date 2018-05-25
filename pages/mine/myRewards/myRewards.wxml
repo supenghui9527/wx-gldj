@@ -10,7 +10,7 @@
       <view class='days'>
         <image src='/images/offer.png'></image>
         <text class='content'>{{month.content}}</text>
-        <text class='time'>04-08</text>
+        <text class='time'>{{month.date}}</text>
       </view>
     </view>
   </view>

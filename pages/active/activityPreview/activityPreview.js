@@ -1,6 +1,6 @@
 // pages/active/activityPreview/activityPreview.js
 const util = require('../../../utils/util.js');
-var date = new Date();
+const date = new Date();
 Page({
   data: {
     active: 0 ,
@@ -15,7 +15,6 @@ Page({
   
   },
   onShow(){
-    console.log(wx.getStorageSync('actType'));
     wx.getStorageSync('actType') ? this.setData({ active: wx.getStorageSync('actType') }) : this.setData({ active: wx.getStorageSync('hotGroup')[0].id });
     this.setData({ typeLists: wx.getStorageSync('hotGroup')});
     let userinfo = wx.getStorageSync('userinfo');

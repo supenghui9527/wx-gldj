@@ -3,6 +3,6 @@
   text-align: center;
 }
 .my-review image{
-  width:750rpx;
-  height: 686rpx;
+  width:450rpx;
+  height: 550rpx;
 }

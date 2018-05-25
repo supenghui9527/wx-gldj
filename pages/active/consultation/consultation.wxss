@@ -17,6 +17,7 @@
 .map{
   width:100%;
   height: 92%;
+  position: relative;
 }
 #map{
   width: 100%;
@@ -34,4 +35,77 @@
   margin-bottom:10rpx;
   line-height: 50rpx;
   padding:20rpx 25rpx;
+}
+.cover-list{
+  width:300rpx;
+  height:800rpx;
+  position: absolute;
+  top:30rpx;
+  right: 30rpx;
+}
+.item{
+  width:100%;
+  height:70rpx;
+  position: relative;
+  margin-bottom: 2px;
+  line-height:70rpx;
+  font-size: 30rpx;
+  background-color:#fff;
+  display:flex;
+  align-items: center;
+}
+.avtivity-item{
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  height:70rpx;
+  line-height:70rpx;
+  font-size: 30rpx;
+  background-color:#fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.orgtype{
+  width: 200rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.nub{
+  width: 40rpx;
+  text-align: center;
+  position: absolute;
+  right: 10rpx;
+}
+.detail{
+  width: 700rpx;
+  height: 200rpx;
+  padding: 25rpx 50rpx 0 50rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  margin-left:-350rpx;
+  bottom: 20rpx;
+  border-radius: 10rpx;
+}
+.detail_content{
+  font-size:32rpx;
+  color:#323232;
+}
+.name{
+  font-weight: bold;
+}
+.name,.starttime,.address,.tel{
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+.tel{
+  display: flex;
+}
+.tel cover-view:nth-child(2){
+  padding-left: 20rpx;
 }

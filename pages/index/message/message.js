@@ -86,6 +86,18 @@ Page({
       this.data.active == 0 ? this.getReserveLists('1', 0) : this.getReserveLists('0', 1);
     })
   },
+  // 取消预约
+  cancelOrder(e){
+    getApp().$ajax({
+      httpUrl: getApp().api.cancelSignUrl,
+      data: {
+        userID: wx.getStorageSync('userinfo').id,
+        actID: e.target.dataset.actid
+      }
+    }).then(({ data }) => {
+      this.data.active == 0 ? this.getReserveLists('1', 0) : this.getReserveLists('0', 1);
+    })
+  },
   changeNav(e) {
     let active = e.currentTarget.dataset.index;
     active == 0 ? this.getReserveLists('1', 0) : this.getReserveLists('0', 1)

@@ -30,6 +30,7 @@
   padding-bottom: 20rpx;
 }
 .activity-time,.activity-place,.activity-company,.activity-tel,.activity-remark{
+  width: 550rpx;
   font-size:30rpx;
   color:#757575;
   margin-bottom: 10rpx;

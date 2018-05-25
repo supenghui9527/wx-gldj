@@ -54,6 +54,7 @@ Page({
         title: '密码修改成功',
         icon:'none',
         success(){
+          wx.removeStorageSync('userinfo');
           wx.redirectTo({
             url: '/pages/login/login'
           })

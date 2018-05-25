@@ -1,6 +1,9 @@
 /* pages/index/message/message.wxss */
 @import '../../common/signList/signList.wxss';
 @import '../../common/tabBar/tabBar.wxss';
+.stop-scroll{
+  overflow-y: hidden;
+}
 .my-sign{
   width:100%;
   height: 100%;
