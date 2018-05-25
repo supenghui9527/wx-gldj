@@ -1,4 +1,4 @@
-const HOST = 'http://192.168.8.14:8081/';//https://guloupy.hopethink.com/gldj/
+const HOST = 'https://guloupy.hopethink.com/gldj/';//https://guloupy.hopethink.com/gldj/
 module.exports = {
   HOST,
   loginUrl: `${HOST}api/user/login`,  // 登录接口

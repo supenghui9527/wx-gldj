@@ -14,6 +14,7 @@ Page({
   },
   onLoad(options) {
     let userType = wx.getStorageSync('userinfo').isSuperAdmin;
+    console.log(userType)
     if (options.enterType == 0) {
       this.setData({ enterType: false });
       this.getReserveLists('1', 0);

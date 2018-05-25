@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/active/consultation/consultation",
     "pages/loading/loading",
+    "pages/active/consultation/consultation",
     "pages/index/index",
     "pages/login/login",
     "pages/mine/resetPassword/resetPassword",

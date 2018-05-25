@@ -1,5 +1,4 @@
 // pages/active/consultation/consultation.js
-let amapFile = require('../../../utils/amap-wx.js'), myAmapFun;
 Page({
   data: {
     active: 0,
@@ -12,21 +11,18 @@ Page({
     centerY: '',
     markers: [],
     detail: {},
-    polyline: [],
-    controls: [],
     showDetail: false //是否显示详情入口
   },
-  onLoad: function (options) {
-    this.mapCtx = wx.createMapContext('map');
-    myAmapFun = new amapFile.AMapWX({ key: 'cd8a5c0aca6d10ef29ecd7599e9173d5' });
-    let systemInfo_ = wx.getSystemInfoSync();
+  onShow: function () {
+    // 使用 wx.createMapContext 获取 map 上下文
+    this.mapCtx = wx.createMapContext('map')
     this.getOrgLists();
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: (res) => {
         let latitude = res.latitude;
         let longitude = res.longitude;
-        let marker = this.createMarker(res);
+        // let marker = this.createMarker(res);
         this.setData({
           centerX: longitude,
           centerY: latitude
@@ -34,25 +30,14 @@ Page({
       }
     });
   },
-  onReady: function (e) {
-  },
-  onShow: function () {
-
-  },
   onHide: function () {
 
   },
   onUnload: function () {
 
   },
-  onPullDownRefresh: function () {
-
-  },
-  onReachBottom: function () {
-
-  },
   // 获取所有活动列表
-  getOrgLists(itemIndex, showPosition) {
+  getOrgLists() {
     getApp().$ajax({
       httpUrl: getApp().api.getMapsPoints
     }).then(({ data }) => {
@@ -73,11 +58,18 @@ Page({
     })
     
   },
+  // 显示下级
   showLists(e){
     let lists = this.data.lists;
+    if (this.data.oldIndex != e.currentTarget.dataset.index){
+      lists.map(item => {
+        item.show = false
+      })
+    }
     lists[e.currentTarget.dataset.index].show = !lists[e.currentTarget.dataset.index].show
     this.setData({
       listItem: this.data.lists[e.currentTarget.dataset.index],
+      oldIndex: e.currentTarget.dataset.index,
       lists: lists
     })
   },
@@ -105,21 +97,19 @@ Page({
     let latitude = point.lat;
     let longitude = point.lng;
     let marker = {
-      iconPath: "/images/color1.png",
+      iconPath: "/images/4.png",
       id: point.id || 0,
-      name: point.orgName || '',
       callout:{
         content: point.addr,
         color:'#323232',
         padding:6,
-        borderRadius:2
+        borderRadius:2,
+        display:'BYCLICK'
       },
       latitude: latitude,
       longitude: longitude,
-      menu: point.menu,
-      name: point.name,
-      width: 30,
-      height: 30
+      width: 20,
+      height: 20
     };
     if (point.type == '开放式党组织活动阵地') {
       marker.iconPath = "/images/4.png"

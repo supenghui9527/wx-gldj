@@ -2,39 +2,38 @@
 <import src="../../common/tabBar/tabBar.wxml" />
 <view class='map-container'>
   <template is="tabBar" data="{{active,...nav}}"></template>
-  <view hidden='{{active!=0}}' class='map'>
-    <map id="map" longitude="{{centerX}}" markers="{{markers}}" bindmarkertap="markertap" latitude="{{centerY}}" scale="15" bindregionchange="regionchange" show-location="{{true}}">
-      <cover-view class='cover-list'>
-        <cover-view catchtap='showLists' data-index="{{index}}" wx:for="{{lists}}" wx:key="index">
-          <cover-view>
-            <cover-view class='item'>
-              <cover-image wx:if="{{item.orgType=='开放式党组织活动阵地'}}" style='width:50rpx;height:50rpx' src='/images/4.png'></cover-image>
-              <cover-image wx:if="{{item.orgType=='支部书记工作室'}}" style='width:50rpx;height:50rpx' src='/images/3.png'></cover-image>
-              <cover-image wx:if="{{item.orgType=='党员实境课堂'}}" style='width:50rpx;height:50rpx' src='/images/2.png'></cover-image>
-              <cover-image wx:if="{{item.orgType=='党群服务中心'}}" style='width:50rpx;height:50rpx' src='/images/1.png'></cover-image>
-              <cover-view class='orgtype'>{{item.orgType}}</cover-view>
-              <cover-view class='nub'>{{item.list.length}}</cover-view>
-            </cover-view>
-            <cover-view wx:if="{{item.show}}" style='width:300rpx;min-height:75rpx;max-height:500rpx;overflow-y:scroll'>
-              <cover-view class='avtivity-item' wx:if="{{item.show}}" wx:for-index="idx" wx:key="idx" wx:for="{{listItem.list}}" catchtap='markertap' data-markerid="{{i.id}}" wx:for-item="i">{{i.name}}</cover-view>
-            </cover-view>
+  <view hidden='{{active!=0}}' class='showmap'>
+    <map id="map" longitude="{{centerX}}" markers="{{markers}}" bindmarkertap="markertap" latitude="{{centerY}}" scale="15" bindregionchange="regionchange" show-location="{{true}}"></map>
+    <cover-view class='cover-list'>
+      <cover-view catchtap='showLists' data-index="{{index}}" wx:for="{{lists}}" wx:key="index">
+        <cover-view>
+          <cover-view class='item'>
+            <cover-image wx:if="{{item.orgType=='开放式党组织活动阵地'}}" style='width:50rpx;height:50rpx' src='/images/4.png'></cover-image>
+            <cover-image wx:if="{{item.orgType=='支部书记工作室'}}" style='width:50rpx;height:50rpx' src='/images/3.png'></cover-image>
+            <cover-image wx:if="{{item.orgType=='党员实境课堂'}}" style='width:50rpx;height:50rpx' src='/images/2.png'></cover-image>
+            <cover-image wx:if="{{item.orgType=='党群服务中心'}}" style='width:50rpx;height:50rpx' src='/images/1.png'></cover-image>
+            <cover-view class='orgtype'>{{item.orgType}}</cover-view>
+            <cover-view class='nub'>{{item.list.length}}</cover-view>
+          </cover-view>
+          <cover-view wx:if="{{item.show}}" style='width:300rpx;min-height:75rpx;max-height:500rpx;overflow-y:scroll'>
+            <cover-view class='avtivity-item' wx:if="{{item.show}}" wx:for-index="idx" wx:key="idx" wx:for="{{listItem.list}}" catchtap='markertap' data-markerid="{{i.id}}" wx:for-item="i">{{i.name}}</cover-view>
           </cover-view>
         </cover-view>
       </cover-view>
-      <cover-view wx:if="{{showDetail}}" class='detail'>
-        <cover-view class="detail_content">
-          <cover-view>
-            <cover-view class='name'>{{detail.name}}</cover-view>
-            <cover-view class='starttime'>开始时间：{{detail.opentime}}</cover-view>
-            <cover-view class='address'>地址：{{detail.addr}}</cover-view>
-            <cover-view class='tel'>
-              <cover-view>联系人：{{detail.contracts}}</cover-view>
-              <cover-view>联系电话：{{detail.tel}}</cover-view>
-            </cover-view>
+    </cover-view>
+    <cover-view wx:if="{{showDetail}}" class='detail'>
+      <cover-view class="detail_content">
+        <cover-view>
+          <cover-view class='name'>{{detail.name}}</cover-view>
+          <cover-view class='starttime'>开始时间：{{detail.opentime}}</cover-view>
+          <cover-view class='address'>地址：{{detail.addr}}</cover-view>
+          <cover-view class='tel'>
+            <cover-view>联系人：{{detail.contracts}}</cover-view>
+            <cover-view>联系电话：{{detail.tel}}</cover-view>
           </cover-view>
         </cover-view>
       </cover-view>
-    </map>
+    </cover-view>
   </view>
   <view hidden='{{active==0}}' class='newslist'>
     <view wx:for="{{newsLists}}" wx:key="index">{{item.title}}</view>
