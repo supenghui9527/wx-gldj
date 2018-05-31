@@ -5,8 +5,20 @@ Page({
   },
   onLoad() {
     if (wx.getStorageSync('userinfo')) {
-      wx.switchTab({
-        url: '/pages/index/index',
+      getApp().$ajax({
+        httpUrl: getApp().api.loginUrl,
+        isLogin:true,
+        isShowLoading: false,
+        title: '登录中...',
+        data: {
+          user: wx.getStorageSync('userinfo').login_name,
+          password: wx.getStorageSync('userinfo').personCard
+        }
+      }).then(({ data }) => {
+        wx.setStorageSync('userinfo', data[0]);
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
       })
     }else{
       setTimeout(() => {

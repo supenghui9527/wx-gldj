@@ -9,6 +9,12 @@
       </navigator>
     </view>
     <view wx:if="{{userType==1}}">
+      <navigator url='/pages/index/message/message?enterType=1' open-type='navigate' hover-class="none">
+        <image src='/images/qd.png'></image>
+        <view>签到码</view>
+      </navigator>
+    </view>
+    <view wx:if="{{userType==1}}">
       <navigator url='/pages/active/post/post' open-type='navigate' hover-class="none">
         <image src='/images/fb.png'></image>
         <view>发布</view>
@@ -18,12 +24,6 @@
       <navigator url='/pages/index/message/message' open-type='navigate' hover-class="none">
         <image src='/images/yy.png'></image>
         <view>预约</view>
-      </navigator>
-    </view>
-    <view wx:if="{{userType==1}}">
-      <navigator url='/pages/index/message/message?enterType=1' open-type='navigate' hover-class="none">
-        <image src='/images/qd.png'></image>
-        <view>签到码</view>
       </navigator>
     </view>
     <view wx:if="{{userType==0}}">

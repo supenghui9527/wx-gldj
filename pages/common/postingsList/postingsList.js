@@ -48,7 +48,8 @@ Component({
           actID: actID,
           userID: wx.getStorageSync('userinfo').id,
           type: type,
-          comment: comment || ''
+          comment: comment || '',
+          isPublic: ''
         }
       }).then(({ data }) => {
         this.triggerEvent('getListData');

@@ -14,17 +14,21 @@ Page({
     avatar: '',
   },
   onShow() {
-    let userinfo = wx.getStorageSync('userinfo');
-    this.setData({ userType: userinfo.isSuperAdmin});
+    let userInfo = wx.getStorageSync('userinfo');
+    this.setData({ userInfo: userInfo, userType: userInfo.isSuperAdmin});
+    this.getUserinfo(userInfo);
+  },
+  getUserinfo(userInfo){
     getApp().$ajax({
+      isShowLoading: false,
       httpUrl: getApp().api.loginUrl,
       data: {
-        user: userinfo.login_name,
-        password: userinfo.personCard
+        user: userInfo.login_name,
+        password: userInfo.personCard
       }
     }).then(({ data }) => {
       wx.setStorageSync('userinfo', data[0]);
-      userinfo = wx.getStorageSync('userinfo');
+      let userinfo = wx.getStorageSync('userinfo');
       this.setData({
         myfouse: userinfo.interests,
         myfans: userinfo.fans,
@@ -53,10 +57,7 @@ Page({
           success: ({data})=>{
             let datas = JSON.parse(data);
             if (datas.state==1){
-              let userinfo = wx.getStorageSync('userinfo');
-              userinfo.avatar = datas.data;
-              wx.setStorageSync('userinfo', userinfo);
-              ctx.onLoad();
+              ctx.getUserinfo(this.data.userInfo);
               wx.showToast({
                 title: '头像修改成功',
                 icon:'none'

@@ -261,7 +261,9 @@ button::after {
 }
 .user-name{
   font-size:32rpx;
-  font-weight: bold;
+  color:#323232;
+  display: flex;
+  justify-content: space-between;
   padding-top: 4rpx;
   padding-bottom: 20rpx;
 }
@@ -284,6 +286,8 @@ button::after {
 }
 .like-name{
   padding-left: 20rpx;
+  font-size:32rpx;
+  color:#323232;
 }
 .show-fixed{
   width:100%;

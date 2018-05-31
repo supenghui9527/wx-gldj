@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 // 请求方法
-function $ajax({ isShowLoading = true, hideLoading = true, wxApp = true, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
+function $ajax({ isShowLoading = true, isLogin = false, hideLoading = true, wxApp = true, httpUrl, data = {}, method = 'post', title = '加载中...' }) {
   return new Promise((resolve, reject) => {
     isShowLoading && wx.showLoading({ mask: true, title: title });
     wx.request({
@@ -28,6 +28,7 @@ function $ajax({ isShowLoading = true, hideLoading = true, wxApp = true, httpUrl
           hideLoading && wx.hideLoading();
         } else {
           wx.hideLoading();
+          isLogin&&wx.redirectTo({url: '/pages/login/login'});
           wxApp ? wx.showToast({ title: message, icon: 'none' }) : wxApp.setData({ err: message });
         }
       },

@@ -7,13 +7,14 @@ Page({
     },
   },
   onLoad: function (options) {
-    this.setData({ userType: wx.getStorageSync('userinfo').isSuperAdmin })
+    console.log(wx.getStorageSync('userinfo').isSuperAdmin)
+    
   },
   onReady: function () {
   
   },
   onShow: function () {
-  
+    this.setData({ userType: wx.getStorageSync('userinfo').isSuperAdmin })
   },
   //签到
   sign() {

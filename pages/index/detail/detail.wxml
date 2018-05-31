@@ -23,7 +23,7 @@
   <view class='user-content'>
     <view class='sign'>
       <view>{{detail.checksDetail?detail.checksDetail.length:0}}人签到</view>
-      <scroll-view wx:if="{{detail.checksDetail[0]}}" scroll-x="true">
+      <scroll-view wx:if="{{detail.checksDetail[0]&&detail.userID==userID}}" scroll-x="true">
         <view class='scroll-item' wx:for="{{detail.checksDetail}}" wx:for-item="i" wx:key="index">
           <image wx:if="{{i.avatar}}" src='{{detail.imgUrl+i.avatar}}'></image>
           <image wx:else src="/images/img.png"></image>
@@ -48,8 +48,8 @@
            <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
            <image class='avatar-img' wx:else src="/images/img.png"></image>
           <view>
-            <view class='share-name'>{{item.name}}</view>>
-            <view class='share-time'><text>{{item.date}}</text></view>
+            <view class='share-name'>{{item.name}}</view>
+            <view class='share-time'><text>{{item.create_date_time}}</text></view>
           </view>
         </view>
       </view>
@@ -58,9 +58,11 @@
           <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
           <image class='avatar-img' wx:else src="/images/img.png"></image>
           <view>
-            <view class='user-name'>{{item.name.substring(0,2)}}**</view>
+            <view class='user-name'>
+            <text>{{item.name||'暂无'}}</text>
+            <text style='color:#868686;font-size:30rpx'>{{item.create_date_time}}</text>
+            </view>
             <view class='user-comment'>{{item.comments}}</view>
-            <view class='comment-time'><text>{{item.date}}</text></view>
           </view>
         </view>
       </view>
@@ -68,7 +70,7 @@
         <view wx:for="{{detail.likesDetail}}" wx:key="index" class='like-content'>
           <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
           <image class='avatar-img' wx:else src="/images/img.png"></image>
-          <view class='like-name'>{{item.name}}</view>
+          <view class='like-name'>{{item.name||'暂无'}}</view>
         </view>
       </view>
     </view>
@@ -77,9 +79,9 @@
   <view hidden='{{showComment}}' bind:touchstart='goComment' class='show-fixed'></view>
   <view hidden='{{showComment}}' class='comment'>
     <textarea wx:if='{{!showComment}}' fixed="true" bindconfirm="sureComment" placeholder='请输入评论内容'></textarea>
-    <checkbox-group class="hide-name">
+    <checkbox-group bindchange="checkboxChange" class="hide-name">
       <label>
-        <checkbox value="" style='zoom:70%' checked=""/>是否匿名
+        <checkbox value="1" style='zoom:70%' checked=""/>是否匿名
       </label>
     </checkbox-group>
   </view>
