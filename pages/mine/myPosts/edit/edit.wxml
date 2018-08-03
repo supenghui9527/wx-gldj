@@ -1,0 +1,49 @@
+<!--pages/active/post/post.wxml-->
+<view class='post'>
+  <form bindsubmit="submitPostings">
+    <input hidden='{{true}}' value='{{id}}' name="ID"></input>
+    <input hidden='{{true}}' value='{{actType}}' name="actType"></input>
+    <input hidden='{{true}}' value="{{date+' '+time}}" name="actDate"></input>
+    <!-- <input hidden='{{true}}' value='{{tempFilePaths}}' name="pic"></input> -->
+    <view class='title'>
+      <label>活动</label>
+      <input class='font-color' value='{{title}}' name="title" placeholder='点击输入活动标题'></input>
+    </view>
+    <view class='title'>
+      <label>类型</label>
+      <picker class='name' bindchange="bindNameChange" range-key="name" value="{{id}}" range="{{typeLists}}">
+        <text class='font-color'>{{actName}}</text>
+      </picker>
+    </view>
+    <view class='time'>
+      <text>日期</text>
+      <picker style='width:50%' mode="date" value="{{date}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
+        <view class="picker font-color">{{date}}</view>
+      </picker>
+    </view>
+    <view class='time'>
+      <text>时间</text>
+      <picker style='width:80%' mode="time" value="{{time}}" start="02:01" end="23:59" bindchange="bindTimeChange">
+        <view class="picker font-color">{{time}}</view>
+      </picker>
+    </view>
+    <view class="content">
+      <textarea class='font-color' name="pubContent" maxlength='100000' value="{{content}}" placeholder="精彩内容..." />
+      <!-- <view class="imgcontainer">
+        <block wx:for="{{tempFilePaths}}" wx:key="*this">
+          <view class="up">
+            <image data-index="{{index}}" catchtap="delPictrue" class="del" src="/images/del.png"></image>
+            <image aspectFill src="{{item}}"></image>
+          </view>
+        </block>
+        <image hidden="{{tempFilePaths==''}}" catchtap="upLoad" class="plus" src="/images/plus2.png"></image>
+      </view>
+      <image catchtap="upLoad" class="picture" src="/images/pic.png"></image> -->
+    </view>
+    <view class='place'>
+      <image catchtap='getPlace' src='/images/place.png'></image>
+      <input class='font-color' value='{{address}}' name="place" placeholder='我的位置'></input>
+    </view>
+    <button class='btn' form-type='submit'>完成</button>
+  </form>
+</view>

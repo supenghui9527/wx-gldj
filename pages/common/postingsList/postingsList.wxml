@@ -27,6 +27,7 @@
           <text>{{item.actDate}}</text>
         </view>
       </view>
+      <view wx:if="{{isShowEdit}}" catchtap='goEditPostings' data-place="{{item.place}}" data-content="{{item.pubContent}}" data-actname="{{item.actName}}" data-actdate="{{item.actDate}}" data-acttype="{{item.actType}}" data-title="{{item.title}}" data-id="{{item.id}}" class='focus'>编辑</view>
       <view wx:if="{{item.isview==1&&isShowFouse}}" catchtap='cancelFouse' data-orgid="{{item.orgID}}" class='focus'>取消关注</view>
       <view wx:elif="{{item.isview==0&&isShowFouse}}" bindtap='showGroup' data-orgid="{{item.orgID}}" class='focus'>+关注</view>
     </view>

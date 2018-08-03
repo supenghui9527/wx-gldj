@@ -1,4 +1,4 @@
 <!--pages/mine/myPosts/myPosts.wxml-->
 <view>
-  <postingsList isShowFouse="{{isShowFouse}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" lists="{{lists}}"/>
+  <postingsList isShowFouse="{{isShowFouse}}" isShowEdit="{{isShowEdit}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" lists="{{lists}}"/>
 </view>

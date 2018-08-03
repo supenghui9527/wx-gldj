@@ -57,6 +57,7 @@ Page({
       url: "/pages/active/activityPreview/userLists/userLists",
     })
   },
+  // 发布预告
   submitActivity(e) {
     let formData = e.detail.value;
     for (let item in formData) {

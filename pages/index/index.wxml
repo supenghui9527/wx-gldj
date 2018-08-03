@@ -64,7 +64,7 @@
     <view>通知公告：南京市鼓楼区委员会组织部2018年部门运算</view>
     <image catchtap='hideMsg' class='close' src='/images/close.png'></image>
   </view> -->
-  <postingsList wx:if="{{lists[0]}}" isShowFouse="{{true}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}'
+  <postingsList wx:if="{{lists[0]}}" isShowEdit="{{false}}" isShowFouse="{{true}}" bind:toIndexActid="toIndexActid" bind:getListData="getListData" bind:showAddGroup='showAddGroup' bind:overflowHidden="overflowHidden" bind:overflowScroll="overflowHidden" lists='{{lists}}' groupLists='{{groupLists}}'
   />
   <!-- <view wx:if="{{lists[0]}}" class='line'></view> -->
   <!-- <template is="marquee" data="{{marquee}}"/>  -->

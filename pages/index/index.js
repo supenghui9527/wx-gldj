@@ -295,7 +295,7 @@ Page({
   // 点击消息进入消息页面
   goMessage() {
     wx.navigateTo({
-      url: '/pages/index/message/message?enterType=0',
+      url: '/pages/index/message/message?enterType=0',//enterType为0时从index进入
     })
   },
   // 点击搜索进入搜索页面

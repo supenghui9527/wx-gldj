@@ -20,12 +20,14 @@ Page({
   },
   submit(e){
     let data = e.detail.value, userinfo = wx.getStorageSync('userinfo');
+    console.log(data)
     for(let i in data){
       if(data[i]==''){
         wx.showToast({
           title: '请确认信息是否完整',
           icon: 'none'
         })
+        return false;
       }else{
         if (data.oldPassword != userinfo.personCard){
           wx.showToast({
@@ -40,6 +42,14 @@ Page({
             icon: 'none'
           });
           return false;
+        }else{
+          if (data.password.length!=6){
+            wx.showToast({
+              title: '密码必须为6位',
+              icon: 'none'
+            });
+            return false;
+          }
         }
       }
     }

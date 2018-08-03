@@ -66,7 +66,7 @@
           </view>
         </view>
       </view>
-      <view hidden='{{active!=2}}'>
+      <view hidden='{{true}}'>
         <view wx:for="{{detail.likesDetail}}" wx:key="index" class='like-content'>
           <image wx:if="{{item.avatar}}" class='avatar-img' src='{{detail.imgUrl+item.avatar}}'></image>
           <image class='avatar-img' wx:else src="/images/img.png"></image>
@@ -81,7 +81,7 @@
     <textarea wx:if='{{!showComment}}' fixed="true" bindconfirm="sureComment" placeholder='请输入评论内容'></textarea>
     <checkbox-group bindchange="checkboxChange" class="hide-name">
       <label>
-        <checkbox value="1" style='zoom:70%' checked=""/>是否匿名
+        <checkbox value="1" style='zoom:70%' checked="true"/>是否匿名
       </label>
     </checkbox-group>
   </view>

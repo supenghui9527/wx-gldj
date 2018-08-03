@@ -30,5 +30,6 @@ module.exports = {
   myPostingUrl: `${HOST}api/partyact/mypub`, // 我的发布
   mySignUrl: `${HOST}api/act/myservice`, // 我的预约签到
   getMapsPoints: `${HOST}api/party/map`, // 党建地图
-  changeAvatarUrl: `${HOST}wqqapi/act/uploadUserHeader`  // 修改个人头像
+  changeAvatarUrl: `${HOST}wqqapi/act/uploadUserHeader`,  // 修改个人头像
+  editPostingsUrl: `${HOST}api/party/updateMyPub` // 
 }

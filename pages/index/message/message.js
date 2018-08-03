@@ -14,7 +14,6 @@ Page({
   },
   onLoad(options) {
     let userType = wx.getStorageSync('userinfo').isSuperAdmin;
-    console.log(userType)
     if (options.enterType == 0) {
       this.setData({ enterType: false });
       this.getReserveLists('1', 0);
@@ -37,6 +36,7 @@ Page({
         type: type
       }
     }).then(({ data }) => {
+      wx.stopPullDownRefresh();
       data.map(item => {
         item.actDate = item.actDate.substring(0, 16);
         item.create_date_time = item.create_date_time.substring(0, 16)
@@ -49,7 +49,12 @@ Page({
     })
   },
   onPullDownRefresh: function () {
-
+    let userType = wx.getStorageSync('userinfo').isSuperAdmin;
+    if (userType == 1) {
+      this.getReserveLists('0', 1);
+    } else {
+      this.getReserveLists('1', 0);
+    }
   },
   onReachBottom: function () {
 

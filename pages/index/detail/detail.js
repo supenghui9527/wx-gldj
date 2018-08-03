@@ -7,7 +7,7 @@ Page({
     islike: '',// 判断是否点赞0没，1有
     options: {},
     detail: {},
-    isPublic:''
+    isPublic: 1
   },
   onLoad: function (options) {
     this.setData({ islike: options.islike });
@@ -60,7 +60,8 @@ Page({
   // 确认评论
   sureComment(e) {
     e.detail.value ? this.userDo({ type: 1, comment: e.detail.value }) : wx.showToast({
-      title: '请输入评论内容'
+      title: '请输入评论内容',
+      icon:'none'
     })
   },
   // 分享

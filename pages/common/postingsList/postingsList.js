@@ -9,6 +9,9 @@ Component({
     },
     isShowFouse: {
       type: 'boolean'
+    },
+    isShowEdit:{
+      type: 'boolean'
     }
   },
   data: {
@@ -87,6 +90,12 @@ Component({
             this.hideGroup();
           }
         })
+      })
+    },
+    // 再次编辑
+    goEditPostings(e){
+      wx.navigateTo({
+        url: `/pages/mine/myPosts/edit/edit?actDetail=${JSON.stringify(e.currentTarget.dataset)}`
       })
     },
     // 取消关注

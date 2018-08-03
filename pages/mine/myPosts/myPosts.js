@@ -3,7 +3,8 @@ const util = require('../../../utils/util.js');
 Page({
   data: {
     lists: [],
-    isShowFouse:false
+    isShowFouse:false,
+    isShowEdit: true
   },
   onLoad: function (options) {
     this.getPostingsList();

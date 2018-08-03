@@ -27,6 +27,7 @@
     "pages/mine/myFans/myFans",
     "pages/mine/myFocusing/myFocusing",
     "pages/mine/myPosts/myPosts",
+    "pages/mine/myPosts/edit/edit",
     "pages/mine/myDeliver/myDeliver",
     "pages/mine/myReview/myReview",
     "pages/mine/myVote/myVote",
